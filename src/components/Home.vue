@@ -6,14 +6,14 @@
   <h2 class="">Advancing first responder software to the next level.</h2>
   <div>
     <div>
-      <en-button variant="save">Button</en-button>
+      <EnButton variant="save">Button</EnButton>
     </div>
-    <div>
-      <swatch-group
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <SwatchGroup
         v-for="swatchGroup in swatches"
-        :key="swatchGroup"
-        :colorName="swatchGroup"
-        :baseColor="`bg-${swatchGroup}`"
+        :key="swatchGroup.colorClass"
+        :color-name="swatchGroup.colorName"
+        :color-class="swatchGroup.colorClass"
       />
       <!-- <span
        // throwing this in here to get the swatches to render
@@ -21,30 +21,30 @@
         >
       </span> -->
     </div>
+
   </div>
 </template>
+
 <script setup>
-import { ref } from "vue";
-import SwatchGroup from "./colors/SwatchGroup.vue";
-import EnButton from "./buttons/en-button.vue";
+      import { ref } from "vue";
+      import SwatchGroup from "./colors/SwatchGroup.vue";
+      import EnButton from "./buttons/en-button.vue";
 
-const swatches = ref([
-  "red",
-  "light-blue",
-  "blue",
-  "rich-blue",
-  "deep-blue",
-  "dark-blue",
-  "yellow",
-  "orange",
-  "green",
-  "bright-green",
-  "light-green",
-  "light-green-2",
-  "purple",
-  "light-gray",
-  "gray",
-]);
+      const swatches = ref([
+        { colorName: "red", colorClass: "bg-red" },
+        { colorName: "blue", colorClass: "bg-blue" },
+        { colorName: "blue-light", colorClass: "bg-blue-light" },
+        { colorName: "blue-rich", colorClass: "bg-blue-rich" },
+        { colorName: "blue-deep", colorClass: "bg-blue-deep" },
+        { colorName: "blue-dark", colorClass: "bg-blue-dark" },
+        { colorName: "yellow", colorClass: "bg-yellow" },
+        { colorName: "orange", colorClass: "bg-orange" },
+        { colorName: "green", colorClass: "bg-green" },
+        { colorName: "green-bright", colorClass: "bg-green-bright" },
+        { colorName: "green-light", colorClass: "bg-green-light" },
+        { colorName: "green-light-2", colorClass: "bg-green-light-2" },
+        { colorName: "purple", colorClass: "bg-purple" },
+        { colorName: "gray", colorClass: "bg-gray" },
+        { colorName: "gray-light", colorClass: "bg-gray-light" },
+      ])
 </script>
-
-<style scoped></style>

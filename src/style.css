@@ -1,83 +1,77 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  font-family: Lato, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+    --color-black: #242424;
+    --color-red: #B83636;
+    --color-blue: #1E91D6;
+    --color-blue-light: #9DFFF9;
+    --color-blue-rich: #0072BB;
+    --color-blue-deep: #151E3F;
+    --color-blue-dark: #030027;
+    --color-yellow: #F7CB15;
+    --color-orange: #FFA400;
+    --color-green: #70AE6E;
+    --color-green-bright: #BEEE62;
+    --color-green-light: #C2EFB3;
+    --color-green-light-2: #7DDE92;
+    --color-purple: #A755C2;
+    --color-gray: #485665;
+    --color-gray-light: #CDD1C4;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --font-sans: "Lato", sans-serif;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    @apply font-medium decoration-inherit;
+    color: #646cff;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+a:hover {
+    color: #535bf2;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    @apply text-5xl leading-[1.1];
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: theme("colors.dark-blue");
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    @apply rounded-lg border border-transparent px-5 py-2 text-base font-medium cursor-pointer text-blue-dark transition duration-250;
+    @apply hover:border-[#646cff];
+    @apply focus:outline-4 focus-visible:outline-4;
 }
 
+/*button:focus,*/
+/*button:focus-visible {*/
+/*    outline: 4px auto -webkit-focus-ring-color;*/
+/*}*/
+
 .card {
-  padding: 2em;
+    @apply p-8;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    @apply max-w-7xl mx-auto p-8 text-center;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
 }

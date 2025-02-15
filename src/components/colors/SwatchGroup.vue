@@ -1,16 +1,7 @@
 <template>
-  <div>
-    <p>
-      <span class="">
-        {{ colorName }}
-      </span>
-      <span class="pl-2">
-        {{ baseColor }}
-      </span>
-    </p>
-    <div class="">
-      <div :class="`${baseColor} h-16 w-16`"></div>
-    </div>
+  <div class="flex flex-col items-center gap-4">
+    <p>{{ colorName }}</p>
+    <div :class="`${colorClass} h-16 w-16`"></div>
   </div>
 </template>
 
@@ -31,9 +22,9 @@ import {
 
 // const emit = defineEmits(['']);
 
-const props = defineProps({
+const { colorName, colorClass } = defineProps({
   colorName: String,
-  baseColor: String,
+  colorClass: String,
 });
 
 // defineExpose({
