@@ -57,23 +57,23 @@ export default function useButtonStyles() {
         switch (variant) {
             case SAVE:
             case NEW:
-                style += 'is-primary';
+                style += 'btn-primary';
                 break;
             case DELETE:
-                style += 'is-danger';
+                style += 'btn-danger';
                 break;
             case EDIT:
-                style += 'is-info';
+                style += 'btn-info';
                 if (!level || parseInt(level) < 3) {
                     return style;
                 }
                 break;
             case CONTINUE:
-                style += 'is-link';
+                style += 'btn-link';
                 break;
             case CANCEL:
                 // case UTILITY:
-                style += 'is-light';
+                style += 'btn-light';
                 break;
             default:
                 break;
@@ -85,11 +85,11 @@ export default function useButtonStyles() {
                 break;
             case 2:
             case '2':
-                style += ' is-outlined';
+                style += ' btn-outlined';
                 break;
             case 3:
             case '3':
-                style += ' is-text';
+                style += ' btn-text';
                 break;
             case 4:
             case '4':

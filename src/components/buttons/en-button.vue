@@ -12,6 +12,10 @@ const { getEmphasisLevel, getStyleClass, VARIANTS } = useButtonStyles();
 
 const emit = defineEmits(['click']);
 const props = defineProps({
+  label: {
+    type: String,
+    default: 'Submit',
+  },
     variant: {
         type: String,
     },
@@ -50,7 +54,7 @@ const defaultLabel = computed(() => {
         case VARIANTS.CANCEL:
             return 'Cancel';
         default:
-            return 'Submit';
+            return props.label;
     }
 });
 

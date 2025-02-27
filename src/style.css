@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/forms";
 
+@import "./css/buttons.css";
 :root {
-    color-scheme: light dark;
+    /*color-scheme: light dark;*/
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -40,12 +42,6 @@ a:hover {
 
 h1 {
     @apply text-5xl leading-[1.1];
-}
-
-button {
-    @apply rounded-lg border border-transparent px-5 py-2 text-base font-medium cursor-pointer text-blue-dark transition duration-250;
-    @apply hover:border-[#646cff];
-    @apply focus:outline-4 focus-visible:outline-4;
 }
 
 /*button:focus,*/
