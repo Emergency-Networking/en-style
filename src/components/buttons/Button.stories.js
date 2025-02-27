@@ -9,7 +9,7 @@ export default {
   argTypes: {
     size: { control: { type: 'select' }, options: ['sm', 'wide'] },
     type: { control: { type: 'select' }, options: ['primary', 'secondary', 'tertiary', 'text'] },
-    color: { control: { type: 'select' }, options: ['blue', 'red'] },
+    variant: { control: { type: 'select' }, options: ['blue', 'red'] },
     backgroundColor: { control: 'color' },
   },
   parameters: {

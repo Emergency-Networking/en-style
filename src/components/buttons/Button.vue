@@ -22,7 +22,7 @@ const { color, href, label, size, type } = defineProps({
         type: String,
         default: 'primary',
     },
-  color: {
+  variant: {
       type: String,
       default: 'blue',
   },
@@ -50,7 +50,7 @@ const { color, href, label, size, type } = defineProps({
  */
 
 const classes = computed(() => {
-    let classStr = `font-semibold hover:opacity-90 rounded btn-${color} btn-${type} btn-${size}`;
+    let classStr = `font-semibold hover:opacity-90 rounded btn-${variant} btn-${type} btn-${size}`;
 
     if( type !== 'text' ) {
         classStr += ' shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
