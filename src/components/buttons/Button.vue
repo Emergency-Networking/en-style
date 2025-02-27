@@ -13,7 +13,7 @@ import { reactive, computed, defineEmits } from 'vue';
 
 const emit = defineEmits(['click']);
 
-const { color, href, label, size, type } = defineProps({
+const { variant, href, label, size, type } = defineProps({
     label: {
         type: String,
         default: 'Button',
@@ -29,10 +29,6 @@ const { color, href, label, size, type } = defineProps({
     href: {
         type: String,
         default: '',
-    },
-    primary: {
-        type: Boolean,
-        default: false,
     },
     size: {
         type: String,
