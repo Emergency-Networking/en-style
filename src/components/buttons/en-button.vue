@@ -1,22 +1,29 @@
 <template>
-    <component :is="componentType" :class="['button', styleClass]" :href="href" @click="onClicked" :emphasis="emphasisLevel"
-        ><slot>{{ defaultLabel }}</slot></component
-    >
+    <component :is="componentType" :class="[styleClass]" :href="href" @click="onClicked" :as="props.as" :style="props.noWrap ? { whiteSpace: 'nowrap' } : null">
+        <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
+        <slot>{{ label }}</slot>
+    </component>
 </template>
 
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import useButtonStyles from './use-button-styles';
 
-const { getEmphasisLevel, getStyleClass, VARIANTS } = useButtonStyles();
+const { getStyleClass, VARIANTS, INTENTS, ATTRIBUTES } = useButtonStyles();
 
 const emit = defineEmits(['click']);
 const props = defineProps({
-  label: {
-    type: String,
-    default: 'Submit',
-  },
+    as: {
+        type: String,
+        default: 'button',
+    },
+    label: {
+        type: String,
+    },
     variant: {
+        type: String,
+    },
+    intent: {
         type: String,
     },
     inertia: {
@@ -26,37 +33,68 @@ const props = defineProps({
     href: {
         type: String,
     },
-    level: {
-        type: [String, Number],
-    },
     linkPageButton: {
+        type: Boolean,
+        default: false,
+    },
+    icon: {
+        type: String,
+    },
+    iconRight: {
+        type: Boolean,
+        default: false,
+    },
+    sizeMedium: {
+        type: Boolean,
+        default: false,
+    },
+    sizeSmall: {
+        type: Boolean,
+        default: false,
+    },
+    loadable: {
+        type: Boolean,
+        default: false,
+    },
+    isLoading: {
+        type: Boolean,
+        default: false,
+    },
+    isSuccess: {
+        type: Boolean,
+        default: false,
+    },
+    noWrap: {
         type: Boolean,
         default: false,
     },
 });
 
+const attributes = computed(() => {
+    const buttonAttributes = [];
+    if (props.icon) {
+        buttonAttributes.push(ATTRIBUTES.WITH_ICON);
+    }
+    if (props.sizeMedium) {
+        buttonAttributes.push(ATTRIBUTES.SIZE_MEDIUM);
+    } else if (props.sizeSmall) {
+        buttonAttributes.push(ATTRIBUTES.SIZE_SMALL);
+    }
+    if (props.loadable) {
+        buttonAttributes.push(ATTRIBUTES.LOADABLE);
+    }
+    if (props.isLoading) {
+        buttonAttributes.push(ATTRIBUTES.LOADING);
+    }
+    if (props.isSuccess) {
+        buttonAttributes.push(ATTRIBUTES.SUCCESS);
+    }
+    return buttonAttributes;
+});
+
 const onClicked = () => {
     emit('click');
 };
-
-const defaultLabel = computed(() => {
-    switch (props.variant) {
-        case VARIANTS.SAVE:
-            return 'Save';
-        case VARIANTS.DELETE:
-            return 'Delete';
-        case VARIANTS.NEW:
-            return 'New';
-        case VARIANTS.EDIT:
-            return 'Edit';
-        case VARIANTS.CONTINUE:
-            return 'Continue';
-        case VARIANTS.CANCEL:
-            return 'Cancel';
-        default:
-            return props.label;
-    }
-});
 
 // Figures out whether or not to render an Inertia Link, a tag, or button.
 const componentType = computed(() => {
@@ -66,16 +104,302 @@ const componentType = computed(() => {
     return props.href ? 'a' : 'button';
 });
 
-const emphasisLevel = computed(() => {
-    return getEmphasisLevel(props.level, props.variant);
-});
-
 const styleClass = computed(() => {
     if (props.linkPageButton) {
-        let style = getStyleClass(VARIANTS.UTILITY, 2);
+        let style = getStyleClass(VARIANTS.GHOST);
         style += ' w-full py-2 mb-2 is-justify-content-flex-start wrap';
         return style;
     }
-    return getStyleClass(props.variant, emphasisLevel.value);
+    return getStyleClass(props.variant, props.intent, attributes.value);
+});
+
+const faIcon = computed(() => {
+    if (props.icon) {
+        const classes = [props.sizeSmall ? 'is-size-7' : 'is-size-6'];
+        if (props.icon.startsWith('fa')) {
+            classes.push(props.icon);
+            if (props.icon.includes('fa-')) {
+                classes.push('fas');
+            }
+        } else {
+            classes.push('fas', 'fa-' + props.icon);
+        }
+        if (props.iconRight) {
+            classes.push('ml-3');
+        } else {
+            classes.push('mr-3');
+        }
+        return classes;
+    }
+    return null;
 });
 </script>
+
+<!-- TODO: Move this style out of here -->
+<style lang="scss">
+$en-primary: #005ead;
+$en-red: #e41b1b;
+$en-dark-red: #b83636;
+$light-blue: #2b74b1;
+$is-primary: $en-primary;
+$is-success: #1d8147;
+$is-info: $light-blue;
+$is-link: $en-primary;
+$is-danger: #c84141;
+$is-light: #5f7a81;
+$is-cancel: #62686f;
+$primary-dark: #1f517a;
+$primary-highlight: #0078e1;
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.button {
+    font-weight: bold;
+    font-size: 0.9rem;
+    background-color: white;
+    border-color: #dee2e5;
+    border-width: 1px;
+    color: #375672;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: calc(0.5em - 1px);
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    padding-top: 6px;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus-visible,
+    &:focus-within {
+        color: inherit;
+    }
+
+    &.btn-primary {
+        background-color: $is-primary;
+        border-color: transparent;
+        color: white;
+
+        &:hover {
+            border-color: #0092ff;
+            // box-shadow: inset 0 0 2px 1px #6ea3d0;
+            background-color: $primary-highlight;
+            color: white;
+        }
+
+        &.btn-danger {
+            background-color: $is-danger;
+
+            &:hover {
+                border-color: $is-danger;
+                background-color: #d62a2a;
+            }
+        }
+        &.btn-cancel {
+            background-color: $is-cancel;
+
+            &:hover {
+                border-color: $is-cancel;
+                background-color: lighten($is-cancel, 10%);
+            }
+        }
+    }
+    &.btn-secondary {
+        background-color: white;
+        border-color: $is-primary;
+        color: $is-primary;
+
+        &:hover {
+            background-color: $primary-highlight;
+            border-color: $primary-highlight;
+            color: white;
+        }
+
+        &.size-small {
+            border-width: 1px;
+        }
+        &.btn-danger {
+            border-color: $is-danger;
+            color: $is-danger;
+
+            &:hover {
+                background-color: $is-danger;
+                color: white;
+            }
+        }
+        &.btn-cancel {
+            border-color: $is-cancel;
+            color: $is-cancel;
+
+            &:hover {
+                background-color: $is-cancel;
+                color: white;
+            }
+        }
+    }
+    &.btn-tertiary {
+        background-color: #035dad1f;
+        border-color: transparent;
+        color: $is-primary;
+
+        &:hover {
+            border-color: $primary-highlight;
+            background-color: $primary-highlight;
+            color: white;
+        }
+        &.btn-danger {
+            color: $is-danger;
+            background-color: #c841411f;
+
+            &:hover {
+                border-color: $is-danger;
+                background-color: $is-danger;
+                color: white;
+            }
+        }
+        &.btn-cancel {
+            color: $is-cancel;
+            background-color: #62686f24;
+
+            &:hover {
+                border-color: $is-cancel;
+                background-color: $is-cancel;
+                color: white;
+            }
+        }
+    }
+    &.btn-ghost {
+        color: #444c52;
+        border-color: #c7cdd1;
+        background-color: transparent;
+
+        &:hover {
+            background-color: white;
+            border-color: $primary-highlight;
+            color: $primary-highlight;
+        }
+        &.btn-danger {
+            &:hover {
+                border-color: $is-danger;
+                background-color: $is-danger;
+                color: white;
+            }
+        }
+        &.btn-cancel {
+            &:hover {
+                border-color: $is-cancel;
+                background-color: $is-cancel;
+                color: white;
+            }
+        }
+    }
+    &.btn-text {
+        border-color: transparent;
+        background-color: transparent;
+
+        &:hover {
+            border-color: $primary-highlight;
+            color: $primary-highlight;
+        }
+        &.btn-danger {
+            color: $is-danger;
+            &:hover {
+                border-color: $is-danger;
+                color: $is-danger;
+            }
+        }
+        &.btn-cancel {
+            color: $is-cancel;
+            &:hover {
+                border-color: $is-cancel;
+                color: $is-cancel;
+            }
+        }
+    }
+    &.btn-link {
+        font-size: 0.85rem;
+        border-color: transparent;
+        padding: 0 0.5rem;
+
+        &:hover {
+            background-color: #035dad1f;
+            color: $primary-highlight;
+        }
+
+        &.btn-danger {
+            color: $is-danger;
+            &:hover {
+                background-color: #c841411f;
+                color: $is-danger;
+            }
+        }
+        &.btn-cancel {
+            color: $is-cancel;
+            &:hover {
+                background-color: #62686f24;
+                color: $is-cancel;
+            }
+        }
+    }
+    &.btn-danger {
+    }
+    &.btn-cancel {
+    }
+
+    &.is-underlined {
+    }
+    &.with-icon {
+    }
+    &.size-medium {
+        font-size: 1rem;
+    }
+    &.size-small {
+        font-size: 0.75rem;
+        font-weight: normal;
+    }
+    &.loadable {
+        &::before,
+        &::after {
+            content: '';
+            width: 0.75rem;
+        }
+
+        &.loading,
+        &.success {
+            &::after {
+                display: none;
+            }
+        }
+    }
+    &.loading {
+        pointer-events: none;
+
+        &::before {
+            animation: spin 500ms linear infinite;
+            border: 2px solid #dee2e5;
+            border-radius: 9999px;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            content: '';
+            display: block;
+            height: 1rem;
+            position: relative;
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+    &.success {
+        &::before {
+            content: '✔';
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+</style>

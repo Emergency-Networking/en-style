@@ -1,110 +1,150 @@
-// By function
-const SAVE = 'save';
-const DELETE = 'delete';
-const NEW = 'new';
-const EDIT = 'edit';
-const CONTINUE = 'continue';
-const CANCEL = 'cancel';
-const UTILITY = 'utility';
-const DEFAULT = 'default';
-
 // Emphasis / action importance
-const PRIMARY = 'primary';
-const SECONDARY = 'secondary';
-const TERTIARY = 'tertiary';
+const VARIANT_PRIMARY = "primary"; // Should be used only for the primary action in the container or view.
+const VARIANT_SECONDARY = "secondary"; // Default
+const VARIANT_TERTIARY = "tertiary";
+const VARIANT_GHOST = "ghost"; // Similar to the secondary button, but with a transparent background.
+const VARIANT_TEXT = "text"; // A text button, with padding around it.
+const VARIANT_LINK = "link"; // An inline text button
+const VARIANT_ICON = "icon";
+
+// Intent
+const INTENT_NEUTRAL = "neutral"; // For most button cases, will be default
+const INTENT_DELETE = "delete"; // For delete, remove, etc
+const INTENT_CANCEL = "cancel"; // For cancel, back, etc
+
+// Attributes
+const WITH_ICON = "with-icon"; // Require an icon to be defined
+const SIZE_MEDIUM = "size-medium"; // Will render at medium size
+const SIZE_SMALL = "size-small"; // Will render at small size (for buttons in a table, etc.)
+const LOADABLE = "is-loadable"; // Provides extra padding for a loading spinner and success check
+const LOADING = "is-loading";
+const SUCCESS = "is-success";
 
 export default function useButtonStyles() {
-    const VARIANTS = { SAVE, DELETE, NEW, EDIT, CONTINUE, CANCEL, UTILITY, DEFAULT };
-    const EMPHASIS_LEVELS = { PRIMARY, SECONDARY, TERTIARY };
+  const VARIANTS = {
+    PRIMARY: VARIANT_PRIMARY,
+    SECONDARY: VARIANT_SECONDARY,
+    TERTIARY: VARIANT_TERTIARY,
+    GHOST: VARIANT_GHOST,
+    TEXT: VARIANT_TEXT,
+    LINK: VARIANT_LINK,
+    ICON: VARIANT_ICON,
+  };
+  const INTENTS = {
+    NEUTRAL: INTENT_NEUTRAL,
+    DELETE: INTENT_DELETE,
+    CANCEL: INTENT_CANCEL,
+  };
+  const ATTRIBUTES = {
+    WITH_ICON: WITH_ICON,
+    SIZE_MEDIUM: SIZE_MEDIUM,
+    SIZE_SMALL: SIZE_SMALL,
+    LOADABLE: LOADABLE,
+    LOADING: LOADING,
+    SUCCESS: SUCCESS,
+  };
 
-    const getEmphasisLevel = (level, variant) => {
-        switch (level) {
-            case PRIMARY:
-            case 1:
-                return 1;
-            case SECONDARY:
-            case 2:
-                return 2;
-            case TERTIARY:
-            case 3:
-                return 3;
-            default:
-                break;
-        }
-        // No level was passed in. Check the variant
-        switch (variant) {
-            case SAVE:
-            case DELETE:
-            case NEW:
-            case EDIT:
-                return 1;
-            case CONTINUE:
-            case CANCEL:
-                return 2;
-            default:
-                return 1;
-        }
-    };
+  const getStyleClass = (variant, intent, attributes) => {
+    if (variant) {
+      const variantValues = Object.values(VARIANTS);
+      if (!variantValues.includes(variant)) {
+        console.error(
+          `Invalid button variant: "${variant}". Remove or use one of these: ${variantValues}`,
+        );
+      }
+    }
+    let style = "";
 
-    const getStyleClass = (variant, level) => {
-        if (variant) {
-            const variantValues = Object.values(VARIANTS);
-            if (!variantValues.includes(variant)) {
-                console.error(`Invalid button variant: "${variant}". Remove or use one of these: ${variantValues}`);
-            }
-        }
-        let style = '';
-        switch (variant) {
-            case SAVE:
-            case NEW:
-                style += 'btn-primary';
-                break;
-            case DELETE:
-                style += 'btn-danger';
-                break;
-            case EDIT:
-                style += 'btn-info';
-                if (!level || parseInt(level) < 3) {
-                    return style;
-                }
-                break;
-            case CONTINUE:
-                style += 'btn-link';
-                break;
-            case CANCEL:
-                // case UTILITY:
-                style += 'btn-light';
-                break;
-            default:
-                break;
-        }
-        switch (level) {
-            case 1:
-            case '1':
-                style += '';
-                break;
-            case 2:
-            case '2':
-                style += ' btn-outlined';
-                break;
-            case 3:
-            case '3':
-                style += ' btn-text';
-                break;
-            case 4:
-            case '4':
-                style += ' is-text';
-                break;
-            default:
-                break;
-        }
-        return style;
-    };
+    // For cancel & delete, default the button variant to secondary if we haven't provided it.
+    if (!variant && intent !== INTENTS.NEUTRAL) {
+      variant = VARIANTS.SECONDARY;
+    }
 
-    return {
-        getEmphasisLevel,
-        getStyleClass,
-        VARIANTS,
-        EMPHASIS_LEVELS,
-    };
+    if (variant !== VARIANTS.ICON) {
+      style += "button ";
+    }
+
+    switch (variant) {
+      case VARIANTS.PRIMARY:
+        style += "btn-primary";
+        break;
+
+      case VARIANTS.SECONDARY:
+        style += "btn-secondary";
+        break;
+
+      case VARIANTS.TERTIARY:
+        style += "btn-tertiary";
+        break;
+
+      case VARIANTS.GHOST:
+        style += "btn-ghost";
+        break;
+
+      case VARIANTS.LINK:
+        style += "btn-link is-underlined";
+        break;
+
+      case VARIANTS.TEXT:
+        style += "btn-text";
+        break;
+      default:
+        break;
+    }
+
+    switch (intent) {
+      case INTENTS.DELETE:
+        style += " btn-danger";
+        break;
+
+      case INTENTS.CANCEL:
+        style += " btn-cancel";
+        break;
+
+      default:
+        break;
+    }
+
+    if (attributes) {
+      for (const attribute of attributes) {
+        switch (attribute) {
+          case ATTRIBUTES.WITH_ICON:
+            style += " with-icon";
+            break;
+
+          case ATTRIBUTES.SIZE_MEDIUM:
+            style += " size-medium";
+            break;
+
+          case ATTRIBUTES.SIZE_SMALL:
+            style += " size-small";
+            break;
+
+          case ATTRIBUTES.LOADABLE:
+            style += " loadable";
+            break;
+
+          case ATTRIBUTES.LOADING:
+            style += " loading";
+            break;
+
+          case ATTRIBUTES.SUCCESS:
+            style += " success";
+            break;
+
+          default:
+            break;
+        }
+      }
+    }
+
+    return style;
+  };
+
+  return {
+    getStyleClass,
+    VARIANTS,
+    INTENTS,
+    ATTRIBUTES,
+  };
 }
