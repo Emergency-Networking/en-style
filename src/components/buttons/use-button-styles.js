@@ -11,6 +11,7 @@ const VARIANT_ICON = "icon";
 const INTENT_NEUTRAL = "neutral"; // For most button cases, will be default
 const INTENT_DELETE = "delete"; // For delete, remove, etc
 const INTENT_CANCEL = "cancel"; // For cancel, back, etc
+const INTENT_WARN = "warn"; // For warning
 
 // Attributes
 const WITH_ICON = "with-icon"; // Require an icon to be defined
@@ -34,6 +35,7 @@ export default function useButtonStyles() {
     NEUTRAL: INTENT_NEUTRAL,
     DELETE: INTENT_DELETE,
     CANCEL: INTENT_CANCEL,
+    WARN: INTENT_WARN,
   };
   const ATTRIBUTES = {
     WITH_ICON: WITH_ICON,
@@ -99,6 +101,10 @@ export default function useButtonStyles() {
 
       case INTENTS.CANCEL:
         style += " btn-cancel";
+        break;
+
+      case INTENTS.WARN:
+        style += " btn-warn";
         break;
 
       default:

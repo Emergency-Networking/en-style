@@ -148,6 +148,8 @@ $is-link: $en-primary;
 $is-danger: #c84141;
 $is-light: #5f7a81;
 $is-cancel: #62686f;
+$is-warning: #f1b70e;
+$warning-dark: #785c07;
 $primary-dark: #1f517a;
 $primary-highlight: #0078e1;
 @keyframes spin {
@@ -209,6 +211,16 @@ $primary-highlight: #0078e1;
                 background-color: lighten($is-cancel, 10%);
             }
         }
+        &.btn-warn {
+            background-color: $is-warning;
+            border-color: #c1930b;
+            color: #333;
+
+            &:hover {
+                border-color: $is-warning;
+                background-color: lighten($is-warning, 10%);
+            }
+        }
     }
     &.btn-secondary {
         background-color: white;
@@ -242,6 +254,15 @@ $primary-highlight: #0078e1;
                 color: white;
             }
         }
+        &.btn-warn {
+            border-color: $is-warning;
+            color: $warning-dark;
+
+            &:hover {
+                background-color: $is-warning;
+                color: #333;
+            }
+        }
     }
     &.btn-tertiary {
         background-color: #035dad1f;
@@ -273,6 +294,16 @@ $primary-highlight: #0078e1;
                 color: white;
             }
         }
+        &.btn-warn {
+            color: $is-warning;
+            background-color: #62686f24;
+
+            &:hover {
+                border-color: $is-warning;
+                background-color: $is-warning;
+                color: white;
+            }
+        }
     }
     &.btn-ghost {
         color: #444c52;
@@ -298,6 +329,13 @@ $primary-highlight: #0078e1;
                 color: white;
             }
         }
+        &.btn-warn {
+            &:hover {
+                border-color: $is-warning;
+                background-color: $is-warning;
+                color: white;
+            }
+        }
     }
     &.btn-text {
         border-color: transparent;
@@ -319,6 +357,13 @@ $primary-highlight: #0078e1;
             &:hover {
                 border-color: $is-cancel;
                 color: $is-cancel;
+            }
+        }
+        &.btn-warn {
+            color: $is-warning;
+            &:hover {
+                border-color: $is-warning;
+                color: $is-warning;
             }
         }
     }
@@ -346,10 +391,13 @@ $primary-highlight: #0078e1;
                 color: $is-cancel;
             }
         }
-    }
-    &.btn-danger {
-    }
-    &.btn-cancel {
+        &.btn-warn {
+            color: $is-warning;
+            &:hover {
+                background-color: #ff840024;
+                color: $is-warning;
+            }
+        }
     }
 
     &.is-underlined {
