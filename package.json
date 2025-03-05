@@ -1,45 +1,21 @@
 {
-  "name": "en-style",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "main": "./dist/en-style.umd.cjs",
-  "module": "./dist/en-style.js",
-  "exports": {
-    ".": {
-      "import": "./dist/en-style.js",
-      "require": "./dist/en-style.umd.cjs"
-    }
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.0.6",
-    "tailwindcss": "^4.0.6",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@aldrin-ai/prettier-config": "aldrin-ai/prettier-config",
-    "@chromatic-com/storybook": "^3.2.4",
-    "@storybook/addon-essentials": "^8.5.8",
-    "@storybook/addon-interactions": "^8.5.8",
-    "@storybook/addon-onboarding": "^8.5.8",
-    "@storybook/blocks": "^8.5.8",
-    "@storybook/test": "^8.5.8",
-    "@storybook/vue3": "^8.5.8",
-    "@storybook/vue3-vite": "^8.5.8",
-    "@tailwindcss/forms": "^0.5.10",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
-    "sass-embedded": "^1.85.1",
-    "storybook": "^8.5.8",
-    "vite": "^6.0.5"
-  },
-  "prettier": "@aldrin-ai/prettier-config"
+    "name": "en-style",
+    "private": true,
+    "version": "0.0.0",
+    "main": "dist/en-style.js",
+    "scripts": {
+        "production": "mix --production"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@aldrin-ai/prettier-config": "aldrin-ai/prettier-config",
+        "bulma": "^0.7.1",
+        "laravel-mix": "^6.0.19",
+        "sass": "^1.16.0",
+        "sass-loader": "^13.1.0",
+        "vue": "^2.7",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.7.7"
+    },
+    "prettier": "@aldrin-ai/prettier-config"
 }
