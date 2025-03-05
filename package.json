@@ -1,6 +1,5 @@
 {
     "name": "en-style",
-    "private": true,
     "version": "0.0.0",
     "main": "dist/en-style.js",
     "scripts": {
