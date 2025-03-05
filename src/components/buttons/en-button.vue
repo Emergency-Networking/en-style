@@ -361,7 +361,6 @@ $primary-highlight: #0078e1;
     }
     &.size-small {
         font-size: 0.75rem;
-        font-weight: normal;
     }
     &.loadable {
         &::before,
