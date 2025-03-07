@@ -1,7 +1,17 @@
 <template>
-    <component :is="componentType" :class="[styleClass]" :href="href" @click="onClicked" :as="props.as" :style="props.noWrap ? { whiteSpace: 'nowrap' } : null">
+    <component
+        :is="componentType"
+        :class="[styleClass]"
+        :href="href"
+        @click="onClicked"
+        :as="props.as"
+        :style="props.noWrap ? { whiteSpace: 'nowrap' } : null"
+        :aria-label="props.label">
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
-        <slot>{{ label }}</slot>
+        <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
+        <slot
+            ><template v-if="!hideLabel">{{ label }}</template></slot
+        >
     </component>
 </template>
 
@@ -84,6 +94,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    hideLabel: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const attributes = computed(() => {
@@ -116,6 +130,9 @@ const attributes = computed(() => {
     }
     if (props.autoHeight) {
         buttonAttributes.push(ATTRIBUTES.AUTO_HEIGHT);
+    }
+    if (props.hideLabel) {
+        buttonAttributes.push(ATTRIBUTES.HIDE_LABEL);
     }
     return buttonAttributes;
 });
@@ -152,10 +169,12 @@ const faIcon = computed(() => {
         } else {
             classes.push('fas', 'fa-' + props.icon);
         }
-        if (props.iconRight) {
-            classes.push('ml-2');
-        } else {
-            classes.push('mr-2');
+        if (!props.hideLabel) {
+            if (props.iconRight) {
+                classes.push('ml-2');
+            } else {
+                classes.push('mr-2');
+            }
         }
         return classes;
     }

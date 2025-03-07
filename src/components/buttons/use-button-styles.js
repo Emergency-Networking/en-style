@@ -24,6 +24,7 @@ const SELECTED = 'selected';
 const DISABLED = 'disabled';
 const TOGGLEABLE = 'toggleable';
 const AUTO_HEIGHT = 'autoHeight';
+const HIDE_LABEL = 'hideLabel';
 
 export default function useButtonStyles() {
     const VARIANTS = {
@@ -52,6 +53,7 @@ export default function useButtonStyles() {
         DISABLED: DISABLED,
         TOGGLEABLE: TOGGLEABLE,
         AUTO_HEIGHT: AUTO_HEIGHT,
+        HIDE_LABEL: HIDE_LABEL,
     };
 
     const getStyleClass = (variant, intent, attributes) => {
@@ -158,6 +160,10 @@ export default function useButtonStyles() {
 
                     case ATTRIBUTES.AUTO_HEIGHT:
                         style += ' auto-height';
+                        break;
+
+                    case ATTRIBUTES.HIDE_LABEL:
+                        style += ' hide-label';
                         break;
 
                     default:
