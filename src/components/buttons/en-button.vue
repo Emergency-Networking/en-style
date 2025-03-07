@@ -68,6 +68,18 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    selected: {
+        type: Boolean,
+        default: false,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
+    toggleable: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const attributes = computed(() => {
@@ -88,6 +100,15 @@ const attributes = computed(() => {
     }
     if (props.isSuccess) {
         buttonAttributes.push(ATTRIBUTES.SUCCESS);
+    }
+    if (props.selected) {
+        buttonAttributes.push(ATTRIBUTES.SELECTED);
+    }
+    if (props.disabled) {
+        buttonAttributes.push(ATTRIBUTES.DISABLED);
+    }
+    if (props.toggleable) {
+        buttonAttributes.push(ATTRIBUTES.TOGGLEABLE);
     }
     return buttonAttributes;
 });
@@ -125,9 +146,9 @@ const faIcon = computed(() => {
             classes.push('fas', 'fa-' + props.icon);
         }
         if (props.iconRight) {
-            classes.push('ml-3');
+            classes.push('ml-2');
         } else {
-            classes.push('mr-3');
+            classes.push('mr-2');
         }
         return classes;
     }
@@ -152,6 +173,7 @@ $is-warning: #f1b70e;
 $warning-dark: #785c07;
 $primary-dark: #1f517a;
 $primary-highlight: #0078e1;
+$selection-color: #2d5c86;
 @keyframes spin {
     100% {
         transform: rotate(360deg);
@@ -174,6 +196,8 @@ $primary-highlight: #0078e1;
     white-space: normal;
     line-height: 1.2;
     padding-top: 6px;
+    min-height: 2.5em;
+    height: inherit;
 
     &:hover,
     &:focus,
@@ -221,6 +245,29 @@ $primary-highlight: #0078e1;
                 background-color: lighten($is-warning, 10%);
             }
         }
+
+        &.selected {
+            background-color: $selection-color;
+            color: white;
+            border-color: $selection-color;
+
+            &:not(.toggleable) {
+                pointer-events: none;
+            }
+
+            &.btn-danger {
+                background-color: $is-danger;
+                color: white;
+            }
+            &.btn-cancel {
+                background-color: $is-cancel;
+                color: white;
+            }
+            &.btn-warn {
+                background-color: $is-warning;
+                color: white;
+            }
+        }
     }
     &.btn-secondary {
         background-color: white;
@@ -261,6 +308,29 @@ $primary-highlight: #0078e1;
             &:hover {
                 background-color: $is-warning;
                 color: #333;
+            }
+        }
+
+        &.selected {
+            background-color: $selection-color;
+            color: white;
+            border-color: $selection-color;
+
+            &:not(.toggleable) {
+                pointer-events: none;
+            }
+
+            &.btn-danger {
+                background-color: $is-danger;
+                color: white;
+            }
+            &.btn-cancel {
+                background-color: $is-cancel;
+                color: white;
+            }
+            &.btn-warn {
+                background-color: $is-warning;
+                color: white;
             }
         }
     }
@@ -304,6 +374,29 @@ $primary-highlight: #0078e1;
                 color: white;
             }
         }
+
+        &.selected {
+            background-color: $selection-color;
+            color: white;
+            border-color: $selection-color;
+
+            &:not(.toggleable) {
+                pointer-events: none;
+            }
+
+            &.btn-danger {
+                background-color: $is-danger;
+                color: white;
+            }
+            &.btn-cancel {
+                background-color: $is-cancel;
+                color: white;
+            }
+            &.btn-warn {
+                background-color: $is-warning;
+                color: white;
+            }
+        }
     }
     &.btn-ghost {
         color: #444c52;
@@ -332,6 +425,29 @@ $primary-highlight: #0078e1;
         &.btn-warn {
             &:hover {
                 border-color: $is-warning;
+                background-color: $is-warning;
+                color: white;
+            }
+        }
+
+        &.selected {
+            background-color: $selection-color;
+            color: white;
+            border-color: $selection-color;
+
+            &:not(.toggleable) {
+                pointer-events: none;
+            }
+
+            &.btn-danger {
+                background-color: $is-danger;
+                color: white;
+            }
+            &.btn-cancel {
+                background-color: $is-cancel;
+                color: white;
+            }
+            &.btn-warn {
                 background-color: $is-warning;
                 color: white;
             }
@@ -405,7 +521,7 @@ $primary-highlight: #0078e1;
     &.with-icon {
     }
     &.size-medium {
-        font-size: 1rem;
+        font-size: 1.03rem;
     }
     &.size-small {
         font-size: 0.75rem;
@@ -447,6 +563,11 @@ $primary-highlight: #0078e1;
             width: 1rem;
             margin-right: 0.5rem;
         }
+    }
+    &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.5;
     }
 }
 </style>
