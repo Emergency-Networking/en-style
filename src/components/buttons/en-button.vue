@@ -80,6 +80,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    autoHeight: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 const attributes = computed(() => {
@@ -109,6 +113,9 @@ const attributes = computed(() => {
     }
     if (props.toggleable) {
         buttonAttributes.push(ATTRIBUTES.TOGGLEABLE);
+    }
+    if (props.autoHeight) {
+        buttonAttributes.push(ATTRIBUTES.AUTO_HEIGHT);
     }
     return buttonAttributes;
 });
@@ -179,12 +186,13 @@ $selection-color: #2d5c86;
         transform: rotate(360deg);
     }
 }
-.button {
+.en-button {
     font-weight: bold;
     font-size: 0.9rem;
     background-color: white;
     border-color: #dee2e5;
     border-width: 1px;
+    border-radius: 0.4em;
     color: #375672;
     cursor: pointer;
     justify-content: center;
@@ -196,8 +204,15 @@ $selection-color: #2d5c86;
     white-space: normal;
     line-height: 1.2;
     padding-top: 6px;
-    min-height: 2.5em;
-    height: inherit;
+    min-height: 2.25rem;
+    height: 2.25rem;
+
+    align-items: center;
+    border: 1px solid transparent;
+    box-shadow: none;
+    display: inline-flex;
+    position: relative;
+    vertical-align: top;
 
     &:hover,
     &:focus,
@@ -524,7 +539,11 @@ $selection-color: #2d5c86;
         font-size: 1.03rem;
     }
     &.size-small {
+        height: 1.9rem;
+        min-height: 1.9rem;
         font-size: 0.75rem;
+        font-weight: normal;
+        line-height: 1;
     }
     &.loadable {
         &::before,
@@ -568,6 +587,9 @@ $selection-color: #2d5c86;
         cursor: not-allowed;
         pointer-events: none;
         opacity: 0.5;
+    }
+    &.auto-height {
+        height: inherit;
     }
 }
 </style>

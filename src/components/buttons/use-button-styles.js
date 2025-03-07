@@ -23,6 +23,7 @@ const SUCCESS = 'is-success';
 const SELECTED = 'selected';
 const DISABLED = 'disabled';
 const TOGGLEABLE = 'toggleable';
+const AUTO_HEIGHT = 'autoHeight';
 
 export default function useButtonStyles() {
     const VARIANTS = {
@@ -50,6 +51,7 @@ export default function useButtonStyles() {
         SELECTED: SELECTED,
         DISABLED: DISABLED,
         TOGGLEABLE: TOGGLEABLE,
+        AUTO_HEIGHT: AUTO_HEIGHT,
     };
 
     const getStyleClass = (variant, intent, attributes) => {
@@ -67,7 +69,7 @@ export default function useButtonStyles() {
         }
 
         if (variant !== VARIANTS.ICON) {
-            style += 'button ';
+            style += 'en-button ';
         }
 
         switch (variant) {
@@ -152,6 +154,10 @@ export default function useButtonStyles() {
 
                     case ATTRIBUTES.TOGGLEABLE:
                         style += ' toggleable';
+                        break;
+
+                    case ATTRIBUTES.AUTO_HEIGHT:
+                        style += ' auto-height';
                         break;
 
                     default:
