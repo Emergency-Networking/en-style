@@ -69,7 +69,7 @@ export default function useButtonStyles() {
         }
 
         if (variant !== VARIANTS.ICON) {
-            style += 'en-button ';
+            style += 'button ';
         }
 
         switch (variant) {

@@ -186,7 +186,7 @@ $selection-color: #2d5c86;
         transform: rotate(360deg);
     }
 }
-.en-button {
+.button {
     font-weight: bold;
     font-size: 0.9rem;
     background-color: white;
