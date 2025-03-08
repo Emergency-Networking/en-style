@@ -143,7 +143,7 @@ const onClicked = () => {
 
 // Figures out whether or not to render an Inertia Link, a tag, or button.
 const componentType = computed(() => {
-    if (props.inertia) {
+    if (props.inertia || (props.inertia !== false && props.href)) {
         return 'Link';
     }
     return props.href ? 'a' : 'button';
