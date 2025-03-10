@@ -1,0 +1,262 @@
+.ag-grid-table,
+.ag-theme-alpine {
+    font-family: $table-font-family;
+
+    .ag-cell {
+        line-height: 2.75;
+        border-right-color: #ddd !important;
+
+        &.has-errors {
+            background-color: $cell-error-background;
+            border: 1px solid $error-color !important;
+            height: 100%;
+        }
+    }
+
+    .ag-root-wrapper {
+        border-radius: $table-border-radius;
+        overflow: visible;
+
+        // height: fit-content; // Was a fix for older iPads, but breaks the auto table height in dashboard safari
+        .ag-root-wrapper-body {
+            overflow: hidden;
+            border-radius: $table-border-radius;
+        }
+    }
+
+    .ag-overlay-no-rows-wrapper.ag-layout-auto-height {
+        padding-top: 40px !important;
+    }
+
+    .cell-value-required {
+        box-shadow: 0px 0px 1px 2px $error-color inset;
+    }
+
+    .ag-cell-wrapper {
+        width: 100%;
+        // height: 100%;
+    }
+
+    .ag-cell-content {
+        display: block;
+        line-height: 1.25;
+        width: 100%;
+        height: 100%;
+        word-break: break-word;
+        font-size: 0.9rem;
+        font-family: $table-font-family;
+
+        .cell-image,
+        .cell-file {
+            max-height: 100%;
+            margin-right: 0.25rem;
+            padding: 4px;
+        }
+
+        .cell-file {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #999;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            box-shadow: 0px 1px 2px rgb(0 0 0 / 20%);
+            background-color: #f0f0f0;
+            min-width: 3rem;
+        }
+
+        .cell-display-content {
+            font-size: 0.9rem !important;
+
+            >* {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .cell-button {
+            max-height: calc(100% - 4px);
+            width: calc(100% - 4px);
+            margin: 2px;
+        }
+
+        &.image-container {
+            display: flex;
+            padding: 0 !important;
+
+            .form-button {
+                max-height: calc(100% - 8px);
+                margin: 4px;
+                width: 1rem;
+                flex-grow: 1;
+                max-width: 1rem;
+                margin-right: 0.5rem;
+                background-color: #fdfdfd;
+                color: lightslategrey;
+                padding: 0 1.25rem;
+                box-shadow: none;
+                border-color: #ddd;
+
+                i,
+                .fa {
+                    pointer-events: none;
+                }
+
+                &:focus {
+                    border-color: #999 !important;
+                }
+            }
+        }
+    }
+
+    .ag-row-hover {
+        &::before {
+            background-color: rgb(0 124 255 / 5%) !important;
+        }
+    }
+
+    .ag-row-selected {
+        &::before {
+            background-color: rgb(0 124 255 / 15%) !important;
+        }
+    }
+
+    /*
+    GOOSE ONLY
+    .ag-row:not(.ag-row-selected) {
+        .ag-cell {
+            .table-field {
+                .field {
+                    &.disabled {
+                        .control {
+                            .input {
+                                background-color: #ecf0f1 !important;
+                                color: #777 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ag-row {
+        .ag-cell {
+            .record-ref-cell {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 0.6rem 0.5rem 0.5rem;
+                line-height: 1.5;
+
+                &.blank-value {
+                    font-size: 0.8rem;
+                    opacity: 0.4;
+                }
+
+                >div {
+                    display: flex;
+
+                    ul {
+                        padding: 0 0.5rem;
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+    }
+    */
+
+    .ag-popup-child {
+        overflow: hidden;
+        border-radius: $table-border-radius !important;
+    }
+
+    .ag-popup-editor {
+        margin-top: -20px !important;
+        height: 0;
+        opacity: 0;
+    }
+
+    .ag-rich-select {
+        overflow: hidden;
+        border-radius: $table-border-radius;
+    }
+
+    .ag-rich-select {
+        font-size: $table-font-size;
+        line-height: 1.2;
+        font-family: $table-font-family;
+        overflow: hidden;
+
+        &::before {
+            content: '• ';
+        }
+
+        .ag-rich-select-list {
+            height: inherit;
+        }
+
+        .ag-rich-select-value,
+        .ag-rich-select-row {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            padding-right: 0.5rem;
+        }
+
+        .ag-rich-select-value {
+            font-weight: bold;
+            line-height: 2.75;
+        }
+
+        .ag-rich-select-row {
+            background-color: white;
+            line-height: 2.5;
+        }
+
+        .ag-rich-select-row-selected {
+            background-color: #476e94;
+            color: white;
+        }
+    }
+
+    .ag-rich-select-list {
+        height: inherit;
+
+        .ag-rich-select-row {
+            &::before {
+                content: '>  ';
+                padding-right: 0.3rem;
+                font-size: 0.75rem;
+                font-weight: bold;
+            }
+
+            font-weight: bold;
+        }
+    }
+
+    .ag-large-text {
+        .ag-large-text-input {
+            padding: 8px;
+
+            textarea {
+                padding: 0.5rem;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+
+    &.popover-open {
+        .ag-cell-focus {
+            .cell-text {
+                // color: transparent !important;
+            }
+        }
+    }
+}

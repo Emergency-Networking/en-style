@@ -39,6 +39,7 @@ const props = defineProps({
     },
     inertia: {
         type: Boolean,
+        default: undefined,
     },
     href: {
         type: String,
@@ -198,22 +199,7 @@ const formButtonType = computed(() => {
 
 <!-- TODO: Move this style out of here -->
 <style lang="scss">
-$en-primary: #005ead;
-$en-red: #e41b1b;
-$en-dark-red: #b83636;
-$light-blue: #2b74b1;
-$is-primary: $en-primary;
-$is-success: #1d8147;
-$is-info: $light-blue;
-$is-link: $en-primary;
-$is-danger: #c84141;
-$is-light: #5f7a81;
-$is-cancel: #62686f;
-$is-warning: #f1b70e;
-$warning-dark: #785c07;
-$primary-dark: #1f517a;
-$primary-highlight: #0078e1;
-$selection-color: #2d5c86;
+@import '../../sass/variables';
 @keyframes spin {
     100% {
         transform: rotate(360deg);
@@ -237,8 +223,8 @@ $selection-color: #2d5c86;
     white-space: normal;
     line-height: 1.2;
     padding-top: 6px;
-    min-height: 2.25rem;
-    height: 2.25rem;
+    min-height: $field-height;
+    height: $field-height;
 
     align-items: center;
     border: 1px solid transparent;
