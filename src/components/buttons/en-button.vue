@@ -6,7 +6,8 @@
         @click="onClicked"
         :as="props.as"
         :style="props.noWrap ? { whiteSpace: 'nowrap' } : null"
-        :aria-label="props.label">
+        :aria-label="props.label"
+        :type="formButtonType">
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
         <slot
@@ -97,6 +98,9 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    type: {
+        type: String,
+    },
 });
 
 const attributes = computed(() => {
@@ -176,6 +180,16 @@ const faIcon = computed(() => {
             }
         }
         return classes;
+    }
+    return null;
+});
+
+const formButtonType = computed(() => {
+    if (props.type) {
+        return props.type;
+    }
+    if (props.intent === INTENTS.CANCEL) {
+        return 'button';
     }
     return null;
 });
