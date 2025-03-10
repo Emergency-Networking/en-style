@@ -38,7 +38,6 @@ const props = defineProps({
     },
     inertia: {
         type: Boolean,
-        default: false,
     },
     href: {
         type: String,
