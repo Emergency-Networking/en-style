@@ -188,7 +188,8 @@ const formButtonType = computed(() => {
     if (props.type) {
         return props.type;
     }
-    if (props.intent === INTENTS.CANCEL) {
+    // Default the type to "button" if it's not set to prevent auto-submitting buttons within forms
+    if (props.intent && props.intent !== INTENTS.NEUTRAL) {
         return 'button';
     }
     return null;
