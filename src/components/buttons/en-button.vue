@@ -7,7 +7,8 @@
         :as="props.as"
         :style="props.noWrap ? { whiteSpace: 'nowrap' } : null"
         :aria-label="props.label"
-        :type="formButtonType">
+        :type="formButtonType"
+        :target="props.target">
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
         <slot
