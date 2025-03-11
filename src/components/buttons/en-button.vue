@@ -102,6 +102,9 @@ const props = defineProps({
     type: {
         type: String,
     },
+    target: {
+        type: String,
+    },
 });
 
 const attributes = computed(() => {
@@ -148,7 +151,9 @@ const onClicked = () => {
 // Figures out whether or not to render an Inertia Link, a tag, or button.
 const componentType = computed(() => {
     if (props.inertia || (props.inertia !== false && props.href)) {
-        return 'Link';
+        if (!props.target) {
+            return 'Link';
+        }
     }
     return props.href ? 'a' : 'button';
 });
