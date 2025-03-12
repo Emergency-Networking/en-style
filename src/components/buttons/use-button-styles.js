@@ -25,6 +25,7 @@ const DISABLED = 'disabled';
 const TOGGLEABLE = 'toggleable';
 const AUTO_HEIGHT = 'autoHeight';
 const HIDE_LABEL = 'hideLabel';
+const NO_WRAP = 'noWrap';
 
 export default function useButtonStyles() {
     const VARIANTS = {
@@ -54,6 +55,7 @@ export default function useButtonStyles() {
         TOGGLEABLE: TOGGLEABLE,
         AUTO_HEIGHT: AUTO_HEIGHT,
         HIDE_LABEL: HIDE_LABEL,
+        NO_WRAP: NO_WRAP,
     };
 
     const getStyleClass = (variant, intent, attributes) => {
@@ -164,6 +166,10 @@ export default function useButtonStyles() {
 
                     case ATTRIBUTES.HIDE_LABEL:
                         style += ' hide-label';
+                        break;
+
+                    case ATTRIBUTES.NO_WRAP:
+                        style += ' no-wrap';
                         break;
 
                     default:

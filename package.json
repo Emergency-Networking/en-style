@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "main": "dist/en-style.js",
     "scripts": {
+        "watch": "mix watch",
         "production": "mix --production"
     },
     "dependencies": {},
