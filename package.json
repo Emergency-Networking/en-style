@@ -1,18 +1,35 @@
 {
     "name": "en-style",
     "version": "0.0.0",
-    "main": "dist/en-style.js",
+    "main": "./dist/en-style.umd.cjs",
+    "module": "./dist/en-style.js",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./dist/en-style.js",
+            "require": "./dist/en-style.umd.cjs"
+        },
+        "./en-style.css": {
+            "import": "./dist/en-style.css",
+            "require": "./dist/en-style.css"
+        }
+    },
     "scripts": {
         "watch": "mix watch",
-        "production": "mix --production"
+        "production": "mix --production",
+        "dev": "vite",
+        "build": "vite build"
     },
     "dependencies": {},
     "devDependencies": {
         "@aldrin-ai/prettier-config": "aldrin-ai/prettier-config",
+        "@vitejs/plugin-vue2": "^2.3.3",
         "bulma": "^0.7.1",
         "laravel-mix": "^6.0.19",
         "sass": "^1.16.0",
         "sass-loader": "^13.1.0",
+        "terser": "^5.39.0",
+        "vite": "^6.2.2",
         "vue": "^2.7",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.7.7"

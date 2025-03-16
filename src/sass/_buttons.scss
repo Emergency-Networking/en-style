@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @keyframes spin {
     100% {
         transform: rotate(360deg);
@@ -64,7 +66,7 @@
 
             &:hover {
                 border-color: $is-cancel;
-                background-color: lighten($is-cancel, 10%);
+                background-color: color.adjust($is-cancel, $lightness: 10%);
             }
         }
         &.btn-warn {
@@ -74,7 +76,7 @@
 
             &:hover {
                 border-color: $is-warning;
-                background-color: lighten($is-warning, 10%);
+                background-color: color.adjust($is-warning, $lightness: 10%);
             }
         }
 

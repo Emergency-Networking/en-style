@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed } from 'vue';
 import useButtonStyles from './use-button-styles';
 
 const { getStyleClass, VARIANTS, INTENTS, ATTRIBUTES } = useButtonStyles();
