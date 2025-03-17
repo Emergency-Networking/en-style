@@ -10,9 +10,9 @@
         :target="props.target">
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
-        <slot
-            ><template v-if="!hideLabel">{{ label }}</template></slot
-        >
+        <slot>
+            <template v-if="!hideLabel">{{ label }}</template>
+        </slot>
     </component>
 </template>
 

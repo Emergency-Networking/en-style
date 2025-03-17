@@ -15,8 +15,6 @@
         }
     },
     "scripts": {
-        "watch": "mix watch",
-        "production": "mix --production",
         "dev": "vite",
         "build": "vite build"
     },

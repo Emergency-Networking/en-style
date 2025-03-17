@@ -2,6 +2,10 @@
 .ag-theme-alpine {
     font-family: $table-font-family;
 
+    > div {
+        height: inherit !important;
+    }
+
     .ag-cell {
         line-height: 2.75;
         border-right-color: #ddd !important;
@@ -22,6 +26,9 @@
             overflow: hidden;
             border-radius: $table-border-radius;
         }
+    }
+    .ag-layout-normal {
+        height: 100%;
     }
 
     .ag-overlay-no-rows-wrapper.ag-layout-auto-height {
@@ -71,7 +78,7 @@
         .cell-display-content {
             font-size: 0.9rem !important;
 
-            >* {
+            > * {
                 text-overflow: ellipsis;
                 overflow: hidden;
             }
