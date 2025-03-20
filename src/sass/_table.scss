@@ -270,12 +270,62 @@
 }
 
 .ag-theme-alpine-dark {
-    .ag-icon-tree-closed::before {
-        --ag-icon-font-code-tree-closed: 'tree-closed';
-    }
-    .ag-icon-tree-open::before {
-        --ag-icon-font-code-tree-open: 'tree-open';
-    }
+    --ag-icon-font-code-aggregation: 'aggregation';
+    --ag-icon-font-code-loading: 'loading';
+    --ag-icon-font-code-arrows: 'arrows';
+    --ag-icon-font-code-maximize: 'maximize';
+    --ag-icon-font-code-asc: 'asc';
+    --ag-icon-font-code-menu: 'menu';
+    --ag-icon-font-code-cancel: 'cancel';
+    --ag-icon-font-code-minimize: 'minimize';
+    --ag-icon-font-code-chart: 'chart';
+    --ag-icon-font-code-minus: 'minus';
+    --ag-icon-font-code-checkbox-checked: 'checkbox-checked';
+    --ag-icon-font-code-next: 'next';
+    --ag-icon-font-code-checkbox-indeterminate: 'checkbox-indeterminate';
+    --ag-icon-font-code-none: 'none';
+    --ag-icon-font-code-checkbox-unchecked: 'checkbox-unchecked';
+    --ag-icon-font-code-not-allowed: 'not-allowed';
+    --ag-icon-font-code-color-picker: 'color-picker';
+    --ag-icon-font-code-paste: 'paste';
+    --ag-icon-font-code-columns: 'columns';
+    --ag-icon-font-code-pin: 'pin';
+    --ag-icon-font-code-contracted: 'contracted';
+    --ag-icon-font-code-pivot: 'pivot';
+    --ag-icon-font-code-copy: 'copy';
+    --ag-icon-font-code-plus: 'plus';
+    --ag-icon-font-code-cross: 'cross';
+    --ag-icon-font-code-previous: 'previous';
+    --ag-icon-font-code-csv: 'csv';
+    --ag-icon-font-code-radio-button-off: 'radio-button-off';
+    --ag-icon-font-code-cut: 'cut';
+    --ag-icon-font-code-radio-button-on: 'radio-button-on';
+    --ag-icon-font-code-desc: 'desc';
+    --ag-icon-font-code-right: 'right';
+    --ag-icon-font-code-down: 'down';
+    --ag-icon-font-code-save: 'save';
+    --ag-icon-font-code-excel: 'excel';
+    --ag-icon-font-code-small-down: 'small-down';
+    --ag-icon-font-code-expanded: 'expanded';
+    --ag-icon-font-code-small-left: 'small-left';
+    --ag-icon-font-code-eye-slash: 'eye-slash';
+    --ag-icon-font-code-small-right: 'small-right';
+    --ag-icon-font-code-eye: 'eye';
+    --ag-icon-font-code-small-up: 'small-up';
+    --ag-icon-font-code-filter: 'filter';
+    --ag-icon-font-code-tick: 'tick';
+    --ag-icon-font-code-first: 'first';
+    --ag-icon-font-code-tree-closed: 'tree-closed';
+    --ag-icon-font-code-grip: 'grip';
+    --ag-icon-font-code-tree-indeterminate: 'tree-indeterminate';
+    --ag-icon-font-code-group: 'group';
+    --ag-icon-font-code-tree-open: 'tree-open';
+    --ag-icon-font-code-last: 'last';
+    --ag-icon-font-code-unlinked: 'unlinked';
+    --ag-icon-font-code-left: 'left';
+    --ag-icon-font-code-up: 'up';
+    --ag-icon-font-code-linked: 'linked';
+
     .ag-cell {
         border-right-color: #565656 !important;
     }
