@@ -270,6 +270,12 @@
 }
 
 .ag-theme-alpine-dark {
+    .ag-icon-tree-closed::before {
+        --ag-icon-font-code-tree-closed: 'tree-closed';
+    }
+    .ag-icon-tree-open::before {
+        --ag-icon-font-code-tree-open: 'tree-open';
+    }
     .ag-cell {
         border-right-color: #565656 !important;
     }
