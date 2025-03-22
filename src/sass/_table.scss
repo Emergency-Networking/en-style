@@ -7,6 +7,17 @@
         height: inherit !important;
     }
 
+    .ag-header-cell-menu-button {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .ag-header-cell:hover .ag-header-cell-menu-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
     .ag-cell {
         line-height: 2.75;
         border-right-color: #ddd !important;

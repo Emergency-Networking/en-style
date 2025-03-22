@@ -148,10 +148,10 @@ function useButtonStyles() {
     ATTRIBUTES
   };
 }
-function normalizeComponent(scriptExports, render2, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
+function normalizeComponent(scriptExports, render3, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
   var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
-  if (render2) {
-    options.render = render2;
+  if (render3) {
+    options.render = render3;
     options.staticRenderFns = staticRenderFns;
     options._compiled = true;
   }
@@ -160,7 +160,7 @@ function normalizeComponent(scriptExports, render2, staticRenderFns, functionalT
     options
   };
 }
-const _sfc_main = {
+const _sfc_main$1 = {
   __name: "en-button",
   props: {
     as: {
@@ -341,11 +341,74 @@ const _sfc_main = {
     return { __sfc: true, getStyleClass, VARIANTS, INTENTS, ATTRIBUTES, emit, props, attributes, onClicked, componentType, styleClass, faIcon, formButtonType };
   }
 };
-var _sfc_render = function render() {
+var _sfc_render$1 = function render() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
   return _c(_setup.componentType, { tag: "component", class: [_setup.styleClass], attrs: { "href": _vm.href, "as": _setup.props.as, "aria-label": _setup.props.label, "type": _setup.formButtonType, "target": _setup.props.target }, on: { "click": _setup.onClicked } }, [_setup.props.icon ? _c("span", { class: _setup.faIcon, style: _vm.iconRight ? { order: 1 } : null }) : _vm._e(), _vm._t("default", function() {
     return [!_vm.hideLabel ? [_vm._v(_vm._s(_vm.label))] : _vm._e()];
   })], 2);
+};
+var _sfc_staticRenderFns$1 = [];
+var __component__$1 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1
+);
+const enButton = __component__$1.exports;
+const _sfc_main = {
+  __name: "delete-button",
+  props: {
+    sizeMedium: {
+      type: Boolean,
+      default: false
+    },
+    autoHide: {
+      type: Boolean,
+      default: false
+    },
+    show: {
+      type: Boolean,
+      default: false
+    },
+    alignRight: {
+      type: Boolean,
+      default: false
+    },
+    absoluteRight: {
+      type: Boolean,
+      default: false
+    }
+  },
+  emits: ["click"],
+  setup(__props, { emit }) {
+    const props = __props;
+    const onClicked = () => {
+      emit("click");
+    };
+    const attributes = computed(() => {
+      let classes = "";
+      if (props.sizeMedium) {
+        classes += " size-medium";
+      }
+      if (props.autoHide) {
+        classes += " auto-hide";
+      }
+      if (props.show) {
+        classes += " show";
+      }
+      if (props.alignRight) {
+        classes += " ml-auto";
+      }
+      if (props.absoluteRight) {
+        classes += " absolute-right";
+      }
+      return classes;
+    });
+    return { __sfc: true, props, emit, onClicked, attributes };
+  }
+};
+var _sfc_render = function render2() {
+  var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
+  return _c("button", { class: ["delete-button delete", _setup.attributes], on: { "click": _setup.onClicked } });
 };
 var _sfc_staticRenderFns = [];
 var __component__ = /* @__PURE__ */ normalizeComponent(
@@ -353,8 +416,9 @@ var __component__ = /* @__PURE__ */ normalizeComponent(
   _sfc_render,
   _sfc_staticRenderFns
 );
-const enButton = __component__.exports;
+const deleteButton = __component__.exports;
 export {
+  deleteButton as DeleteButton,
   enButton as EnButton,
   useButtonStyles
 };
