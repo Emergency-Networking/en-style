@@ -52,6 +52,19 @@ export default function useScreenSize() {
         }
     };
 
+    const minScreenSize = size => {
+        const sizes = Object.keys(SCREEN_WIDTHS);
+        const targetSize = sizes.indexOf(size);
+        for (let i = 0; i < sizes.length; i++) {
+            if (i < targetSize) {
+                if (sizes[i] === screenSize.value) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
     return {
         MOBILE_SMALL,
         MOBILE_MEDIUM,
@@ -61,6 +74,7 @@ export default function useScreenSize() {
         DESKTOP_XL,
         SCREEN_WIDTHS,
         screenSize,
+        minScreenSize,
         monitorResize,
         updateBreakpoint,
     };
