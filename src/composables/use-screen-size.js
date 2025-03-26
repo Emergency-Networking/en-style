@@ -24,18 +24,22 @@ export default function useScreenSize() {
             return;
         }
         if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[MOBILE_MEDIUM]}px)`).matches) {
-            screenSize.value = MOBILE_MEDIUM;
+            screenSize.value = MOBILE_SMALL;
             return;
         }
         if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[MOBILE_LARGE]}px)`).matches) {
-            screenSize.value = MOBILE_LARGE;
+            screenSize.value = MOBILE_MEDIUM;
             return;
         }
         if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[TABLET]}px)`).matches) {
-            screenSize.value = TABLET;
+            screenSize.value = MOBILE_LARGE;
             return;
         }
         if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[DESKTOP]}px)`).matches) {
+            screenSize.value = TABLET;
+            return;
+        }
+        if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[DESKTOP_XL]}px)`).matches) {
             screenSize.value = DESKTOP;
             return;
         }
@@ -56,10 +60,24 @@ export default function useScreenSize() {
         const sizes = Object.keys(SCREEN_WIDTHS);
         const targetSize = sizes.indexOf(size);
         for (let i = 0; i < sizes.length; i++) {
-            if (i < targetSize) {
+            if (i >= targetSize) {
                 if (sizes[i] === screenSize.value) {
                     return true;
                 }
+            }
+        }
+        return false;
+    };
+
+    const maxScreenSize = size => {
+        const sizes = Object.keys(SCREEN_WIDTHS);
+        const targetSize = sizes.indexOf(size);
+        for (let i = 0; i < sizes.length; i++) {
+            if (i >= targetSize) {
+                return false;
+            }
+            if (sizes[i] === screenSize.value) {
+                return true;
             }
         }
         return false;
@@ -75,6 +93,7 @@ export default function useScreenSize() {
         SCREEN_WIDTHS,
         screenSize,
         minScreenSize,
+        maxScreenSize,
         monitorResize,
         updateBreakpoint,
     };
