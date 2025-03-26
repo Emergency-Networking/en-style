@@ -18,7 +18,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import useButtonStyles from './use-button-styles';
+import useButtonStyles from '../../composables/use-button-styles';
 
 const { getStyleClass, VARIANTS, INTENTS, ATTRIBUTES } = useButtonStyles();
 

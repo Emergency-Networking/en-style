@@ -1,4 +1,4 @@
-import { computed } from "vue";
+import { ref, computed } from "vue";
 const VARIANT_PRIMARY = "primary";
 const VARIANT_SECONDARY = "secondary";
 const VARIANT_TERTIARY = "tertiary";
@@ -146,6 +146,66 @@ function useButtonStyles() {
     VARIANTS,
     INTENTS,
     ATTRIBUTES
+  };
+}
+function useScreenSize() {
+  const MOBILE_SMALL = "mobileS";
+  const MOBILE_MEDIUM = "mobileM";
+  const MOBILE_LARGE = "mobileL";
+  const TABLET = "tablet";
+  const DESKTOP = "desktop";
+  const DESKTOP_XL = "desktopXL";
+  const SCREEN_WIDTHS = {
+    [MOBILE_SMALL]: 361,
+    [MOBILE_MEDIUM]: 400,
+    [MOBILE_LARGE]: 768,
+    [TABLET]: 1024,
+    [DESKTOP]: 1280,
+    [DESKTOP_XL]: 1400
+  };
+  const screenSize = ref(null);
+  const updateBreakpoint = () => {
+    if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[MOBILE_SMALL]}px)`).matches) {
+      screenSize.value = MOBILE_SMALL;
+      return;
+    }
+    if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[MOBILE_MEDIUM]}px)`).matches) {
+      screenSize.value = MOBILE_MEDIUM;
+      return;
+    }
+    if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[MOBILE_LARGE]}px)`).matches) {
+      screenSize.value = MOBILE_LARGE;
+      return;
+    }
+    if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[TABLET]}px)`).matches) {
+      screenSize.value = TABLET;
+      return;
+    }
+    if (window.matchMedia(`(max-width: ${SCREEN_WIDTHS[DESKTOP]}px)`).matches) {
+      screenSize.value = DESKTOP;
+      return;
+    }
+    screenSize.value = DESKTOP_XL;
+  };
+  updateBreakpoint();
+  const monitorResize = (monitor) => {
+    if (monitor) {
+      window.addEventListener("resize", updateBreakpoint);
+    } else {
+      window.removeEventListener("resize", updateBreakpoint);
+    }
+  };
+  return {
+    MOBILE_SMALL,
+    MOBILE_MEDIUM,
+    MOBILE_LARGE,
+    TABLET,
+    DESKTOP,
+    DESKTOP_XL,
+    SCREEN_WIDTHS,
+    screenSize,
+    monitorResize,
+    updateBreakpoint
   };
 }
 function normalizeComponent(scriptExports, render3, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
@@ -420,5 +480,6 @@ const deleteButton = __component__.exports;
 export {
   deleteButton as DeleteButton,
   enButton as EnButton,
-  useButtonStyles
+  useButtonStyles,
+  useScreenSize
 };
