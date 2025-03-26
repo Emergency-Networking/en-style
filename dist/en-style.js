@@ -499,7 +499,7 @@ const _sfc_main = {
 };
 var _sfc_render = function render2() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _c("button", { class: ["delete-button delete", _setup.attributes], on: { "click": _setup.onClicked } });
+  return _c("button", { class: ["delete-button delete", _setup.attributes], on: { "click": _setup.onClicked } }, [_c("span", { staticClass: "hit-area" })]);
 };
 var _sfc_staticRenderFns = [];
 var __component__ = /* @__PURE__ */ normalizeComponent(

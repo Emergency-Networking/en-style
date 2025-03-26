@@ -416,6 +416,9 @@
 }
 
 .delete {
+    --delete-hit-area-x: 1;
+
+    position: relative;
     padding: 0;
     border-radius: $delete-button-size-small;
     width: $delete-button-size-small;
@@ -449,5 +452,18 @@
         position: absolute;
         right: 0;
         top: 0;
+    }
+
+    .hit-area {
+        background-color: transparent;
+        width: calc(var(--delete-hit-area-x) * 100%);
+        height: calc(var(--delete-hit-area-x) * 100%);
+        display: block;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 5;
+        cursor: pointer;
     }
 }

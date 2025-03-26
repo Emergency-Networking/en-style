@@ -1,5 +1,5 @@
 <template>
-    <button :class="['delete-button delete', attributes]" @click="onClicked"></button>
+    <button :class="['delete-button delete', attributes]" @click="onClicked"><span class="hit-area"></span></button>
 </template>
 
 <script setup>
