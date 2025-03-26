@@ -1,3 +1,5 @@
+@import 'bulma-swatch-variables';
+
 // Colors
 $en-primary: #005ead;
 $en-red: #e41b1b;
@@ -26,9 +28,14 @@ $green: #499649;
 $orange: #fa9600;
 $orange-dull: #dd9826;
 
+$white: #fff;
 $light-gray: #72767e;
 $dark-gray: #2b2e31;
 $medium-dark-gray: #656a72;
+
+// Fonts
+$family-sans-serif: Lato, sans-serif;
+$family-primary: $family-sans-serif;
 
 $field-height: 2.25rem;
 $field-font-size: 0.95rem;
@@ -51,7 +58,7 @@ $placeholder-color: #757575;
 // Table variables
 $table-border-radius: 6px;
 $table-font-size: 0.9rem;
-$table-font-family: Lato;
+$table-font-family: $family-sans-serif;
 $table-theme-color: #244b6c;
 $cell-error-background: rgb(214 44 26 / 5%);
 
@@ -61,3 +68,5 @@ $danger-inverted: #fa4242;
 
 $delete-button-size-medium: 1.75rem;
 $delete-button-size-small: 1.25rem;
+
+$shadow-subtle: 0 0.5em 0.5em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.15);

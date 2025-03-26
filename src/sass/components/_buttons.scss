@@ -1,5 +1,5 @@
 @use 'sass:color';
-@import 'variables';
+@import '../abstracts';
 
 @keyframes spin {
     100% {
@@ -361,8 +361,8 @@
     &.size-small {
         height: 1.9rem;
         min-height: 1.9rem;
-        font-size: 0.8rem;
-        line-height: 1;
+        font-size: 0.78rem;
+        line-height: 1.01;
     }
     &.loadable {
         &::before,

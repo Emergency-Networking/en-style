@@ -1,0 +1,162 @@
+@use 'sass:color';
+
+@import '../abstracts';
+
+[data-theme='dark'],
+.theme-dark {
+    --bulma-label-color: #fff;
+    --bulma-strong-color: #fff;
+    --bulma-body-color: #eeeeee;
+    --bulma-arrow-color: white;
+
+    --bulma-text-strong: var(--bulma-body-color);
+
+    --bulma-link-h: 208;
+    --bulma-link-s: 100%;
+    --bulma-link-l: 72%;
+
+    --bulma-danger-h: 0;
+    --bulma-danger-s: 95%;
+    --bulma-danger-l: 62%;
+
+    .title {
+        --bulma-title-color: #ddd;
+    }
+    .subtitle {
+        --bulma-subtitle-color: #ddd;
+    }
+    table th {
+        color: var(--bulma-text-strong);
+    }
+
+    .card {
+        --bulma-card-color: #ddd;
+        --bulma-card-background-color: #{color.adjust(#f8f8f8, $lightness: -85%)};
+        background-color: var(--bulma-card-background-color);
+        border-color: #616161;
+    }
+
+    .card-header {
+        --bulma-card-header-background-color: #{color.adjust(#c0c4c6, $lightness: -55%)};
+        background-color: var(--bulma-card-header-background-color);
+    }
+    .card-header-title {
+        --bulma-card-header-color: #fff;
+        color: var(--bulma-card-header-color);
+    }
+    .card-footer {
+        background-color: rgba(236, 240, 241, 0.05);
+    }
+
+    .tabs {
+        a {
+            --bulma-tabs-link-color: #fff;
+        }
+    }
+
+    .is-link {
+        color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l));
+    }
+    .is-danger {
+        color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+    }
+
+    .box {
+        --bulma-box-color: #bcd3eb;
+        --bulma-box-background-color: #22292a;
+        background-color: var(--bulma-box-background-color);
+    }
+
+    .modal-card-head {
+        --bulma-modal-card-head-background-color: #41444c;
+        background-color: var(--bulma-modal-card-head-background-color);
+    }
+    .modal-card {
+        box-shadow: 0px 0px 30px 5px black;
+    }
+
+    .message.is-info {
+        color: $link-inverted;
+    }
+
+    .select select,
+    .multiselect__tags {
+        border-color: var(--bulma-input-border-color);
+    }
+    .multiselect__single,
+    .multiselect__input,
+    .multiselect__tags {
+        background: hsl(var(--bulma-input-h), var(--bulma-input-s), calc(var(--bulma-input-background-l) + var(--bulma-input-background-l-delta)));
+        color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l));
+    }
+    .multiselect__content-wrapper {
+        background-color: black;
+    }
+    .multiselect__element {
+        color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l));
+        // > span {
+        //     background-color: black;
+        // }
+    }
+    .multiselect__select:before {
+        color: white;
+        border-color: white transparent transparent;
+    }
+    .multiselect__option:not(.multiselect__option--highlight) {
+        color: rgb(201, 201, 201);
+    }
+
+    .btn-secondary {
+        background-color: black;
+        border-color: $link-inverted;
+        color: $link-inverted;
+    }
+
+    .btn-ghost {
+        border-color: #4c4c4c;
+        color: #e2e6e9;
+        &:hover {
+            // background-color: #1f1f1f;
+            background-color: white;
+        }
+    }
+    .btn-tertiary {
+        background-color: #035dad80;
+        color: $link-inverted;
+    }
+    .btn-link {
+        background-color: transparent;
+        color: $link-inverted;
+
+        &:hover {
+            color: white;
+        }
+    }
+    .btn-text {
+        color: $link-inverted;
+    }
+    .btn-danger {
+    }
+
+    .signature-pad-app {
+        // border-color: var(--bulma-input-border-color);
+        // background-color: hsl(var(--bulma-input-h), var(--bulma-input-s), calc(var(--bulma-input-background-l) + var(--bulma-input-background-l-delta)));
+
+        // These colors need to be the inverse value since we're flipping it.
+        border-color: rgb(202, 197, 185);
+        background-color: rgb(235, 233, 229);
+        filter: invert(1);
+    }
+
+    .tippy-box {
+        background-color: black;
+        border-color: #666;
+
+        .tippy-arrow:before {
+            background-color: black !important;
+            border-top: 1px solid #666 !important;
+            border-right: 1px solid #666 !important;
+            border-left-color: black !important;
+        }
+    }
+}

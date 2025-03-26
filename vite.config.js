@@ -38,13 +38,12 @@ export default defineConfig(({ mode }) => {
                 },
             },
         },
-        // worker: {
-        //     format: 'es',
-        //     rollupOptions: {
-        //         output: {
-        //             entryFileNames: 'workers/[name].js',
-        //         },
-        //     },
-        // },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    silenceDeprecations: ['import'],
+                },
+            },
+        },
     };
 });

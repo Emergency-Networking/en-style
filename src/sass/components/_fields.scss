@@ -1,3 +1,5 @@
+@import '../abstracts';
+
 .button,
 .control.has-icons-left .icon,
 .control.has-icons-right .icon,
@@ -12,7 +14,9 @@
     height: $field-height;
 }
 
-.select select, input, textarea {
+.select select,
+input,
+textarea {
     border-color: $field-border-color;
 }
 
@@ -108,7 +112,8 @@ input[type='radio'] {
         }
     }
 
-    .multiselect__input, .multiselect__single {
+    .multiselect__input,
+    .multiselect__single {
         padding-top: 4px;
         margin-bottom: 3px !important;
     }
@@ -241,7 +246,7 @@ input[type='radio'] {
                         }
                     }
 
-                    &.multiselect__option--group>.multiselect-option-disabled {
+                    &.multiselect__option--group > .multiselect-option-disabled {
                         background-color: inherit !important;
                         color: #b7bfc7 !important;
                         font-weight: inherit !important;
@@ -273,7 +278,7 @@ input[type='radio'] {
     &.grouped {
         .multiselect__content {
             .multiselect__option {
-                &.multiselect__option--group>.multiselect-option-disabled {
+                &.multiselect__option--group > .multiselect-option-disabled {
                     padding-left: calc(1.75rem - 12px);
                 }
 

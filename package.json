@@ -22,7 +22,7 @@
     "devDependencies": {
         "@aldrin-ai/prettier-config": "aldrin-ai/prettier-config",
         "@vitejs/plugin-vue2": "^2.3.3",
-        "bulma": "^0.7.1",
+        "bulma": "^1.0.3",
         "laravel-mix": "^6.0.19",
         "sass": "^1.16.0",
         "sass-loader": "^13.1.0",

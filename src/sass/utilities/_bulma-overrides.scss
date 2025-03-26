@@ -1,0 +1,178 @@
+@use 'sass:color';
+
+@import '../abstracts';
+
+:root {
+    --bulma-radius-large: 0.4rem;
+
+    // $is-success: #1d8147;
+    --bulma-success-h: 145;
+    --bulma-success-s: 63%;
+    --bulma-success-l: 31%;
+
+    // $light-blue: #2b74b1
+    --bulma-info-h: 207;
+    --bulma-info-s: 61%;
+    --bulma-info-l: 43%;
+
+    // $en-primary: #005ead
+    --bulma-link-h: 207;
+    --bulma-link-s: 100%;
+    --bulma-link-l: 34%;
+
+    // $danger: #d62c1a
+    --bulma-danger-h: 6;
+    --bulma-danger-s: 78%;
+    --bulma-danger-l: 47%;
+
+    // $is-warning: #f1b70e;
+    --bulma-warning-h: 45;
+    --bulma-warning-s: 89%;
+    --bulma-warning-l: 50%;
+
+    --bulma-white: #fff;
+
+    --bulma-body-color: #000;
+
+    --bulma-card-background-color: #f8f8f8;
+    --bulma-card-header-background-color: #c0c4c6;
+    --bulma-card-color: #000;
+    --bulma-label-color: #000;
+    --bulma-card-header-color: #000;
+    --bulma-tabs-link-color: #000;
+    --bulma-strong-color: #000;
+}
+
+.title {
+    --bulma-title-color: #333;
+}
+.subtitle {
+    --bulma-subtitle-color: #333;
+}
+
+.is-success {
+    color: $is-success;
+}
+
+.is-info {
+    color: $is-info;
+}
+
+.is-link {
+    color: $is-link;
+}
+
+.is-danger {
+    color: $is-danger;
+}
+
+.is-warning {
+    color: $is-warning;
+}
+
+.has-text-grey-light {
+    color: $light-gray !important;
+}
+
+.box {
+    &.shadow {
+        box-shadow: $shadow-subtle;
+    }
+}
+
+.menu-list {
+    a {
+        --bulma-menu-list-link-padding: 0.5rem 0.75rem;
+        // --bulma-menu-item-hover-background-l-delta: 0.1;
+    }
+    a.is-active {
+        background-color: $selection-color;
+        color: white;
+        pointer-events: none;
+    }
+}
+
+hr {
+    background-color: #c4d1d4;
+}
+
+.card {
+    --bulma-card-background-color: #f8f8f8;
+    // background: #f8f8f8;
+    box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.05), 0 0px 2px 0px rgba(0, 0, 0, 0.15);
+    border: 0.5px solid #bbb;
+    // overflow: hidden;
+}
+
+.tabs {
+    margin-bottom: 1.5rem;
+    a {
+        &:hover {
+            color: $primary-highlight;
+            border-bottom-color: $primary-highlight;
+        }
+    }
+}
+
+.content {
+    .multiselect {
+        ul {
+            margin: inherit;
+        }
+    }
+}
+
+.title {
+    &.bottom-line {
+        border-bottom: 1px solid;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.title,
+.subtitle {
+    word-break: normal;
+    --bulma-title-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+// Lost in the bulma upgrade to v1.0
+.field:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+
+.message-body {
+    border-color: var(--bulma-info-on-scheme-l) !important;
+    border-style: solid !important;
+}
+
+.tag {
+    &.is-success,
+    &.is-info,
+    &.is-link,
+    &.is-warning,
+    &.is-danger {
+        color: white;
+    }
+}
+
+$modal-line-color: #ddd;
+.modal {
+    --bulma-modal-card-head-padding: 1.25rem;
+    --bulma-modal-card-body-padding: 2.5rem 2rem;
+
+    .modal-card-head {
+        box-shadow: none;
+        border-bottom: 1px solid #{$modal-line-color};
+    }
+
+    .modal-card-foot {
+        border-top: 1px solid #{$modal-line-color};
+        button:not(:first-child) {
+            margin-left: 0.25rem;
+        }
+        button:not(:last-child) {
+            margin-right: 0.25rem;
+        }
+    }
+}
