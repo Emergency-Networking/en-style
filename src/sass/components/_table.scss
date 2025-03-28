@@ -280,6 +280,17 @@
             }
         }
     }
+
+    .ag-column-drop-cell {
+        --ag-chip-background-color: #{$selection-color};
+        color: white;
+        font-weight: bold;
+
+        .ag-icon-cancel,
+        .ag-icon-grip {
+            color: white;
+        }
+    }
 }
 
 .ag-theme-alpine-dark {
