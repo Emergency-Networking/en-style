@@ -23,6 +23,12 @@ textarea {
 .input,
 .textarea {
     border-width: 1px !important;
+
+    &:active,
+    &:focus,
+    &:focus-visible {
+        outline-color: $focus-outline-color;
+    }
 }
 
 .input[disabled],
