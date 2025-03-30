@@ -105,7 +105,7 @@
         }
     }
     &.btn-secondary {
-        background-color: white;
+        background-color: var(--bulma-body-background-color);
         border-color: $is-primary;
         color: $is-primary;
 

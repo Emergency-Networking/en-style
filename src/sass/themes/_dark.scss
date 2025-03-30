@@ -106,36 +106,72 @@
         color: rgb(201, 201, 201);
     }
 
-    .btn-secondary {
-        background-color: black;
-        border-color: $link-inverted;
-        color: $link-inverted;
-    }
-
-    .btn-ghost {
-        border-color: #4c4c4c;
-        color: #e2e6e9;
-        &:hover {
-            // background-color: #1f1f1f;
-            background-color: white;
+    .button:not(.selected) {
+        &.btn-secondary:not(:hover) {
+            background-color: var(--bulma-body-background-color);
+            border-color: $link-inverted;
+            color: $link-inverted;
         }
-    }
-    .btn-tertiary {
-        background-color: #035dad80;
-        color: $link-inverted;
-    }
-    .btn-link {
-        background-color: transparent;
-        color: $link-inverted;
+        &.btn-secondary {
+            &.btn-warn {
+                border-color: $is-warning;
+                color: $is-warning;
+                &:hover {
+                    color: black;
+                }
+            }
+            &.btn-cancel {
+                border-color: #808080;
+                color: #e2e6e9;
+                &:hover {
+                    background-color: $is-cancel;
+                    color: white;
+                }
+            }
+            &.btn-danger {
+                border-color: $is-danger;
+                color: $is-danger;
 
-        &:hover {
-            color: white;
+                &:hover {
+                    background-color: $is-danger;
+                    color: white;
+                }
+            }
         }
-    }
-    .btn-text {
-        color: $link-inverted;
-    }
-    .btn-danger {
+
+        &.btn-ghost {
+            background-color: var(--bulma-body-background-color);
+            border-color: 808080;
+            color: #e2e6e9;
+            &:hover {
+                background-color: #1f1f1f;
+                border-color: $primary-highlight;
+                color: $primary-highlight;
+            }
+            &.btn-danger {
+                &:hover {
+                    border-color: $is-danger;
+                    background-color: $is-danger;
+                    color: white;
+                }
+            }
+        }
+
+        &.btn-tertiary {
+            background-color: #035dad80;
+            color: $link-inverted;
+        }
+        &.btn-link {
+            background-color: transparent;
+            color: $link-inverted;
+
+            &:hover {
+                color: white;
+            }
+        }
+        &.btn-text {
+            color: $link-inverted;
+        }
     }
 
     .signature-pad-app {
