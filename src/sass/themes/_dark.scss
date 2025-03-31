@@ -95,7 +95,7 @@
         &.multiselect--disabled {
             .multiselect__single,
             .multiselect__tags {
-                background: #3b3939;
+                background: $disabled-field-background-dark;
             }
         }
     }
@@ -126,12 +126,15 @@
         }
     }
 
-    .switch[type='checkbox'].is-medium + div:before {
-        background-color: black;
-    }
-    .switch[type='checkbox'].is-medium + div:after {
-        background-color: #cbcbcb;
-        border-color: #999999;
+    .form-preview .type-checkbox,
+    .type-checkbox {
+        &.switch[type='checkbox'] + div:before {
+            background-color: black;
+        }
+        &.switch[type='checkbox'] + div:after {
+            background-color: #cbcbcb;
+            border-color: #999999;
+        }
     }
 
     .button:not(.selected) {
@@ -169,8 +172,8 @@
 
         &.btn-ghost {
             background-color: var(--bulma-body-background-color);
-            border-color: 808080;
-            color: #e2e6e9;
+            border-color: #a1bed7;
+            color: #a1bed7;
             &:hover {
                 background-color: #1f1f1f;
                 border-color: $primary-highlight;
@@ -239,5 +242,11 @@
         &:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
+    }
+
+    .ag-grid-table .ag-row:not(.ag-row-selected) .ag-cell .table-field .field.disabled .control .input,
+    .ag-theme-alpine .ag-row:not(.ag-row-selected) .ag-cell .table-field .field.disabled .control .input {
+        background-color: $disabled-field-background-dark !important;
+        color: $disabled-field-color-dark !important;
     }
 }

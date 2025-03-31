@@ -1,5 +1,13 @@
 @import 'bulma-swatch-variables';
 
+:root {
+    --selection-color: #2d5c86;
+}
+[data-theme='dark'],
+.theme-dark {
+    --selection-color: #7ea8ce;
+}
+
 // Colors
 $en-primary: #005ead;
 $en-red: #e41b1b;
@@ -64,7 +72,7 @@ $table-theme-color: #244b6c;
 $cell-error-background: rgb(214 44 26 / 5%);
 
 // Dark mode
-$link-inverted: #70bcff;
+$link-inverted: #2a90ea;
 $danger-inverted: #fa4242;
 
 $delete-button-size-medium: 1.75rem;
