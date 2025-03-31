@@ -63,6 +63,7 @@ input[type='radio'] {
 .multiselect {
     min-height: $field-height !important;
     color: #363636;
+    border-radius: 6px;
 
     &.truncate-options {
         .multiselect__content-wrapper .multiselect__content .multiselect__element .multiselect__option span {

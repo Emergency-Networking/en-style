@@ -85,6 +85,21 @@
     .multiselect__tags {
         border-color: var(--bulma-input-border-color);
     }
+
+    .input[disabled],
+    .textarea[disabled] {
+        background-color: #3b3939;
+        color: #ebecf0bf;
+    }
+    .multiselect {
+        &.multiselect--disabled {
+            .multiselect__single,
+            .multiselect__tags {
+                background: #3b3939;
+            }
+        }
+    }
+
     .multiselect__single,
     .multiselect__input,
     .multiselect__tags {
@@ -187,6 +202,7 @@
         }
     }
 
+    .signature-pad,
     .signature-pad-app {
         // border-color: var(--bulma-input-border-color);
         // background-color: hsl(var(--bulma-input-h), var(--bulma-input-s), calc(var(--bulma-input-background-l) + var(--bulma-input-background-l-delta)));
@@ -195,6 +211,15 @@
         border-color: rgb(202, 197, 185);
         background-color: rgb(235, 233, 229);
         filter: invert(1);
+    }
+    .feature-module.signature-window .feature-module-window .field-wrapper.override-error-off .signature-pad-container {
+        border-color: #474747 !important;
+    }
+    .signature-pad-container {
+        background-color: black !important;
+        .sign-here {
+            color: #666;
+        }
     }
 
     .tippy-box {
@@ -206,6 +231,13 @@
             border-top: 1px solid #666 !important;
             border-right: 1px solid #666 !important;
             border-left-color: black !important;
+        }
+    }
+
+    .delete {
+        background-color: rgba(255, 255, 255, 0.2);
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
         }
     }
 }
