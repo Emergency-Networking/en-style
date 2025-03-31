@@ -115,7 +115,13 @@ hr {
     border: 0.5px solid #bbb;
     // overflow: hidden;
 }
-
+.tabs li.is-active a,
+.tabs.is-boxed li.is-active a {
+    color: var(--selection-color);
+}
+.tabs li.is-active a {
+    border-bottom-color: var(--selection-color);
+}
 .tabs {
     margin-bottom: 1.5rem;
     a {
