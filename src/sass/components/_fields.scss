@@ -162,7 +162,7 @@ input[type='radio'] {
         .multiselect__tag {
             border-radius: 2rem;
             padding: 0.35rem 0.5rem;
-            background-color: $selection-color;
+            background-color: var(--selection-color);
             color: white;
             max-width: 22rem;
             margin-right: 5px;
@@ -233,11 +233,11 @@ input[type='radio'] {
                     }
 
                     &.multiselect__option--selected {
-                        color: $selection-color;
+                        color: var(--selection-color);
 
                         &.multiselect__option--highlight {
                             background-color: #e0e0e0;
-                            color: $selection-color;
+                            color: var(--selection-color);
                         }
                     }
 

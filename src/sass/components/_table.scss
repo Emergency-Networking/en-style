@@ -282,7 +282,7 @@
     }
 
     .ag-column-drop-cell {
-        --ag-chip-background-color: #{$selection-color};
+        --ag-chip-background-color: var(--selection-color);
         color: white;
         font-weight: bold;
 

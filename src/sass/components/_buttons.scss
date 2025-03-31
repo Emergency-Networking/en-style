@@ -82,9 +82,9 @@
         }
 
         &.selected {
-            background-color: $selection-color;
+            background-color: var(--selection-color);
             color: white;
-            border-color: $selection-color;
+            border-color: var(--selection-color);
 
             &:not(.toggleable) {
                 pointer-events: none;
@@ -147,9 +147,9 @@
         }
 
         &.selected {
-            background-color: $selection-color;
+            background-color: var(--selection-color);
             color: white;
-            border-color: $selection-color;
+            border-color: var(--selection-color);
 
             &:not(.toggleable) {
                 pointer-events: none;
@@ -211,9 +211,9 @@
         }
 
         &.selected {
-            background-color: $selection-color;
+            background-color: var(--selection-color);
             color: white;
-            border-color: $selection-color;
+            border-color: var(--selection-color);
 
             &:not(.toggleable) {
                 pointer-events: none;
@@ -266,9 +266,9 @@
         }
 
         &.selected {
-            background-color: $selection-color;
+            background-color: var(--selection-color);
             color: white;
-            border-color: $selection-color;
+            border-color: var(--selection-color);
 
             &:not(.toggleable) {
                 pointer-events: none;

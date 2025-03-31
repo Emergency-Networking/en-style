@@ -172,9 +172,9 @@
 
         &.btn-ghost {
             background-color: var(--bulma-body-background-color);
-            border-color: #a1bed7;
-            color: #a1bed7;
-            &:hover {
+            border-color: $ghost-button-border-dark;
+            color: $ghost-button-color-dark;
+            &:hover:not(.selected) {
                 background-color: #1f1f1f;
                 border-color: $primary-highlight;
                 color: $primary-highlight;
@@ -190,18 +190,18 @@
 
         &.btn-tertiary {
             background-color: #035dad80;
-            color: $link-inverted;
+            color: $tertiary-color-dark;
         }
         &.btn-link {
             background-color: transparent;
-            color: $link-inverted;
+            color: $tertiary-color-dark;
 
             &:hover {
                 color: white;
             }
         }
         &.btn-text {
-            color: $link-inverted;
+            color: $tertiary-color-dark;
         }
     }
 

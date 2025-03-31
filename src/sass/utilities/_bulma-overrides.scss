@@ -98,7 +98,7 @@
         // --bulma-menu-item-hover-background-l-delta: 0.1;
     }
     a.is-active {
-        background-color: $selection-color;
+        background-color: var(--selection-color);
         color: white;
         pointer-events: none;
     }
