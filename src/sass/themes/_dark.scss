@@ -88,8 +88,8 @@
 
     .input[disabled],
     .textarea[disabled] {
-        background-color: #3b3939;
-        color: #ebecf0bf;
+        background-color: $disabled-field-background-dark;
+        color: $disabled-field-color-dark;
     }
     .multiselect {
         &.multiselect--disabled {
