@@ -79,6 +79,8 @@
         color: $link-inverted;
     }
 
+    .input,
+    .textarea,
     .select select,
     .multiselect__tags {
         border-color: var(--bulma-input-border-color);
@@ -94,9 +96,6 @@
     }
     .multiselect__element {
         color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l));
-        // > span {
-        //     background-color: black;
-        // }
     }
     .multiselect__select:before {
         color: white;
@@ -104,6 +103,20 @@
     }
     .multiselect__option:not(.multiselect__option--highlight) {
         color: rgb(201, 201, 201);
+    }
+    .multiselect .multiselect__content-wrapper .multiselect__content .multiselect__element .multiselect__option.multiselect__option--group {
+        background-color: var(--bulma-body-background-color) !important;
+        span {
+            color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l)) !important;
+        }
+    }
+
+    .switch[type='checkbox'].is-medium + div:before {
+        background-color: black;
+    }
+    .switch[type='checkbox'].is-medium + div:after {
+        background-color: #cbcbcb;
+        border-color: #999999;
     }
 
     .button:not(.selected) {
