@@ -1,0 +1,238 @@
+@import '../abstracts';
+
+.tippy-box {
+    $tippy-background-color: #fafaff;
+    $arrow-border-color: #cfcfcf;
+
+    background-color: $tippy-background-color;
+    // background-color: var(--bulma-body-background-color);
+    border: 1px solid #ccc;
+    padding: 0;
+    border-radius: 8px;
+
+    .tippy-content {
+        border-radius: 8px;
+    }
+
+    .tippy-arrow {
+        color: $tippy-background-color;
+
+        &:before {
+            background-color: $tippy-background-color;
+            width: 100%;
+            height: 100%;
+            transform: rotate(45deg);
+        }
+    }
+
+    &[data-placement^='left'] {
+        > .tippy-arrow {
+            top: -6px !important;
+
+            &:before {
+                border-top: 1px solid $arrow-border-color;
+                border-right: 1px solid $arrow-border-color;
+                right: -9px;
+            }
+        }
+    }
+
+    &[data-placement^='right'] {
+        > .tippy-arrow {
+            top: 6px !important;
+
+            &:before {
+                border-left: 1px solid $arrow-border-color;
+                border-bottom: 1px solid $arrow-border-color;
+                left: -9px;
+            }
+        }
+    }
+
+    &[data-placement^='top'] {
+        > .tippy-arrow {
+            &:before {
+                border-bottom: 1px solid $arrow-border-color;
+                border-right: 1px solid $arrow-border-color;
+                bottom: -9px;
+                left: 3px;
+            }
+        }
+    }
+
+    &[data-placement^='bottom'] {
+        > .tippy-arrow {
+            &:before {
+                border-top: 1px solid $arrow-border-color;
+                border-left: 1px solid $arrow-border-color;
+                top: -9px;
+                left: 3px;
+            }
+        }
+    }
+    &[data-theme='context-menu'] {
+        .tippy-content {
+            > div {
+            }
+        }
+    }
+    &[data-theme='context-menu'] {
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+        min-width: 9rem;
+
+        .tippy-content {
+            > div {
+                max-height: calc(var(--windowHeight) - 6rem);
+                overflow-y: auto;
+                overflow-x: clip;
+                display: flex !important;
+                flex-direction: column;
+                color: #000;
+                padding-right: 1rem;
+                .context-menu-title {
+                    font-size: 0.8rem;
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: 2px;
+                    margin-bottom: 0.25rem;
+                    text-transform: uppercase;
+                    color: #666;
+                }
+                button {
+                    width: 100%;
+                    background-color: transparent;
+                    padding: 0.25rem;
+                    height: inherit;
+                    border: none;
+                    justify-content: flex-start;
+                    box-shadow: none !important;
+                    font-size: 0.95rem;
+                    pointer-events: all;
+                    font-weight: normal;
+                    &:hover {
+                        color: $en-primary;
+                    }
+
+                    span {
+                        margin-right: 0.35rem;
+                    }
+
+                    .index {
+                    }
+                    .record-title {
+                        font-weight: bold;
+                    }
+                    .record-value {
+                        font-weight: bold;
+                    }
+                    .record-id {
+                        font-size: 0.8rem;
+                        color: #666;
+                    }
+
+                    &.btn-primary {
+                        font-weight: bold;
+                        color: $is-primary;
+                        &:hover {
+                            color: $primary-highlight;
+                        }
+                    }
+
+                    &.btn-text {
+                        color: #444;
+                        &:hover {
+                            color: $primary-highlight;
+                        }
+                    }
+                    &.btn-ghost:not(:hover) {
+                        color: #444;
+                    }
+                    &.btn-ghost,
+                    &.btn-warn {
+                        background-color: transparent;
+                        &:hover {
+                            background-color: transparent;
+                            color: $primary-highlight;
+                        }
+                        &.selected {
+                            background-color: transparent;
+                            color: var(--selection-color);
+                        }
+                    }
+                    &.btn-danger {
+                        &:hover {
+                            color: $is-danger;
+                        }
+                    }
+
+                    // &.btn-ghost,
+                    // &.btn-warn {
+                    //     color: #444;
+                    //     &:hover {
+                    //         background-color: transparent;
+                    //         color: $primary-highlight;
+                    //     }
+                    //     &.selected {
+                    //         background-color: transparent;
+                    //         color: var(--selection-color);
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+    &[data-theme='info-window'] {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+        min-width: 16rem;
+
+        .tippy-content {
+            padding: 0;
+            overflow: hidden;
+        }
+    }
+    &[data-theme='popup-content'] {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+        min-width: 30rem;
+        // padding-right: 1rem 1.5rem;
+
+        .tippy-content {
+            > div {
+                max-height: calc(var(--windowHeight) - 6rem);
+                overflow-y: auto;
+                display: flex !important;
+                flex-direction: column;
+                color: #000;
+            }
+        }
+    }
+    &[data-theme='info-dark'] {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+        max-width: 16rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: $tippy-background-color;
+        .tippy-content {
+            padding: 0;
+            overflow: hidden;
+        }
+    }
+    &[data-theme='icon-menu'] {
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+        .tippy-content {
+            > div {
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                button {
+                    min-width: 3.5rem;
+                    margin: 0.25rem;
+                    background-color: transparent;
+                    padding: 0 0.25rem;
+                    height: inherit;
+                    border: none;
+                    justify-content: center;
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+}

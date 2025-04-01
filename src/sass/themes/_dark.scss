@@ -202,7 +202,7 @@
             }
         }
         &.btn-text {
-            color: $tertiary-color-dark;
+            // color: $tertiary-color-dark;
         }
     }
 
@@ -222,19 +222,7 @@
     .signature-pad-container {
         background-color: black !important;
         .sign-here {
-            color: #666;
-        }
-    }
-
-    .tippy-box {
-        background-color: black;
-        border-color: #666;
-
-        .tippy-arrow:before {
-            background-color: black !important;
-            border-top: 1px solid #666 !important;
-            border-right: 1px solid #666 !important;
-            border-left-color: black !important;
+            color: $border-color-dark;
         }
     }
 
@@ -249,5 +237,49 @@
     .ag-theme-alpine .ag-row:not(.ag-row-selected) .ag-cell .table-field .field.disabled .control .input {
         background-color: $disabled-field-background-dark !important;
         color: $disabled-field-color-dark !important;
+    }
+
+    .tippy-box {
+        box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.5);
+        &[data-theme='context-menu'] {
+            .tippy-content {
+                > div {
+                    .button {
+                        &.btn-primary:not(:hover) {
+                            color: $link-inverted;
+                        }
+                        &.btn-text:not(:hover),
+                        &.btn-ghost:not(:hover) {
+                            color: #d5d8dd; //$ghost-button-color-dark;
+                        }
+                        &.btn-warn {
+                            background-color: transparent;
+                            &:hover {
+                                background-color: transparent;
+                                color: $primary-highlight;
+                            }
+                            &.selected {
+                                background-color: transparent;
+                                color: var(--selection-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        background-color: var(--bulma-body-background-color);
+        border-color: $border-color-dark;
+
+        .tippy-arrow:before {
+            background-color: var(--bulma-body-background-color) !important;
+            border-top: 1px solid $border-color-dark !important;
+            border-right: 1px solid $border-color-dark !important;
+            border-left-color: var(--bulma-body-background-color) !important;
+        }
+        .tippy-content {
+            .button {
+                background-color: transparent !important;
+            }
+        }
     }
 }
