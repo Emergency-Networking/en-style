@@ -86,6 +86,10 @@
     color: $light-gray !important;
 }
 
+.has-background-black {
+    background-color: black;
+}
+
 .box {
     &.shadow {
         box-shadow: $shadow-subtle;

@@ -2,10 +2,12 @@
 
 :root {
     --selection-color: #2d5c86;
+    --placeholder-color: #757575;
 }
 [data-theme='dark'],
 .theme-dark {
     --selection-color: #7ea8ce;
+    --placeholder-color: #999;
 }
 
 // Colors

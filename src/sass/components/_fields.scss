@@ -40,7 +40,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    color: $placeholder-color !important;
+    color: var(--placeholder-color) !important;
 }
 
 .button {
@@ -114,7 +114,7 @@ input[type='radio'] {
         font-size: $field-font-size;
 
         ::placeholder {
-            color: #aaa;
+            color: var(--placeholder-color);
             font-size: $field-font-size;
         }
     }
@@ -154,7 +154,7 @@ input[type='radio'] {
         }
 
         .multiselect__placeholder {
-            color: $placeholder-color;
+            color: var(--placeholder-color);
             padding-top: 3px;
             display: inline-block;
         }
