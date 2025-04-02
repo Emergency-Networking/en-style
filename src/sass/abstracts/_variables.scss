@@ -8,6 +8,7 @@
 .theme-dark {
     --selection-color: #7ea8ce;
     --placeholder-color: #999;
+    color-scheme: dark;
 }
 
 // Colors
@@ -76,7 +77,7 @@ $cell-error-background: rgb(214 44 26 / 5%);
 // Dark mode
 $link-inverted: #2a90ea;
 $danger-inverted: #fa4242;
-$ghost-button-border-dark: #7e8a95;
+$ghost-button-border-dark: #5e6973;
 $ghost-button-color-dark: #dbe6f0;
 $tertiary-color-dark: #86c0f3;
 $border-color-dark: #666;
