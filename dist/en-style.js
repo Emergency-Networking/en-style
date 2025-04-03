@@ -239,6 +239,28 @@ function useScreenSize() {
     updateBreakpoint
   };
 }
+function useDarkMode() {
+  const darkModeEnabled = computed(() => {
+    const htmlElement = document.querySelector("html");
+    return htmlElement.getAttribute("data-theme") === "dark";
+  });
+  const darkModePreference = () => {
+    return localStorage.getItem("darkMode") === "dark";
+  };
+  const darkModeStoredPreference = ref(darkModePreference());
+  const toggleDarkMode = () => {
+    const darkMode = darkModePreference() ? "light" : "dark";
+    const htmlElement = document.querySelector("html");
+    htmlElement.setAttribute("data-theme", darkMode);
+    localStorage.setItem("darkMode", darkMode);
+    darkModeStoredPreference.value = darkModePreference();
+  };
+  return {
+    darkModeEnabled,
+    darkModePreference,
+    toggleDarkMode
+  };
+}
 function normalizeComponent(scriptExports, render3, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
   var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
   if (render3) {
@@ -512,5 +534,6 @@ export {
   deleteButton as DeleteButton,
   enButton as EnButton,
   useButtonStyles,
+  useDarkMode,
   useScreenSize
 };
