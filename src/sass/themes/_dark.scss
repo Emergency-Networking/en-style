@@ -33,7 +33,7 @@
         --bulma-card-color: #ddd;
         --bulma-card-background-color: #{$container-background-dark};
         background-color: var(--bulma-card-background-color);
-        border-color: #616161;
+        border-color: $container-border-dark;
     }
 
     .card-header {
@@ -74,6 +74,25 @@
     }
     .modal-card {
         box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.45);
+    }
+
+    .panel {
+        --bulma-panel-background-color: #242628;
+        background-color: var(--bulma-panel-background-color);
+        border: 1px solid $container-border-dark;
+        box-shadow: $dark-shadow;
+        .panel-block:hover {
+            color: $primary-highlight;
+            .panel-icon {
+                color: $primary-highlight;
+            }
+        }
+        .button.panel-block {
+            &.is-active {
+                background-color: var(--bulma-body-background-color) !important;
+                color: var(--selection-color) !important;
+            }
+        }
     }
 
     .message.is-info {
@@ -246,9 +265,10 @@
                 > div {
                     .button {
                         &.btn-primary:not(:hover),
+                        &.btn-secondary:not(:hover),
                         &.btn-text:not(:hover),
                         &.btn-ghost:not(:hover) {
-                            color: #d5d8dd; //$ghost-button-color-dark;
+                            color: #d5d8dd;
                         }
                         &.btn-warn {
                             background-color: transparent;

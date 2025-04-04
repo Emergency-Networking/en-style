@@ -2,11 +2,13 @@
 
 :root {
     --selection-color: #2d5c86;
+    --selection-color-inverted: rgb(210, 163, 121);
     --placeholder-color: #757575;
 }
 [data-theme='dark'],
 .theme-dark {
     --selection-color: #7ea8ce;
+    --selection-color-inverted: rgb(129, 87, 49);
     --placeholder-color: #999;
     color-scheme: dark;
 }

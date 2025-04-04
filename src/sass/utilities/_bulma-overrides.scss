@@ -185,6 +185,32 @@ $modal-line-color: #ddd;
     }
 }
 
+.panel {
+    box-shadow: $shadow-subtle;
+    overflow: hidden;
+
+    .button.panel-block {
+        font-size: 1rem !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 1.5rem 1rem !important;
+        outline: none !important;
+        border-bottom: var(--bulma-panel-item-border) !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        &:not(:hover) {
+            color: var(--bulma-panel-item-color) !important;
+        }
+        &:hover {
+            color: $primary-highlight !important;
+        }
+        &.is-active {
+            background-color: $white-ter !important;
+            color: var(--selection-color) !important;
+        }
+    }
+}
+
 @include mixins.mobile {
     .title {
         --bulma-title-size: 1.5rem;

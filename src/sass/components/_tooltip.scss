@@ -138,6 +138,13 @@
                         }
                     }
 
+                    &.btn-secondary {
+                        color: $tippy-link-color;
+                        &:hover {
+                            color: $primary-highlight;
+                        }
+                    }
+
                     &.btn-text {
                         color: $tippy-link-color;
                         &:hover {
