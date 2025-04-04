@@ -191,7 +191,6 @@
         }
 
         &.btn-ghost {
-            background-color: var(--bulma-body-background-color);
             border-color: $ghost-button-border-dark;
             color: $ghost-button-color-dark;
             &:hover:not(.selected) {
