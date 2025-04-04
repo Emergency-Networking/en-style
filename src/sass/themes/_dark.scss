@@ -300,4 +300,39 @@
             }
         }
     }
+
+    .flatpickr-calendar {
+        // Use the color inverse
+        $calendar-select-color: rgb(169, 96, 3);
+        filter: invert(1);
+
+        border: 1px solid #ccc;
+        box-shadow: none !important; //1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+
+        .flatpickr-day.selected {
+            background-color: $calendar-select-color;
+            border-color: $calendar-select-color;
+            color: black;
+        }
+        .flatpickr-day.today {
+            border-color: $calendar-select-color;
+        }
+        .flatpickr-months .flatpickr-prev-month:hover,
+        .flatpickr-months .flatpickr-next-month:hover {
+            color: rgb(106, 97, 86);
+        }
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: rgb(106, 97, 86);
+        }
+        .flatpickr-day.flatpickr-disabled,
+        .flatpickr-day.flatpickr-disabled:hover {
+            color: rgba(57, 57, 57, 0.35);
+        }
+
+        input::selection,
+        input::-moz-selection {
+            background: $calendar-select-color;
+        }
+    }
 }
