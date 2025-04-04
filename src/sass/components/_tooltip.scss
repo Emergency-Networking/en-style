@@ -132,20 +132,20 @@
 
                     &.btn-primary {
                         font-weight: bold;
-                        color: $is-primary;
+                        color: $tippy-link-color;
                         &:hover {
                             color: $primary-highlight;
                         }
                     }
 
                     &.btn-text {
-                        color: #444;
+                        color: $tippy-link-color;
                         &:hover {
                             color: $primary-highlight;
                         }
                     }
                     &.btn-ghost:not(:hover) {
-                        color: #444;
+                        color: $tippy-link-color;
                     }
                     &.btn-ghost,
                     &.btn-warn {
@@ -167,7 +167,7 @@
 
                     // &.btn-ghost,
                     // &.btn-warn {
-                    //     color: #444;
+                    //     color: $tippy-link-color;
                     //     &:hover {
                     //         background-color: transparent;
                     //         color: $primary-highlight;

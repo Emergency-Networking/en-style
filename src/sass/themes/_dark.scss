@@ -31,7 +31,7 @@
 
     .card {
         --bulma-card-color: #ddd;
-        --bulma-card-background-color: #{color.adjust(#f8f8f8, $lightness: -85%)};
+        --bulma-card-background-color: #{$container-background-dark};
         background-color: var(--bulma-card-background-color);
         border-color: #616161;
     }
@@ -48,6 +48,12 @@
         background-color: rgba(236, 240, 241, 0.05);
     }
 
+    .box {
+        --bulma-box-color: #bcd3eb;
+        --bulma-box-background-color: #242628;
+        background-color: var(--bulma-box-background-color);
+    }
+
     .tabs.is-boxed,
     .tabs {
         a {
@@ -60,12 +66,6 @@
     }
     .is-danger {
         color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
-    }
-
-    .box {
-        --bulma-box-color: #bcd3eb;
-        --bulma-box-background-color: #22292a;
-        background-color: var(--bulma-box-background-color);
     }
 
     .modal-card-head {
@@ -222,7 +222,7 @@
     .signature-pad-container {
         background-color: black !important;
         .sign-here {
-            color: $border-color-dark;
+            color: $container-border-dark;
         }
     }
 
@@ -245,9 +245,7 @@
             .tippy-content {
                 > div {
                     .button {
-                        &.btn-primary:not(:hover) {
-                            color: $link-inverted;
-                        }
+                        &.btn-primary:not(:hover),
                         &.btn-text:not(:hover),
                         &.btn-ghost:not(:hover) {
                             color: #d5d8dd; //$ghost-button-color-dark;
@@ -268,12 +266,12 @@
             }
         }
         background-color: var(--bulma-body-background-color);
-        border-color: $border-color-dark;
+        border-color: $container-border-dark;
 
         .tippy-arrow:before {
             background-color: var(--bulma-body-background-color) !important;
-            border-top: 1px solid $border-color-dark !important;
-            border-right: 1px solid $border-color-dark !important;
+            border-top: 1px solid $container-border-dark !important;
+            border-right: 1px solid $container-border-dark !important;
             border-left-color: var(--bulma-body-background-color) !important;
         }
         .tippy-content {
