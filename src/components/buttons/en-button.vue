@@ -7,7 +7,9 @@
         :as="props.as"
         :aria-label="props.label"
         :type="formButtonType"
-        :target="props.target">
+        :target="props.target"
+        v-bind="$attrs"
+        >
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
         <slot>

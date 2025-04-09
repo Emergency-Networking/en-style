@@ -456,7 +456,7 @@ const _sfc_main$1 = {
 };
 var _sfc_render$1 = function render() {
   var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _c(_setup.componentType, { tag: "component", class: [_setup.styleClass], attrs: { "href": _vm.href, "as": _setup.props.as, "aria-label": _setup.props.label, "type": _setup.formButtonType, "target": _setup.props.target }, on: { "click": _setup.onClicked } }, [_setup.props.icon ? _c("span", { class: _setup.faIcon, style: _vm.iconRight ? { order: 1 } : null }) : _vm._e(), _vm._t("default", function() {
+  return _c(_setup.componentType, _vm._b({ tag: "component", class: [_setup.styleClass], attrs: { "href": _vm.href, "as": _setup.props.as, "aria-label": _setup.props.label, "type": _setup.formButtonType, "target": _setup.props.target }, on: { "click": _setup.onClicked } }, "component", _vm.$attrs, false), [_setup.props.icon ? _c("span", { class: _setup.faIcon, style: _vm.iconRight ? { order: 1 } : null }) : _vm._e(), _vm._t("default", function() {
     return [!_vm.hideLabel ? [_vm._v(_vm._s(_vm.label))] : _vm._e()];
   })], 2);
 };
