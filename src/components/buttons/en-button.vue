@@ -1,5 +1,6 @@
 <template>
     <component
+        :key="clickKey"
         :is="componentType"
         :class="[styleClass]"
         :href="href"
@@ -8,8 +9,7 @@
         :aria-label="props.label"
         :type="formButtonType"
         :target="props.target"
-        v-bind="$attrs"
-        >
+        v-bind="$attrs">
         <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
         <slot>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import useButtonStyles from '../../composables/use-button-styles';
 
 const { getStyleClass, VARIANTS, INTENTS, ATTRIBUTES } = useButtonStyles();
@@ -149,9 +149,31 @@ const attributes = computed(() => {
     return buttonAttributes;
 });
 
-const onClicked = () => {
+let clickTimeout = null;
+const clickKey = ref(null);
+
+onMounted(() => {
+    if (window.mobile) {
+        clickKey.value = Math.random().toString(36).slice(2);
+    }
+});
+
+const onClicked = event => {
     emit('click');
+
+    if (window.mobile) {
+        clearTimeout(clickTimeout);
+        clickTimeout = setTimeout(() => {
+            clickKey.value = Math.random().toString(36).slice(2);
+        }, 200);
+    }
 };
+
+onUnmounted(() => {
+    if (window.mobile) {
+        clearTimeout(clickTimeout);
+    }
+});
 
 // Figures out whether or not to render an Inertia Link, a tag, or button.
 const componentType = computed(() => {
