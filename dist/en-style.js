@@ -1,4 +1,4 @@
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, createBlock, openBlock, resolveDynamicComponent, mergeProps, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, Fragment, createTextVNode, toDisplayString, createElementVNode } from "vue";
 const VARIANT_PRIMARY = "primary";
 const VARIANT_SECONDARY = "secondary";
 const VARIANT_TERTIARY = "tertiary";
@@ -261,18 +261,6 @@ function useDarkMode() {
     toggleDarkMode
   };
 }
-function normalizeComponent(scriptExports, render3, staticRenderFns, functionalTemplate, injectStyles, scopeId, moduleIdentifier, shadowMode) {
-  var options = typeof scriptExports === "function" ? scriptExports.options : scriptExports;
-  if (render3) {
-    options.render = render3;
-    options.staticRenderFns = staticRenderFns;
-    options._compiled = true;
-  }
-  return {
-    exports: scriptExports,
-    options
-  };
-}
 const _sfc_main$1 = {
   __name: "en-button",
   props: {
@@ -359,9 +347,10 @@ const _sfc_main$1 = {
     }
   },
   emits: ["click"],
-  setup(__props, { emit }) {
-    const props = __props;
+  setup(__props, { emit: __emit }) {
     const { getStyleClass, VARIANTS, INTENTS, ATTRIBUTES } = useButtonStyles();
+    const emit = __emit;
+    const props = __props;
     const attributes = computed(() => {
       const buttonAttributes = [];
       if (props.icon) {
@@ -469,22 +458,34 @@ const _sfc_main$1 = {
       }
       return null;
     });
-    return { __sfc: true, getStyleClass, VARIANTS, INTENTS, ATTRIBUTES, emit, props, attributes, clickTimeout, clickKey, onClicked, componentType, styleClass, faIcon, formButtonType };
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(componentType.value), mergeProps({
+        key: clickKey.value,
+        class: [styleClass.value],
+        href: __props.href,
+        onClick: onClicked,
+        as: props.as,
+        "aria-label": props.label,
+        type: formButtonType.value,
+        target: props.target
+      }, _ctx.$attrs), {
+        default: withCtx(() => [
+          props.icon ? (openBlock(), createElementBlock("span", {
+            key: 0,
+            class: normalizeClass(faIcon.value),
+            style: normalizeStyle(__props.iconRight ? { order: 1 } : null)
+          }, null, 6)) : createCommentVNode("", true),
+          renderSlot(_ctx.$slots, "default", {}, () => [
+            !__props.hideLabel ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+              createTextVNode(toDisplayString(__props.label), 1)
+            ], 64)) : createCommentVNode("", true)
+          ])
+        ]),
+        _: 3
+      }, 16, ["class", "href", "as", "aria-label", "type", "target"]);
+    };
   }
 };
-var _sfc_render$1 = function render() {
-  var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _c(_setup.componentType, _vm._b({ key: _setup.clickKey, tag: "component", class: [_setup.styleClass], attrs: { "href": _vm.href, "as": _setup.props.as, "aria-label": _setup.props.label, "type": _setup.formButtonType, "target": _setup.props.target }, on: { "click": _setup.onClicked } }, "component", _vm.$attrs, false), [_setup.props.icon ? _c("span", { class: _setup.faIcon, style: _vm.iconRight ? { order: 1 } : null }) : _vm._e(), _vm._t("default", function() {
-    return [!_vm.hideLabel ? [_vm._v(_vm._s(_vm.label))] : _vm._e()];
-  })], 2);
-};
-var _sfc_staticRenderFns$1 = [];
-var __component__$1 = /* @__PURE__ */ normalizeComponent(
-  _sfc_main$1,
-  _sfc_render$1,
-  _sfc_staticRenderFns$1
-);
-const enButton = __component__$1.exports;
 const _sfc_main = {
   __name: "delete-button",
   props: {
@@ -510,8 +511,9 @@ const _sfc_main = {
     }
   },
   emits: ["click"],
-  setup(__props, { emit }) {
+  setup(__props, { emit: __emit }) {
     const props = __props;
+    const emit = __emit;
     const onClicked = () => {
       emit("click");
     };
@@ -534,23 +536,19 @@ const _sfc_main = {
       }
       return classes;
     });
-    return { __sfc: true, props, emit, onClicked, attributes };
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("button", {
+        class: normalizeClass(["delete-button delete", attributes.value]),
+        onClick: onClicked
+      }, _cache[0] || (_cache[0] = [
+        createElementVNode("span", { class: "hit-area" }, null, -1)
+      ]), 2);
+    };
   }
 };
-var _sfc_render = function render2() {
-  var _vm = this, _c = _vm._self._c, _setup = _vm._self._setupProxy;
-  return _c("button", { class: ["delete-button delete", _setup.attributes], on: { "click": _setup.onClicked } }, [_c("span", { staticClass: "hit-area" })]);
-};
-var _sfc_staticRenderFns = [];
-var __component__ = /* @__PURE__ */ normalizeComponent(
-  _sfc_main,
-  _sfc_render,
-  _sfc_staticRenderFns
-);
-const deleteButton = __component__.exports;
 export {
-  deleteButton as DeleteButton,
-  enButton as EnButton,
+  _sfc_main as DeleteButton,
+  _sfc_main$1 as EnButton,
   useButtonStyles,
   useDarkMode,
   useScreenSize
