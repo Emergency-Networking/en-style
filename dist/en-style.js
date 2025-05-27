@@ -409,7 +409,7 @@ const _sfc_main$1 = {
       }
     });
     const onClicked = (event) => {
-      emit("click");
+      emit("click", event);
       if (window.mobile) {
         clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {

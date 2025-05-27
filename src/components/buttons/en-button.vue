@@ -159,7 +159,7 @@ onMounted(() => {
 });
 
 const onClicked = event => {
-    emit('click');
+    emit('click', event);
 
     if (window.mobile) {
         clearTimeout(clickTimeout);
