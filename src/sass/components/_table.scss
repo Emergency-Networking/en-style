@@ -1,0 +1,356 @@
+@import '../abstracts';
+
+.ag-grid-table,
+.ag-theme-alpine,
+.ag-theme-alpine-dark {
+    font-family: $table-font-family;
+
+    > div {
+        height: inherit !important;
+    }
+
+    .ag-header-cell-menu-button {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .ag-header-cell:hover .ag-header-cell-menu-button {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .ag-cell {
+        line-height: 2.75;
+        border-right-color: #ddd !important;
+
+        &.has-errors {
+            background-color: $cell-error-background;
+            border: 1px solid $error-color !important;
+            height: 100%;
+        }
+    }
+
+    .ag-root-wrapper {
+        border-radius: $table-border-radius;
+        overflow: visible;
+
+        // height: fit-content; // Was a fix for older iPads, but breaks the auto table height in dashboard safari
+        .ag-root-wrapper-body {
+            overflow: hidden;
+            border-radius: $table-border-radius;
+        }
+    }
+    .ag-layout-normal {
+        height: 100%;
+    }
+
+    .ag-overlay-no-rows-wrapper.ag-layout-auto-height {
+        padding-top: 40px !important;
+    }
+
+    .cell-value-required {
+        box-shadow: 0px 0px 1px 2px $error-color inset;
+    }
+
+    .ag-cell-wrapper {
+        width: 100%;
+        // height: 100%;
+    }
+
+    .ag-cell-content {
+        display: block;
+        line-height: 1.25;
+        width: 100%;
+        height: 100%;
+        word-break: break-word;
+        font-size: 0.9rem;
+        font-family: $table-font-family;
+
+        .cell-image,
+        .cell-file {
+            max-height: 100%;
+            margin-right: 0.25rem;
+            padding: 4px;
+        }
+
+        .cell-file {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #999;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            box-shadow: 0px 1px 2px rgb(0 0 0 / 20%);
+            background-color: #f0f0f0;
+            min-width: 3rem;
+        }
+
+        .cell-display-content {
+            font-size: 0.9rem !important;
+
+            > * {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .cell-button {
+            max-height: calc(100% - 4px);
+            width: calc(100% - 4px);
+            margin: 2px;
+        }
+
+        &.image-container {
+            display: flex;
+            padding: 0 !important;
+
+            .form-button {
+                max-height: calc(100% - 8px);
+                margin: 4px;
+                width: 1rem;
+                flex-grow: 1;
+                max-width: 1rem;
+                margin-right: 0.5rem;
+                background-color: #fdfdfd;
+                color: lightslategrey;
+                padding: 0 1.25rem;
+                box-shadow: none;
+                border-color: #ddd;
+
+                i,
+                .fa {
+                    pointer-events: none;
+                }
+
+                &:focus {
+                    border-color: #999 !important;
+                }
+            }
+        }
+    }
+
+    .ag-row-hover {
+        &::before {
+            background-color: rgb(0 124 255 / 5%) !important;
+        }
+    }
+
+    .ag-row-selected {
+        &::before {
+            background-color: rgb(0 124 255 / 15%) !important;
+        }
+    }
+
+    /*
+    GOOSE ONLY
+    .ag-row:not(.ag-row-selected) {
+        .ag-cell {
+            .table-field {
+                .field {
+                    &.disabled {
+                        .control {
+                            .input {
+                                background-color: #ecf0f1 !important;
+                                color: #777 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ag-row {
+        .ag-cell {
+            .record-ref-cell {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                padding: 0.6rem 0.5rem 0.5rem;
+                line-height: 1.5;
+
+                &.blank-value {
+                    font-size: 0.8rem;
+                    opacity: 0.4;
+                }
+
+                >div {
+                    display: flex;
+
+                    ul {
+                        padding: 0 0.5rem;
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+    }
+    */
+
+    .ag-popup-child {
+        overflow: hidden;
+        border-radius: $table-border-radius !important;
+    }
+
+    .ag-popup-editor {
+        margin-top: -20px !important;
+        height: 0;
+        opacity: 0;
+    }
+
+    .ag-rich-select {
+        overflow: hidden;
+        border-radius: $table-border-radius;
+    }
+
+    .ag-rich-select {
+        font-size: $table-font-size;
+        line-height: 1.2;
+        font-family: $table-font-family;
+        overflow: hidden;
+
+        &::before {
+            content: '• ';
+        }
+
+        .ag-rich-select-list {
+            height: inherit;
+        }
+
+        .ag-rich-select-value,
+        .ag-rich-select-row {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            padding-right: 0.5rem;
+        }
+
+        .ag-rich-select-value {
+            font-weight: bold;
+            line-height: 2.75;
+        }
+
+        .ag-rich-select-row {
+            background-color: white;
+            line-height: 2.5;
+        }
+
+        .ag-rich-select-row-selected {
+            background-color: #476e94;
+            color: white;
+        }
+    }
+
+    .ag-rich-select-list {
+        height: inherit;
+
+        .ag-rich-select-row {
+            &::before {
+                content: '>  ';
+                padding-right: 0.3rem;
+                font-size: 0.75rem;
+                font-weight: bold;
+            }
+
+            font-weight: bold;
+        }
+    }
+
+    .ag-large-text {
+        .ag-large-text-input {
+            padding: 8px;
+
+            textarea {
+                padding: 0.5rem;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+
+    &.popover-open {
+        .ag-cell-focus {
+            .cell-text {
+                // color: transparent !important;
+            }
+        }
+    }
+
+    .ag-column-drop-cell {
+        --ag-chip-background-color: var(--selection-color);
+        color: white;
+        font-weight: bold;
+
+        .ag-icon-cancel,
+        .ag-icon-grip {
+            color: white;
+        }
+    }
+}
+
+.ag-theme-alpine-dark {
+    --ag-icon-font-code-aggregation: 'aggregation';
+    --ag-icon-font-code-loading: 'loading';
+    --ag-icon-font-code-arrows: 'arrows';
+    --ag-icon-font-code-maximize: 'maximize';
+    --ag-icon-font-code-asc: 'asc';
+    --ag-icon-font-code-menu: 'menu';
+    --ag-icon-font-code-cancel: 'cancel';
+    --ag-icon-font-code-minimize: 'minimize';
+    --ag-icon-font-code-chart: 'chart';
+    --ag-icon-font-code-minus: 'minus';
+    --ag-icon-font-code-checkbox-checked: 'checkbox-checked';
+    --ag-icon-font-code-next: 'next';
+    --ag-icon-font-code-checkbox-indeterminate: 'checkbox-indeterminate';
+    --ag-icon-font-code-none: 'none';
+    --ag-icon-font-code-checkbox-unchecked: 'checkbox-unchecked';
+    --ag-icon-font-code-not-allowed: 'not-allowed';
+    --ag-icon-font-code-color-picker: 'color-picker';
+    --ag-icon-font-code-paste: 'paste';
+    --ag-icon-font-code-columns: 'columns';
+    --ag-icon-font-code-pin: 'pin';
+    --ag-icon-font-code-contracted: 'contracted';
+    --ag-icon-font-code-pivot: 'pivot';
+    --ag-icon-font-code-copy: 'copy';
+    --ag-icon-font-code-plus: 'plus';
+    --ag-icon-font-code-cross: 'cross';
+    --ag-icon-font-code-previous: 'previous';
+    --ag-icon-font-code-csv: 'csv';
+    --ag-icon-font-code-radio-button-off: 'radio-button-off';
+    --ag-icon-font-code-cut: 'cut';
+    --ag-icon-font-code-radio-button-on: 'radio-button-on';
+    --ag-icon-font-code-desc: 'desc';
+    --ag-icon-font-code-right: 'right';
+    --ag-icon-font-code-down: 'down';
+    --ag-icon-font-code-save: 'save';
+    --ag-icon-font-code-excel: 'excel';
+    --ag-icon-font-code-small-down: 'small-down';
+    --ag-icon-font-code-expanded: 'expanded';
+    --ag-icon-font-code-small-left: 'small-left';
+    --ag-icon-font-code-eye-slash: 'eye-slash';
+    --ag-icon-font-code-small-right: 'small-right';
+    --ag-icon-font-code-eye: 'eye';
+    --ag-icon-font-code-small-up: 'small-up';
+    --ag-icon-font-code-filter: 'filter';
+    --ag-icon-font-code-tick: 'tick';
+    --ag-icon-font-code-first: 'first';
+    --ag-icon-font-code-tree-closed: 'tree-closed';
+    --ag-icon-font-code-grip: 'grip';
+    --ag-icon-font-code-tree-indeterminate: 'tree-indeterminate';
+    --ag-icon-font-code-group: 'group';
+    --ag-icon-font-code-tree-open: 'tree-open';
+    --ag-icon-font-code-last: 'last';
+    --ag-icon-font-code-unlinked: 'unlinked';
+    --ag-icon-font-code-left: 'left';
+    --ag-icon-font-code-up: 'up';
+    --ag-icon-font-code-linked: 'linked';
+
+    .ag-cell {
+        border-right-color: #565656 !important;
+    }
+}

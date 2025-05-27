@@ -1,0 +1,337 @@
+@use 'sass:color';
+
+@import '../abstracts';
+
+[data-theme='dark'],
+.theme-dark {
+    --bulma-label-color: #fff;
+    --bulma-strong-color: #fff;
+    --bulma-body-color: #eeeeee;
+    --bulma-arrow-color: white;
+
+    --bulma-text-strong: var(--bulma-body-color);
+
+    --bulma-link-h: 208;
+    --bulma-link-s: 100%;
+    --bulma-link-l: 72%;
+
+    --bulma-danger-h: 0;
+    --bulma-danger-s: 95%;
+    --bulma-danger-l: 62%;
+
+    .title {
+        --bulma-title-color: #ddd;
+    }
+    .subtitle {
+        --bulma-subtitle-color: #ddd;
+    }
+    table th {
+        color: var(--bulma-text-strong);
+    }
+
+    .card {
+        --bulma-card-color: #ddd;
+        --bulma-card-background-color: #{$container-background-dark};
+        background-color: var(--bulma-card-background-color);
+        border-color: $container-border-dark;
+    }
+
+    .card-header {
+        --bulma-card-header-background-color: #{color.adjust(#c0c4c6, $lightness: -55%)};
+        background-color: var(--bulma-card-header-background-color);
+    }
+    .card-header-title {
+        --bulma-card-header-color: #fff;
+        color: var(--bulma-card-header-color);
+    }
+    .card-footer {
+        background-color: rgba(236, 240, 241, 0.05);
+    }
+
+    .box {
+        --bulma-box-color: #bcd3eb;
+        --bulma-box-background-color: #242628;
+        background-color: var(--bulma-box-background-color);
+    }
+
+    .tabs.is-boxed,
+    .tabs {
+        a {
+            --bulma-tabs-link-color: #fff;
+        }
+    }
+
+    .is-link {
+        color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l));
+    }
+    .is-danger {
+        color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+    }
+
+    .modal-card-head {
+        --bulma-modal-card-head-background-color: #41444c;
+        background-color: var(--bulma-modal-card-head-background-color);
+    }
+    .modal-card {
+        box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.45);
+    }
+
+    .panel {
+        --bulma-panel-background-color: #242628;
+        background-color: var(--bulma-panel-background-color);
+        border: 1px solid $container-border-dark;
+        box-shadow: $dark-shadow;
+        .panel-block:hover {
+            color: $primary-highlight;
+            .panel-icon {
+                color: $primary-highlight;
+            }
+        }
+        .button.panel-block {
+            &.is-active {
+                background-color: var(--bulma-body-background-color) !important;
+                color: var(--selection-color) !important;
+            }
+        }
+    }
+
+    .message.is-info {
+        color: $link-inverted;
+    }
+
+    .input,
+    .textarea,
+    .select select,
+    .multiselect__tags {
+        border-color: var(--bulma-input-border-color);
+    }
+
+    .input[disabled],
+    .textarea[disabled] {
+        background-color: $disabled-field-background-dark;
+        color: $disabled-field-color-dark;
+    }
+    .multiselect {
+        &.multiselect--disabled {
+            .multiselect__single,
+            .multiselect__tags {
+                background: $disabled-field-background-dark;
+            }
+        }
+    }
+
+    .multiselect__single,
+    .multiselect__input,
+    .multiselect__tags {
+        background: hsl(var(--bulma-input-h), var(--bulma-input-s), calc(var(--bulma-input-background-l) + var(--bulma-input-background-l-delta)));
+        color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l));
+    }
+    .multiselect__content-wrapper {
+        background-color: black;
+    }
+    .multiselect__element {
+        color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l));
+    }
+    .multiselect__select:before {
+        color: white;
+        border-color: white transparent transparent;
+    }
+    .multiselect__option:not(.multiselect__option--highlight) {
+        color: rgb(201, 201, 201);
+    }
+    .multiselect .multiselect__content-wrapper .multiselect__content .multiselect__element .multiselect__option.multiselect__option--group {
+        background-color: var(--bulma-body-background-color) !important;
+        span {
+            color: hsl(var(--bulma-input-h), var(--bulma-input-s), var(--bulma-input-color-l)) !important;
+        }
+    }
+
+    .form-preview .type-checkbox,
+    .type-checkbox {
+        &.switch[type='checkbox'] + div:before {
+            background-color: black;
+        }
+        &.switch[type='checkbox'] + div:after {
+            background-color: #cbcbcb;
+            border-color: #999999;
+        }
+    }
+
+    .button:not(.selected) {
+        &.btn-secondary:not(:hover) {
+            background-color: var(--bulma-body-background-color);
+            border-color: $link-inverted;
+            color: $link-inverted;
+        }
+        &.btn-secondary {
+            &.btn-warn {
+                border-color: $is-warning;
+                color: $is-warning;
+                &:hover {
+                    color: black;
+                }
+            }
+            &.btn-cancel {
+                border-color: #808080;
+                color: #e2e6e9;
+                &:hover {
+                    background-color: $is-cancel;
+                    color: white;
+                }
+            }
+            &.btn-danger {
+                border-color: $is-danger;
+                color: $is-danger;
+
+                &:hover {
+                    background-color: $is-danger;
+                    color: white;
+                }
+            }
+        }
+
+        &.btn-ghost {
+            border-color: $ghost-button-border-dark;
+            color: $ghost-button-color-dark;
+            &:hover:not(.selected) {
+                background-color: #1f1f1f;
+                border-color: $primary-highlight;
+                color: $primary-highlight;
+            }
+            &.btn-danger {
+                &:hover {
+                    border-color: $is-danger;
+                    background-color: $is-danger;
+                    color: white;
+                }
+            }
+        }
+
+        &.btn-tertiary {
+            background-color: #035dad80;
+            color: $tertiary-color-dark;
+        }
+        &.btn-link {
+            background-color: transparent;
+            color: $tertiary-color-dark;
+
+            &:hover {
+                color: white;
+            }
+        }
+        &.btn-text {
+            // color: $tertiary-color-dark;
+        }
+    }
+
+    .signature-pad,
+    .signature-pad-app {
+        // border-color: var(--bulma-input-border-color);
+        // background-color: hsl(var(--bulma-input-h), var(--bulma-input-s), calc(var(--bulma-input-background-l) + var(--bulma-input-background-l-delta)));
+
+        // These colors need to be the inverse value since we're flipping it.
+        border-color: rgb(202, 197, 185);
+        background-color: rgb(235, 233, 229);
+        filter: invert(1);
+    }
+    .feature-module.signature-window .feature-module-window .field-wrapper.override-error-off .signature-pad-container {
+        border-color: #474747 !important;
+    }
+    .signature-pad-container {
+        background-color: black !important;
+        .sign-here {
+            color: $container-border-dark;
+        }
+    }
+
+    .delete {
+        background-color: rgba(255, 255, 255, 0.2);
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .ag-grid-table .ag-row:not(.ag-row-selected) .ag-cell .table-field .field.disabled .control .input,
+    .ag-theme-alpine .ag-row:not(.ag-row-selected) .ag-cell .table-field .field.disabled .control .input {
+        background-color: $disabled-field-background-dark !important;
+        color: $disabled-field-color-dark !important;
+    }
+
+    .tippy-box {
+        box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.5);
+        &[data-theme='context-menu'] {
+            .tippy-content {
+                > div {
+                    .button {
+                        &.btn-primary:not(:hover),
+                        &.btn-secondary:not(:hover),
+                        &.btn-text:not(:hover),
+                        &.btn-ghost:not(:hover) {
+                            color: #d5d8dd;
+                        }
+                        &.btn-warn {
+                            background-color: transparent;
+                            &:hover {
+                                background-color: transparent;
+                                color: $primary-highlight;
+                            }
+                            &.selected {
+                                background-color: transparent;
+                                color: var(--selection-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        background-color: var(--bulma-body-background-color);
+        border-color: $container-border-dark;
+
+        .tippy-arrow:before {
+            background-color: var(--bulma-body-background-color) !important;
+            border-top: 1px solid $container-border-dark !important;
+            border-right: 1px solid $container-border-dark !important;
+            border-left-color: var(--bulma-body-background-color) !important;
+        }
+        .tippy-content {
+            .button {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    .flatpickr-calendar {
+        // Use the color inverse
+        $calendar-select-color: rgb(169, 96, 3);
+        filter: invert(1);
+
+        border: 1px solid #ccc;
+        box-shadow: none !important; //1px 0 black, -1px 0 black, 0 1px black, 0 -1px black, 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+
+        .flatpickr-day.selected {
+            background-color: $calendar-select-color;
+            border-color: $calendar-select-color;
+            color: black;
+        }
+        .flatpickr-day.today {
+            border-color: $calendar-select-color;
+        }
+        .flatpickr-months .flatpickr-prev-month:hover,
+        .flatpickr-months .flatpickr-next-month:hover {
+            color: rgb(106, 97, 86);
+        }
+        .flatpickr-months .flatpickr-prev-month:hover svg,
+        .flatpickr-months .flatpickr-next-month:hover svg {
+            fill: rgb(106, 97, 86);
+        }
+        .flatpickr-day.flatpickr-disabled,
+        .flatpickr-day.flatpickr-disabled:hover {
+            color: rgba(57, 57, 57, 0.35);
+        }
+
+        input::selection,
+        input::-moz-selection {
+            background: $calendar-select-color;
+        }
+    }
+}

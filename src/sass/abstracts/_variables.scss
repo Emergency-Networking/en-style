@@ -1,0 +1,98 @@
+@import 'bulma-swatch-variables';
+
+:root {
+    --selection-color: #2d5c86;
+    --selection-color-inverted: rgb(210, 163, 121);
+    --placeholder-color: #757575;
+}
+[data-theme='dark'],
+.theme-dark {
+    --selection-color: #7ea8ce;
+    --selection-color-inverted: rgb(129, 87, 49);
+    --placeholder-color: #999;
+    color-scheme: dark;
+}
+
+// Colors
+$en-primary: #005ead;
+$en-red: #e41b1b;
+$en-dark-red: #b83636;
+$en-darker-red: #922a2a;
+$light-blue: #2b74b1;
+$is-primary: $en-primary;
+$is-success: #1d8147;
+$is-info: $light-blue;
+$is-link: $en-primary;
+$is-danger: #c84141;
+$is-light: #5f7a81;
+$is-cancel: #62686f;
+$is-warning: #f1b70e;
+$warning-dark: #785c07;
+$primary-dark: #1f517a;
+$primary-highlight: #0078e1;
+// $primary-lighter: #55789b;
+$primary-light-gray: #c4d0dc;
+$selection-color: #2d5c86;
+$focus-outline-color: #035fb080;
+
+$primary: #476e94;
+$error-color: #d62c1a;
+$danger: #d62c1a;
+$green: #499649;
+$orange: #fa9600;
+$orange-dull: #dd9826;
+
+$white: #fff;
+$light-gray: #72767e;
+$dark-gray: #2b2e31;
+$medium-dark-gray: #656a72;
+
+// Fonts
+$family-sans-serif: Lato, sans-serif;
+$family-primary: $family-sans-serif;
+
+$field-height: 2.25rem;
+$field-font-size: 0.95rem;
+$field-border-color: #d6d6d6;
+$field-corner-radius: 0.4rem;
+$disabled-field-background-color: #f9f9f9;
+
+$navbar-dropdown-item-hover-color: $en-primary;
+$border-width: 1px;
+$modal-content-width: 800px;
+
+$arrow-size: 8px;
+
+$document-shadow: 0px 0px 6px rgba(0, 0, 0, 0.35);
+
+$read-only-opacity: 0.65;
+
+$placeholder-color: #757575;
+
+$tippy-link-color: #444;
+
+// Table variables
+$table-border-radius: 6px;
+$table-font-size: 0.9rem;
+$table-font-family: $family-sans-serif;
+$table-theme-color: #244b6c;
+$cell-error-background: rgb(214 44 26 / 5%);
+
+// Dark mode
+$link-inverted: #2a90ea;
+$danger-inverted: #fa4242;
+$ghost-button-border-dark: #5e6973;
+$ghost-button-color-dark: #dbe6f0;
+$tertiary-color-dark: #86c0f3;
+
+$container-background-dark: #1d1e20;
+$container-border-dark: #616161;
+
+$delete-button-size-medium: 1.75rem;
+$delete-button-size-small: 1.25rem;
+
+$dark-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.85);
+$disabled-field-background-dark: #3b3939;
+$disabled-field-color-dark: #ebecf0bf;
+
+$shadow-subtle: 0 0.5em 0.5em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.15);
