@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
         resolve: {
             alias: {},
         },
-        plugins: [vue()],
+  plugins: [vue()],
         server: {
             host: true,
         },
