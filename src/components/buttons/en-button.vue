@@ -15,6 +15,7 @@
         <slot>
             <template v-if="!hideLabel">{{ label }}</template>
         </slot>
+        <div v-if="hasHitArea" class="hit-area"></div>
     </component>
 </template>
 
@@ -106,6 +107,9 @@ const props = defineProps({
     },
     target: {
         type: String,
+    },
+    hasHitArea: {
+        type: Boolean,
     },
 });
 

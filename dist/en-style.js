@@ -261,6 +261,10 @@ function useDarkMode() {
     toggleDarkMode
   };
 }
+const _hoisted_1 = {
+  key: 1,
+  class: "hit-area"
+};
 const _sfc_main$1 = {
   __name: "en-button",
   props: {
@@ -344,6 +348,9 @@ const _sfc_main$1 = {
     },
     target: {
       type: String
+    },
+    hasHitArea: {
+      type: Boolean
     }
   },
   emits: ["click"],
@@ -479,7 +486,8 @@ const _sfc_main$1 = {
             !__props.hideLabel ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createTextVNode(toDisplayString(__props.label), 1)
             ], 64)) : createCommentVNode("", true)
-          ])
+          ]),
+          __props.hasHitArea ? (openBlock(), createElementBlock("div", _hoisted_1)) : createCommentVNode("", true)
         ]),
         _: 3
       }, 16, ["class", "href", "as", "aria-label", "type", "target"]);
