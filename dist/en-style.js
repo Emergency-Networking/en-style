@@ -17,6 +17,7 @@ const LOADABLE = "is-loadable";
 const LOADING = "is-loading";
 const SUCCESS = "is-success";
 const SELECTED = "selected";
+const HIGHLIGHTED = "highlighted";
 const DISABLED = "disabled";
 const TOGGLEABLE = "toggleable";
 const AUTO_HEIGHT = "autoHeight";
@@ -46,6 +47,7 @@ function useButtonStyles() {
     LOADING,
     SUCCESS,
     SELECTED,
+    HIGHLIGHTED,
     DISABLED,
     TOGGLEABLE,
     AUTO_HEIGHT,
@@ -120,6 +122,9 @@ function useButtonStyles() {
             break;
           case ATTRIBUTES.SELECTED:
             style += " selected";
+            break;
+          case ATTRIBUTES.HIGHLIGHTED:
+            style += " highlighted";
             break;
           case ATTRIBUTES.DISABLED:
             style += " disabled";
@@ -327,6 +332,10 @@ const _sfc_main$1 = {
       type: Boolean,
       default: false
     },
+    highlighted: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -379,6 +388,9 @@ const _sfc_main$1 = {
       }
       if (props.selected) {
         buttonAttributes.push(ATTRIBUTES.SELECTED);
+      }
+      if (props.highlighted) {
+        buttonAttributes.push(ATTRIBUTES.HIGHLIGHTED);
       }
       if (props.disabled) {
         buttonAttributes.push(ATTRIBUTES.DISABLED);

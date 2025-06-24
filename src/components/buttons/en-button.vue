@@ -86,6 +86,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    highlighted: {
+        type: Boolean,
+        default: false,
+    },
     disabled: {
         type: Boolean,
         default: false,
@@ -134,6 +138,9 @@ const attributes = computed(() => {
     }
     if (props.selected) {
         buttonAttributes.push(ATTRIBUTES.SELECTED);
+    }
+    if (props.highlighted) {
+        buttonAttributes.push(ATTRIBUTES.HIGHLIGHTED);
     }
     if (props.disabled) {
         buttonAttributes.push(ATTRIBUTES.DISABLED);
