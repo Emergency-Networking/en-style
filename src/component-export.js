@@ -1,6 +1,7 @@
 import useButtonStyles from './composables/use-button-styles.js';
 import useScreenSize from './composables/use-screen-size.js';
 import useDarkMode from './composables/use-dark-mode.js';
+import useTimeFrames from './composables/use-time-frames.js';
 import useTooltip from './composables/use-tooltip.js';
 import useToastNotifications from './composables/use-toast-notifications.js';
 import EnButton from './components/buttons/en-button.vue';
@@ -16,6 +17,7 @@ import BaseSegmentedBar from './components/base/base-segmented_bar.vue';
 import BaseSelect from './components/base/base-select.vue';
 import ColorUtil from './utils/color-util.js';
 import TooltipWindow from './components/tooltip/tooltip-window.vue';
+import TimeFrame from './components/time-frame/time-frame.vue';
 
 import './sass/style.scss';
 
@@ -25,6 +27,7 @@ export {
     useDarkMode,
     useToastNotifications,
     useTooltip,
+    useTimeFrames,
     ColorUtil,
     EnButton,
     DeleteButton,
@@ -38,4 +41,5 @@ export {
     BaseSegmentedBar,
     BaseSelect,
     TooltipWindow,
+    TimeFrame,
 };
