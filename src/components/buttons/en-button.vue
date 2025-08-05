@@ -2,7 +2,7 @@
     <component
         :key="clickKey"
         :is="componentType"
-        :class="[styleClass]"
+        :class="[styleClass, { mobile: mobile }]"
         :href="href"
         @click="onClicked"
         :as="props.as"
@@ -162,6 +162,8 @@ const attributes = computed(() => {
 
 let clickTimeout = null;
 const clickKey = ref(null);
+
+const mobile = window.mobile || false;
 
 onMounted(() => {
     if (window.mobile) {

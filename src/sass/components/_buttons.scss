@@ -47,7 +47,7 @@
         border-color: transparent;
         color: white;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             border-color: #0092ff;
             // box-shadow: inset 0 0 2px 1px #6ea3d0;
@@ -58,7 +58,7 @@
         &.btn-danger {
             background-color: $is-danger;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-danger;
                 background-color: #d62a2a;
@@ -67,7 +67,7 @@
         &.btn-cancel {
             background-color: $is-cancel;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-cancel;
                 background-color: color.adjust($is-cancel, $lightness: 10%);
@@ -78,7 +78,7 @@
             border-color: #c1930b;
             color: #333;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-warning;
                 background-color: color.adjust($is-warning, $lightness: 10%);
@@ -113,7 +113,7 @@
         border-color: $is-primary;
         color: $is-primary;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             background-color: $primary-highlight;
             border-color: $primary-highlight;
@@ -127,7 +127,7 @@
             border-color: $is-danger;
             color: $is-danger;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: $is-danger;
                 color: white;
@@ -137,7 +137,7 @@
             border-color: $is-cancel;
             color: $is-cancel;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: $is-cancel;
                 color: white;
@@ -147,7 +147,7 @@
             border-color: $is-warning;
             color: $warning-dark;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: $is-warning;
                 color: #333;
@@ -182,7 +182,7 @@
         border-color: transparent;
         color: $is-primary;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             border-color: $primary-highlight;
             background-color: $primary-highlight;
@@ -192,7 +192,7 @@
             color: $is-danger;
             background-color: #c841411f;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-danger;
                 background-color: $is-danger;
@@ -203,7 +203,7 @@
             color: $is-cancel;
             background-color: #62686f24;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-cancel;
                 background-color: $is-cancel;
@@ -214,7 +214,7 @@
             color: $is-warning;
             background-color: #62686f24;
 
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-warning;
                 background-color: $is-warning;
@@ -250,14 +250,14 @@
         border-color: #c7cdd1;
         background-color: transparent;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             background-color: white;
             border-color: $primary-highlight;
             color: $primary-highlight;
         }
         &.btn-danger {
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-danger;
                 background-color: $is-danger;
@@ -265,7 +265,7 @@
             }
         }
         &.btn-cancel {
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-cancel;
                 background-color: $is-cancel;
@@ -273,7 +273,7 @@
             }
         }
         &.btn-warn {
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-warning;
                 background-color: $is-warning;
@@ -308,14 +308,14 @@
         border-color: transparent;
         background-color: transparent;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             border-color: $primary-highlight;
             color: $primary-highlight;
         }
         &.btn-danger {
             color: $is-danger;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-danger;
                 color: $is-danger;
@@ -323,7 +323,7 @@
         }
         &.btn-cancel {
             color: $is-cancel;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-cancel;
                 color: $is-cancel;
@@ -331,7 +331,7 @@
         }
         &.btn-warn {
             color: $is-warning;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 border-color: $is-warning;
                 color: $is-warning;
@@ -343,7 +343,7 @@
         border-color: transparent;
         padding: 0 0.5rem;
 
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             background-color: #035dad1f;
             color: $primary-highlight;
@@ -351,7 +351,7 @@
 
         &.btn-danger {
             color: $is-danger;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: #c841411f;
                 color: $is-danger;
@@ -359,7 +359,7 @@
         }
         &.btn-cancel {
             color: $is-cancel;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: #62686f24;
                 color: $is-cancel;
@@ -367,7 +367,7 @@
         }
         &.btn-warn {
             color: $is-warning;
-            &:hover,
+            &:hover:not(.mobile),
             &.highlighted {
                 background-color: #ff840024;
                 color: $is-warning;
@@ -466,7 +466,7 @@
         opacity: 0;
 
         &.show,
-        &:hover,
+        &:hover:not(.mobile),
         &.highlighted {
             opacity: 1;
             transition: opacity 0.2s;

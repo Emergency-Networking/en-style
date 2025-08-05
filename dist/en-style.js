@@ -1,4 +1,4 @@
-import { ref, computed, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, useAttrs, unref, withDirectives, vModelCheckbox, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
+import { ref, computed, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, unref, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, useAttrs, withDirectives, vModelCheckbox, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
 const VARIANT_PRIMARY = "primary";
 const VARIANT_SECONDARY = "secondary";
 const VARIANT_TERTIARY = "tertiary";
@@ -8347,6 +8347,7 @@ const _sfc_main$c = {
     });
     let clickTimeout = null;
     const clickKey = ref(null);
+    const mobile = window.mobile || false;
     onMounted(() => {
       if (window.mobile) {
         clickKey.value = Math.random().toString(36).slice(2);
@@ -8416,7 +8417,7 @@ const _sfc_main$c = {
     return (_ctx, _cache) => {
       return openBlock(), createBlock(resolveDynamicComponent(componentType.value), mergeProps({
         key: clickKey.value,
-        class: [styleClass.value],
+        class: [styleClass.value, { mobile: unref(mobile) }],
         href: __props.href,
         onClick: onClicked,
         as: props.as,
