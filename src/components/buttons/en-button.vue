@@ -1,8 +1,7 @@
 <template>
     <component
-        :key="clickKey"
         :is="componentType"
-        :class="[styleClass, { mobile: mobile }]"
+        :class="[styleClass, { mobile: mobile, highlighted: mobile && clicked }]"
         :href="href"
         @click="onClicked"
         :as="props.as"
@@ -161,23 +160,20 @@ const attributes = computed(() => {
 });
 
 let clickTimeout = null;
-const clickKey = ref(null);
 
+const clicked = ref(false);
 const mobile = window.mobile || false;
 
-onMounted(() => {
-    if (window.mobile) {
-        clickKey.value = Math.random().toString(36).slice(2);
-    }
-});
+onMounted(() => {});
 
 const onClicked = event => {
     emit('click', event);
 
     if (window.mobile) {
+        clicked.value = true;
         clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {
-            clickKey.value = Math.random().toString(36).slice(2);
+            clicked.value = false;
         }, 200);
     }
 };

@@ -8346,19 +8346,17 @@ const _sfc_main$c = {
       return buttonAttributes;
     });
     let clickTimeout = null;
-    const clickKey = ref(null);
+    const clicked = ref(false);
     const mobile = window.mobile || false;
     onMounted(() => {
-      if (window.mobile) {
-        clickKey.value = Math.random().toString(36).slice(2);
-      }
     });
     const onClicked = (event) => {
       emit("click", event);
       if (window.mobile) {
+        clicked.value = true;
         clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {
-          clickKey.value = Math.random().toString(36).slice(2);
+          clicked.value = false;
         }, 200);
       }
     };
@@ -8416,8 +8414,7 @@ const _sfc_main$c = {
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(resolveDynamicComponent(componentType.value), mergeProps({
-        key: clickKey.value,
-        class: [styleClass.value, { mobile: unref(mobile) }],
+        class: [styleClass.value, { mobile: unref(mobile), highlighted: unref(mobile) && clicked.value }],
         href: __props.href,
         onClick: onClicked,
         as: props.as,
