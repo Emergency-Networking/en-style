@@ -111,8 +111,9 @@
                     white-space: nowrap;
                     text-align: left;
 
-                    &:hover {
+                    &:hover:not(.mobile) {
                         color: $en-primary;
+                        background-color: transparent;
                     }
 
                     &[disabled] {
@@ -139,21 +140,21 @@
                     &.btn-primary {
                         font-weight: bold;
                         color: $tippy-link-color;
-                        &:hover {
+                        &:hover:not(.mobile) {
                             color: $primary-highlight;
                         }
                     }
 
                     &.btn-secondary {
                         color: $tippy-link-color;
-                        &:hover {
+                        &:hover:not(.mobile) {
                             color: $primary-highlight;
                         }
                     }
 
                     &.btn-text {
                         color: $tippy-link-color;
-                        &:hover {
+                        &:hover:not(.mobile) {
                             color: $primary-highlight;
                         }
                     }
@@ -163,7 +164,7 @@
                     &.btn-ghost,
                     &.btn-warn {
                         background-color: transparent;
-                        &:hover {
+                        &:hover:not(.mobile) {
                             background-color: transparent;
                             color: $primary-highlight;
                         }
@@ -173,7 +174,7 @@
                         }
                     }
                     &.btn-danger {
-                        &:hover {
+                        &:hover:not(.mobile) {
                             color: $is-danger;
                         }
                     }
@@ -181,7 +182,7 @@
                     // &.btn-ghost,
                     // &.btn-warn {
                     //     color: $tippy-link-color;
-                    //     &:hover {
+                    //     &:hover:not(.mobile) {
                     //         background-color: transparent;
                     //         color: $primary-highlight;
                     //     }

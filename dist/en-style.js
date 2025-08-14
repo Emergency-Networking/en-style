@@ -8202,11 +8202,11 @@ function useToastNotifications() {
     notify
   };
 }
-const _hoisted_1$7 = {
+const _hoisted_1$8 = {
   key: 1,
   class: "hit-area"
 };
-const _sfc_main$c = {
+const _sfc_main$d = {
   __name: "en-button",
   props: {
     as: {
@@ -8433,14 +8433,14 @@ const _sfc_main$c = {
               createTextVNode(toDisplayString(__props.label), 1)
             ], 64)) : createCommentVNode("", true)
           ]),
-          __props.hasHitArea ? (openBlock(), createElementBlock("div", _hoisted_1$7)) : createCommentVNode("", true)
+          __props.hasHitArea ? (openBlock(), createElementBlock("div", _hoisted_1$8)) : createCommentVNode("", true)
         ]),
         _: 3
       }, 16, ["class", "href", "as", "aria-label", "type", "target"]);
     };
   }
 };
-const _sfc_main$b = {
+const _sfc_main$c = {
   __name: "delete-button",
   props: {
     sizeMedium: {
@@ -19867,8 +19867,8 @@ function requireInputmask() {
 }
 var inputmaskExports = requireInputmask();
 const Inputmask = /* @__PURE__ */ getDefaultExportFromCjs(inputmaskExports);
-const _hoisted_1$6 = ["type", "value"];
-const _sfc_main$a = /* @__PURE__ */ Object.assign({
+const _hoisted_1$7 = ["type", "value"];
+const _sfc_main$b = /* @__PURE__ */ Object.assign({
   name: "BaseInput"
 }, {
   __name: "base-input",
@@ -19911,24 +19911,24 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
         onKeyup: onKeyUp,
         ref_key: "el",
         ref: el
-      }), null, 16, _hoisted_1$6);
+      }), null, 16, _hoisted_1$7);
     };
   }
 });
-const _hoisted_1$5 = ["for"];
-const _hoisted_2$4 = {
+const _hoisted_1$6 = ["for"];
+const _hoisted_2$5 = {
   key: 0,
   class: "left-content"
 };
-const _hoisted_3$3 = {
+const _hoisted_3$4 = {
   key: 1,
   class: "icon is-small is-right has-text-danger"
 };
-const _hoisted_4$3 = {
+const _hoisted_4$4 = {
   key: 2,
   class: "right-content"
 };
-const _hoisted_5$3 = {
+const _hoisted_5$4 = {
   key: 1,
   class: "control"
 };
@@ -19941,7 +19941,7 @@ const _hoisted_7$2 = {
   class: "icon"
 };
 const _hoisted_8$2 = ["textContent"];
-const _sfc_main$9 = /* @__PURE__ */ Object.assign({
+const _sfc_main$a = /* @__PURE__ */ Object.assign({
   name: "BaseField"
 }, {
   __name: "base-field",
@@ -20152,15 +20152,15 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
           renderSlot(_ctx.$slots, "label", {}, () => [
             createTextVNode(toDisplayString(props.label), 1)
           ])
-        ], 10, _hoisted_1$5)) : createCommentVNode("", true),
+        ], 10, _hoisted_1$6)) : createCommentVNode("", true),
         createElementVNode("div", {
           class: normalizeClass(["control", [props.controlClasses, { "has-icons-right": hasError.value }, { "is-expanded is-flex-grow-1 mr-3": props.secret }]])
         }, [
-          props.contentLeft ? (openBlock(), createElementBlock("div", _hoisted_2$4, [
+          props.contentLeft ? (openBlock(), createElementBlock("div", _hoisted_2$5, [
             renderSlot(_ctx.$slots, "left")
           ])) : createCommentVNode("", true),
           renderSlot(_ctx.$slots, "control", {}, () => [
-            createVNode(_sfc_main$a, mergeProps({
+            createVNode(_sfc_main$b, mergeProps({
               id: field.value,
               name: field.value,
               type: props.type,
@@ -20185,15 +20185,15 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
               flatPickerSettings: props.flatPickerSettings
             }), null, 16, ["id", "name", "type", "modelValue", "class", "list", "autocomplete", "autofocus", "minLength", "maxlength", "readonly", "min", "max", "step", "disabled", "placeholder", "flatPickerSettings"])
           ]),
-          hasError.value ? (openBlock(), createElementBlock("span", _hoisted_3$3, _cache[0] || (_cache[0] = [
+          hasError.value ? (openBlock(), createElementBlock("span", _hoisted_3$4, _cache[0] || (_cache[0] = [
             createElementVNode("i", { class: "fas fa-exclamation-triangle" }, null, -1)
           ]))) : createCommentVNode("", true),
-          props.contentRight ? (openBlock(), createElementBlock("div", _hoisted_4$3, [
+          props.contentRight ? (openBlock(), createElementBlock("div", _hoisted_4$4, [
             renderSlot(_ctx.$slots, "right")
           ])) : createCommentVNode("", true)
         ], 2),
-        props.secret ? (openBlock(), createElementBlock("p", _hoisted_5$3, [
-          createVNode(_sfc_main$c, {
+        props.secret ? (openBlock(), createElementBlock("p", _hoisted_5$4, [
+          createVNode(_sfc_main$d, {
             onClick: toggleSecret,
             variant: "ghost",
             type: "button",
@@ -20220,8 +20220,8 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const _hoisted_1$4 = ["id"];
-const _sfc_main$8 = /* @__PURE__ */ Object.assign({
+const _hoisted_1$5 = ["id"];
+const _sfc_main$9 = /* @__PURE__ */ Object.assign({
   name: "BaseCheckbox"
 }, {
   __name: "base-checkbox",
@@ -20257,7 +20257,7 @@ const _sfc_main$8 = /* @__PURE__ */ Object.assign({
     });
     const labelId = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: __props.label,
         error: __props.error,
         class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow }])
@@ -20272,7 +20272,7 @@ const _sfc_main$8 = /* @__PURE__ */ Object.assign({
               "false-value": 0,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => localModel.value = $event),
               type: "checkbox"
-            }, null, 8, _hoisted_1$4), [
+            }, null, 8, _hoisted_1$5), [
               [vModelCheckbox, localModel.value]
             ])
           ], 2)
@@ -21848,12 +21848,12 @@ const getTextColorByBackground = (backgroundColor, { lightnessThreshold = 0.5, l
 const ColorUtil = {
   getTextColorByBackground
 };
-const _hoisted_1$3 = { class: "button" };
-const _hoisted_2$3 = {
+const _hoisted_1$4 = { class: "button" };
+const _hoisted_2$4 = {
   key: 0,
   class: "label"
 };
-const _sfc_main$7 = /* @__PURE__ */ Object.assign({
+const _sfc_main$8 = /* @__PURE__ */ Object.assign({
   name: "BaseColorPicker"
 }, {
   __name: "base-color_picker",
@@ -21888,7 +21888,7 @@ const _sfc_main$7 = /* @__PURE__ */ Object.assign({
     const copyValue = () => {
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: __props.label,
         type: "color",
         modelValue: colorValue.value,
@@ -21897,8 +21897,8 @@ const _sfc_main$7 = /* @__PURE__ */ Object.assign({
         style: normalizeStyle({ "--colorValue": colorValue.value, "--textColor": textColor.value })
       }, {
         control: withCtx(() => [
-          createElementVNode("div", _hoisted_1$3, [
-            __props.showHexValue ? (openBlock(), createElementBlock("div", _hoisted_2$3, toDisplayString(colorValue.value), 1)) : createCommentVNode("", true),
+          createElementVNode("div", _hoisted_1$4, [
+            __props.showHexValue ? (openBlock(), createElementBlock("div", _hoisted_2$4, toDisplayString(colorValue.value), 1)) : createCommentVNode("", true),
             _cache[2] || (_cache[2] = createElementVNode("div", { class: "color-swatch" }, null, -1)),
             withDirectives(createElementVNode("input", {
               type: "color",
@@ -21914,11 +21914,11 @@ const _sfc_main$7 = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const _hoisted_1$2 = { class: "file has-name is-flex-wrap-wrap" };
-const _hoisted_2$2 = { key: 0 };
-const _hoisted_3$2 = ["href"];
-const _hoisted_4$2 = ["src"];
-const _hoisted_5$2 = { key: 1 };
+const _hoisted_1$3 = { class: "file has-name is-flex-wrap-wrap" };
+const _hoisted_2$3 = { key: 0 };
+const _hoisted_3$3 = ["href"];
+const _hoisted_4$3 = ["src"];
+const _hoisted_5$3 = { key: 1 };
 const _hoisted_6$2 = {
   key: 1,
   class: "file-label"
@@ -21929,7 +21929,9 @@ const _hoisted_9$1 = { class: "file-label" };
 const _hoisted_10$1 = { class: "file-name" };
 const _hoisted_11$1 = { key: 2 };
 const _hoisted_12$1 = ["textContent"];
-const _sfc_main$6 = {
+const _sfc_main$7 = /* @__PURE__ */ Object.assign({
+  name: "BaseFile"
+}, {
   __name: "base-file",
   props: {
     label: {
@@ -21996,8 +21998,8 @@ const _sfc_main$6 = {
       emit("update:modelValue", file);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$2, [
-        usingExisting.value ? (openBlock(), createElementBlock("div", _hoisted_2$2, [
+      return openBlock(), createElementBlock("div", _hoisted_1$3, [
+        usingExisting.value ? (openBlock(), createElementBlock("div", _hoisted_2$3, [
           createElementVNode("a", {
             href: props.current,
             target: "_blank",
@@ -22007,9 +22009,9 @@ const _sfc_main$6 = {
               key: 0,
               src: props.current,
               class: "is-150x150-thumb mx-auto"
-            }, null, 8, _hoisted_4$2)) : (openBlock(), createElementBlock("span", _hoisted_5$2, "View Attachment"))
-          ], 10, _hoisted_3$2),
-          createVNode(_sfc_main$c, {
+            }, null, 8, _hoisted_4$3)) : (openBlock(), createElementBlock("span", _hoisted_5$3, "View Attachment"))
+          ], 10, _hoisted_3$3),
+          createVNode(_sfc_main$d, {
             class: "ml-4",
             type: "button",
             onClick: _cache[0] || (_cache[0] = ($event) => usingExisting.value = false)
@@ -22039,7 +22041,7 @@ const _sfc_main$6 = {
           createElementVNode("span", _hoisted_10$1, toDisplayString(fileLabel.value), 1)
         ])),
         !usingExisting.value && props.current ? (openBlock(), createElementBlock("div", _hoisted_11$1, [
-          createVNode(_sfc_main$c, {
+          createVNode(_sfc_main$d, {
             intent: "cancel",
             class: "ml-4",
             onClick: _cache[2] || (_cache[2] = ($event) => usingExisting.value = true),
@@ -22064,7 +22066,7 @@ const _sfc_main$6 = {
       ]);
     };
   }
-};
+});
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -22072,7 +22074,9 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$5 = {
+const _sfc_main$6 = /* @__PURE__ */ Object.assign({
+  name: "BaseFormField"
+}, {
   __name: "base-form-field",
   props: {
     id: {
@@ -22123,7 +22127,7 @@ const _sfc_main$5 = {
       return classes;
     });
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error,
         class: "field-browser-trigger",
@@ -22142,7 +22146,7 @@ const _sfc_main$5 = {
           }, toDisplayString(displayValueText.value), 3)
         ]),
         right: withCtx(() => [
-          props.withDelete ? (openBlock(), createBlock(_sfc_main$b, {
+          props.withDelete ? (openBlock(), createBlock(_sfc_main$c, {
             key: 0,
             "size-small": "",
             "align-right": "",
@@ -22156,8 +22160,8 @@ const _sfc_main$5 = {
       }, 8, ["label", "error", "content-right"]);
     };
   }
-};
-const baseFormField = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-a6fdc118"]]);
+});
+const baseFormField = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-c7bb6524"]]);
 var _listCacheClear;
 var hasRequired_listCacheClear;
 function require_listCacheClear() {
@@ -25257,14 +25261,14 @@ var script = {
     }
   }
 };
-const _hoisted_1$1 = ["tabindex", "aria-expanded", "aria-owns", "aria-activedescendant"];
-const _hoisted_2$1 = {
+const _hoisted_1$2 = ["tabindex", "aria-expanded", "aria-owns", "aria-activedescendant"];
+const _hoisted_2$2 = {
   ref: "tags",
   class: "multiselect__tags"
 };
-const _hoisted_3$1 = { class: "multiselect__tags-wrap" };
-const _hoisted_4$1 = ["textContent"];
-const _hoisted_5$1 = ["onKeypress", "onMousedown"];
+const _hoisted_3$2 = { class: "multiselect__tags-wrap" };
+const _hoisted_4$2 = ["textContent"];
+const _hoisted_5$2 = ["onKeypress", "onMousedown"];
 const _hoisted_6$1 = ["textContent"];
 const _hoisted_7 = { class: "multiselect__spinner" };
 const _hoisted_8 = ["name", "id", "spellcheck", "placeholder", "required", "value", "disabled", "tabindex", "aria-label", "aria-controls"];
@@ -25308,7 +25312,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "clear", { search: _ctx.search }),
     createElementVNode(
       "div",
-      _hoisted_2$1,
+      _hoisted_2$2,
       [
         renderSlot(_ctx.$slots, "selection", {
           search: _ctx.search,
@@ -25318,7 +25322,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, () => [
           withDirectives(createElementVNode(
             "div",
-            _hoisted_3$1,
+            _hoisted_3$2,
             [
               (openBlock(true), createElementBlock(
                 Fragment,
@@ -25340,13 +25344,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                       [
                         createElementVNode("span", {
                           textContent: toDisplayString(_ctx.getOptionLabel(option))
-                        }, null, 8, _hoisted_4$1),
+                        }, null, 8, _hoisted_4$2),
                         createElementVNode("i", {
                           tabindex: "1",
                           onKeypress: withKeys(withModifiers(($event) => _ctx.removeElement(option), ["prevent"]), ["enter"]),
                           onMousedown: withModifiers(($event) => _ctx.removeElement(option), ["prevent"]),
                           class: "multiselect__tag-icon"
-                        }, null, 40, _hoisted_5$1)
+                        }, null, 40, _hoisted_5$2)
                       ],
                       32
                       /* NEED_HYDRATION */
@@ -25595,10 +25599,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       _: 3
       /* FORWARDED */
     })
-  ], 42, _hoisted_1$1);
+  ], 42, _hoisted_1$2);
 }
 script.render = render;
-const _sfc_main$4 = {
+const _sfc_main$5 = /* @__PURE__ */ Object.assign({
+  name: "BaseNemsisSelect"
+}, {
   __name: "base-nemsis_select",
   props: ["options", "modelValue", "multiple", "label", "error", "taggable"],
   emits: ["update:modelValue"],
@@ -25656,7 +25662,7 @@ const _sfc_main$4 = {
       }
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error
       }, {
@@ -25680,8 +25686,8 @@ const _sfc_main$4 = {
       }, 8, ["label", "error"]);
     };
   }
-};
-const _sfc_main$3 = /* @__PURE__ */ Object.assign({
+});
+const _sfc_main$4 = /* @__PURE__ */ Object.assign({
   name: "BaseSegmentedBar"
 }, {
   __name: "base-segmented_bar",
@@ -25778,7 +25784,7 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
       emit("update:modelValue", valueCopy);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error,
         class: "base-segmented-bar",
@@ -25789,7 +25795,7 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
             class: normalizeClass(["is-fullwidth", { "no-value": !props.modelValue }])
           }, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(props.options, (option) => {
-              return openBlock(), createBlock(_sfc_main$c, {
+              return openBlock(), createBlock(_sfc_main$d, {
                 key: `${option.value}_${getSelected(option)}`,
                 class: normalizeClass([
                   "segmented-bar-option",
@@ -25817,8 +25823,10 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const baseSegmented_bar = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-af390b65"]]);
-const _sfc_main$2 = {
+const baseSegmented_bar = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-af390b65"]]);
+const _sfc_main$3 = /* @__PURE__ */ Object.assign({
+  name: "BaseSelect"
+}, {
   __name: "base-select",
   props: {
     options: {
@@ -25959,7 +25967,7 @@ const _sfc_main$2 = {
       emit("select", $event);
     }
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error,
         field: field.value
@@ -26006,8 +26014,157 @@ const _sfc_main$2 = {
       }, 8, ["label", "error", "field"]);
     };
   }
+});
+const BaseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-eede6070"]]);
+const _hoisted_1$1 = { class: "field" };
+const _hoisted_2$1 = ["for"];
+const _hoisted_3$1 = ["id", "name", "value", "autocomplete", "autofocus", "minLength", "maxlength", "readonly", "disabled", "placeholder", "rows", "cols"];
+const _hoisted_4$1 = {
+  key: 0,
+  class: "icon is-small is-right has-text-danger"
 };
-const BaseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-6fa08915"]]);
+const _hoisted_5$1 = ["textContent"];
+const _sfc_main$2 = /* @__PURE__ */ Object.assign({
+  name: "BaseTextarea"
+}, {
+  __name: "base-textarea",
+  props: {
+    label: {
+      type: String,
+      default: ""
+    },
+    modelValue: {
+      default: ""
+    },
+    error: {
+      type: String,
+      default: ""
+    },
+    controlClasses: {
+      type: String,
+      default: ""
+    },
+    inputClasses: {
+      type: String,
+      default: ""
+    },
+    maxlength: {
+      type: String,
+      default: "255"
+    },
+    minlength: {
+      type: String
+    },
+    autocomplete: {
+      type: String,
+      default: "on"
+    },
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    rows: {
+      type: [String, Number],
+      default: 3
+    },
+    cols: {
+      type: [String, Number],
+      default: null
+    },
+    resize: {
+      type: String,
+      default: "vertical",
+      validator: (value) => ["none", "both", "horizontal", "vertical"].includes(value)
+    },
+    fullWidthLabel: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    labelClasses: {
+      type: String,
+      default: ""
+    },
+    hideLabel: {
+      type: Boolean,
+      default: false
+    }
+  },
+  emits: ["update:modelValue", "keyup"],
+  setup(__props, { emit: __emit }) {
+    const attrs = useAttrs();
+    const textarea = ref(null);
+    const emit = __emit;
+    const props = __props;
+    function onInput(event) {
+      emit("update:modelValue", event.target.value);
+    }
+    function onKeyup(event) {
+      emit("keyup", event);
+    }
+    const field = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
+    const hasError = computed(() => props.error != "");
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", _hoisted_1$1, [
+        !__props.hideLabel ? (openBlock(), createElementBlock("label", {
+          key: 0,
+          for: field.value,
+          class: normalizeClass(["label", [props.labelClasses, { "is-fullwidth": props.fullWidthLabel }]])
+        }, [
+          renderSlot(_ctx.$slots, "label", {}, () => [
+            createTextVNode(toDisplayString(props.label), 1)
+          ])
+        ], 10, _hoisted_2$1)) : createCommentVNode("", true),
+        createElementVNode("div", {
+          class: normalizeClass(["control", [props.controlClasses, { "has-icons-right": hasError.value }]])
+        }, [
+          renderSlot(_ctx.$slots, "control", {}, () => [
+            createElementVNode("textarea", mergeProps({
+              id: field.value,
+              name: field.value,
+              value: props.modelValue
+            }, unref(attrs), {
+              onInput,
+              onKeyup,
+              ref_key: "textarea",
+              ref: textarea,
+              class: ["textarea", props.inputClasses, { "is-danger": hasError.value }],
+              autocomplete: props.autocomplete,
+              autofocus: props.autofocus,
+              minLength: props.minlength,
+              maxlength: props.maxlength,
+              readonly: props.readonly,
+              disabled: props.disabled,
+              placeholder: props.placeholder,
+              rows: props.rows,
+              cols: props.cols,
+              style: { resize: props.resize }
+            }), "                ", 16, _hoisted_3$1)
+          ]),
+          hasError.value ? (openBlock(), createElementBlock("span", _hoisted_4$1, _cache[0] || (_cache[0] = [
+            createElementVNode("i", { class: "fas fa-exclamation-triangle" }, null, -1)
+          ]))) : createCommentVNode("", true)
+        ], 2),
+        renderSlot(_ctx.$slots, "help"),
+        hasError.value ? (openBlock(), createElementBlock("span", {
+          key: 1,
+          class: "help is-danger",
+          textContent: toDisplayString(props.error)
+        }, null, 8, _hoisted_5$1)) : createCommentVNode("", true)
+      ]);
+    };
+  }
+});
 const _sfc_main$1 = {
   __name: "tooltip-window",
   props: {
@@ -26318,7 +26475,7 @@ const _sfc_main = {
             "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => onTimeFrameChanged($event, true))
           }, null, 8, ["label", "modelValue", "options", "track-by", "select-value", "select-label"]),
           showLastXFields.value ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-            createVNode(_sfc_main$9, {
+            createVNode(_sfc_main$a, {
               class: "last-x-value",
               type: "number",
               modelValue: lastXValue.value,
@@ -26388,18 +26545,19 @@ const _sfc_main = {
   }
 };
 export {
-  _sfc_main$8 as BaseCheckbox,
-  _sfc_main$7 as BaseColorPicker,
-  _sfc_main$9 as BaseField,
-  _sfc_main$6 as BaseFile,
+  _sfc_main$9 as BaseCheckbox,
+  _sfc_main$8 as BaseColorPicker,
+  _sfc_main$a as BaseField,
+  _sfc_main$7 as BaseFile,
   baseFormField as BaseFormField,
-  _sfc_main$a as BaseInput,
-  _sfc_main$4 as BaseNemsisSelect,
+  _sfc_main$b as BaseInput,
+  _sfc_main$5 as BaseNemsisSelect,
   baseSegmented_bar as BaseSegmentedBar,
   BaseSelect,
+  _sfc_main$2 as BaseTextarea,
   ColorUtil,
-  _sfc_main$b as DeleteButton,
-  _sfc_main$c as EnButton,
+  _sfc_main$c as DeleteButton,
+  _sfc_main$d as EnButton,
   _sfc_main as TimeFrame,
   _sfc_main$1 as TooltipWindow,
   useButtonStyles,
