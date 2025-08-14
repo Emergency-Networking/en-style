@@ -21,6 +21,7 @@ const LOADABLE = 'is-loadable'; // Provides extra padding for a loading spinner 
 const LOADING = 'is-loading';
 const SUCCESS = 'is-success';
 const SELECTED = 'selected';
+const HIGHLIGHTED = 'highlighted';
 const DISABLED = 'disabled';
 const TOGGLEABLE = 'toggleable';
 const AUTO_HEIGHT = 'autoHeight';
@@ -51,6 +52,7 @@ export default function useButtonStyles() {
         LOADING: LOADING,
         SUCCESS: SUCCESS,
         SELECTED: SELECTED,
+        HIGHLIGHTED: HIGHLIGHTED,
         DISABLED: DISABLED,
         TOGGLEABLE: TOGGLEABLE,
         AUTO_HEIGHT: AUTO_HEIGHT,
@@ -150,6 +152,10 @@ export default function useButtonStyles() {
 
                     case ATTRIBUTES.SELECTED:
                         style += ' selected';
+                        break;
+
+                    case ATTRIBUTES.HIGHLIGHTED:
+                        style += ' highlighted';
                         break;
 
                     case ATTRIBUTES.DISABLED:

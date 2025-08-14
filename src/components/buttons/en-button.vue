@@ -1,8 +1,7 @@
 <template>
     <component
-        :key="clickKey"
         :is="componentType"
-        :class="[styleClass]"
+        :class="[styleClass, { mobile: mobile, highlighted: mobile && clicked }]"
         :href="href"
         @click="onClicked"
         :as="props.as"
@@ -15,6 +14,7 @@
         <slot>
             <template v-if="!hideLabel">{{ label }}</template>
         </slot>
+        <div v-if="hasHitArea" class="hit-area"></div>
     </component>
 </template>
 
@@ -85,6 +85,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    highlighted: {
+        type: Boolean,
+        default: false,
+    },
     disabled: {
         type: Boolean,
         default: false,
@@ -106,6 +110,9 @@ const props = defineProps({
     },
     target: {
         type: String,
+    },
+    hasHitArea: {
+        type: Boolean,
     },
 });
 
@@ -131,6 +138,9 @@ const attributes = computed(() => {
     if (props.selected) {
         buttonAttributes.push(ATTRIBUTES.SELECTED);
     }
+    if (props.highlighted) {
+        buttonAttributes.push(ATTRIBUTES.HIGHLIGHTED);
+    }
     if (props.disabled) {
         buttonAttributes.push(ATTRIBUTES.DISABLED);
     }
@@ -150,21 +160,20 @@ const attributes = computed(() => {
 });
 
 let clickTimeout = null;
-const clickKey = ref(null);
 
-onMounted(() => {
-    if (window.mobile) {
-        clickKey.value = Math.random().toString(36).slice(2);
-    }
-});
+const clicked = ref(false);
+const mobile = window.mobile || false;
+
+onMounted(() => {});
 
 const onClicked = event => {
     emit('click', event);
 
     if (window.mobile) {
+        clicked.value = true;
         clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {
-            clickKey.value = Math.random().toString(36).slice(2);
+            clicked.value = false;
         }, 200);
     }
 };

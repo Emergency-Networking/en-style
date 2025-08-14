@@ -5,8 +5,10 @@
 .ag-theme-alpine-dark {
     font-family: $table-font-family;
 
-    > div {
-        height: inherit !important;
+    &:not(.ag-popup) {
+        > div {
+            height: inherit !important;
+        }
     }
 
     .ag-header-cell-menu-button {
