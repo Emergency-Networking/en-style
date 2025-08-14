@@ -45,6 +45,10 @@ import { camelCase, find, flatMap } from 'lodash';
 import BaseField from './base-field.vue';
 import Multiselect from 'vue-multiselect';
 
+defineOptions({
+    name: 'BaseSelect',
+});
+
 const emit = defineEmits(['update:modelValue', 'select', 'open', 'close']);
 
 const field = computed(() => camelCase(props.label));

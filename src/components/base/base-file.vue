@@ -36,6 +36,10 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { camelCase } from 'lodash';
 import EnButton from '../buttons/en-button.vue';
 
+defineOptions({
+    name: 'BaseFile',
+});
+
 const props = defineProps({
     label: {
         type: String,

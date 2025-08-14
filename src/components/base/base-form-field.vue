@@ -29,6 +29,10 @@ import BaseField from './base-field.vue';
 import DeleteButton from '../buttons/delete-button.vue';
 import useButtonStyles from '../../composables/use-button-styles';
 
+defineOptions({
+    name: 'BaseFormField',
+});
+
 const props = defineProps({
     id: {
         type: String,

@@ -23,6 +23,10 @@ import find from 'lodash/find';
 import BaseField from './base-field.vue';
 import Multiselect from 'vue-multiselect';
 
+defineOptions({
+    name: 'BaseNemsisSelect',
+});
+
 const props = defineProps(['options', 'modelValue', 'multiple', 'label', 'error', 'taggable']);
 const emit = defineEmits(['update:modelValue']);
 const optionLabel = computed(() => {

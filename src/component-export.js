@@ -15,6 +15,7 @@ import BaseInput from './components/base/base-input.vue';
 import BaseNemsisSelect from './components/base/base-nemsis_select.vue';
 import BaseSegmentedBar from './components/base/base-segmented_bar.vue';
 import BaseSelect from './components/base/base-select.vue';
+import BaseTextarea from './components/base/base-textarea.vue';
 import ColorUtil from './utils/color-util.js';
 import TooltipWindow from './components/tooltip/tooltip-window.vue';
 import TimeFrame from './components/time-frame/time-frame.vue';
@@ -40,6 +41,7 @@ export {
     BaseNemsisSelect,
     BaseSegmentedBar,
     BaseSelect,
+    BaseTextarea,
     TooltipWindow,
     TimeFrame,
 };

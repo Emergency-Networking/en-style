@@ -167,14 +167,14 @@
             &.btn-warn {
                 border-color: $is-warning;
                 color: $is-warning;
-                &:hover {
+                &:hover:not(.mobile) {
                     color: black;
                 }
             }
             &.btn-cancel {
                 border-color: #808080;
                 color: #e2e6e9;
-                &:hover {
+                &:hover:not(.mobile) {
                     background-color: $is-cancel;
                     color: white;
                 }
@@ -183,7 +183,7 @@
                 border-color: $is-danger;
                 color: $is-danger;
 
-                &:hover {
+                &:hover:not(.mobile) {
                     background-color: $is-danger;
                     color: white;
                 }
@@ -193,13 +193,13 @@
         &.btn-ghost {
             border-color: $ghost-button-border-dark;
             color: $ghost-button-color-dark;
-            &:hover:not(.selected) {
+            &:hover:not(.mobile):not(.selected) {
                 background-color: #1f1f1f;
                 border-color: $primary-highlight;
                 color: $primary-highlight;
             }
             &.btn-danger {
-                &:hover {
+                &:hover:not(.mobile) {
                     border-color: $is-danger;
                     background-color: $is-danger;
                     color: white;
@@ -215,7 +215,7 @@
             background-color: transparent;
             color: $tertiary-color-dark;
 
-            &:hover {
+            &:hover:not(.mobile) {
                 color: white;
             }
         }
@@ -246,7 +246,7 @@
 
     .delete {
         background-color: rgba(255, 255, 255, 0.2);
-        &:hover {
+        &:hover:not(.mobile) {
             background-color: rgba(255, 255, 255, 0.5);
         }
     }
@@ -271,7 +271,7 @@
                         }
                         &.btn-warn {
                             background-color: transparent;
-                            &:hover {
+                            &:hover:not(.mobile) {
                                 background-color: transparent;
                                 color: $primary-highlight;
                             }
