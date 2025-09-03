@@ -20241,6 +20241,10 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     asRow: {
       type: Boolean,
       default: false
+    },
+    asRowReverse: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ["update:modelValue"],
@@ -20260,7 +20264,7 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
       return openBlock(), createBlock(_sfc_main$a, {
         label: __props.label,
         error: __props.error,
-        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow }])
+        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }])
       }, {
         control: withCtx(() => [
           createElementVNode("label", {
