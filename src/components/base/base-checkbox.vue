@@ -11,6 +11,11 @@
 <script setup>
 import { camelCase } from 'lodash';
 import { computed } from 'vue';
+import BaseField from './base-field.vue';
+
+defineOptions({
+    name: 'BaseCheckbox',
+});
 const props = defineProps({
     modelValue: {
         type: [Number, Boolean],
