@@ -1,4 +1,4 @@
-import { ref, computed, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, unref, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, useAttrs, withDirectives, vModelCheckbox, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
+import { ref, computed, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, unref, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, resolveComponent, withDirectives, vModelCheckbox, useAttrs, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
 const VARIANT_PRIMARY = "primary";
 const VARIANT_SECONDARY = "secondary";
 const VARIANT_TERTIARY = "tertiary";
@@ -13992,6 +13992,71 @@ function requireLodash() {
   return lodash$1.exports;
 }
 var lodashExports = requireLodash();
+const _hoisted_1$7 = ["id"];
+const _sfc_main$b = {
+  __name: "base-checkbox",
+  props: {
+    modelValue: {
+      type: [Number, Boolean],
+      default: null
+    },
+    label: {
+      type: String,
+      default: ""
+    },
+    error: {
+      type: String,
+      default: ""
+    },
+    asRow: {
+      type: Boolean,
+      default: false
+    },
+    asRowReverse: {
+      type: Boolean,
+      default: false
+    }
+  },
+  emits: ["update:modelValue"],
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emit = __emit;
+    const localModel = computed({
+      get() {
+        return props.modelValue;
+      },
+      set(value) {
+        emit("update:modelValue", value);
+      }
+    });
+    const labelId = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
+    return (_ctx, _cache) => {
+      const _component_BaseField = resolveComponent("BaseField");
+      return openBlock(), createBlock(_component_BaseField, {
+        label: __props.label,
+        error: __props.error,
+        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }])
+      }, {
+        control: withCtx(() => [
+          createElementVNode("label", {
+            class: normalizeClass(["checkbox", { "mb-0": __props.asRow }])
+          }, [
+            withDirectives(createElementVNode("input", {
+              id: labelId.value,
+              "true-value": 1,
+              "false-value": 0,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => localModel.value = $event),
+              type: "checkbox"
+            }, null, 8, _hoisted_1$7), [
+              [vModelCheckbox, localModel.value]
+            ])
+          ], 2)
+        ]),
+        _: 1
+      }, 8, ["label", "error", "class"]);
+    };
+  }
+};
 var HOOKS = [
   "onChange",
   "onClose",
@@ -19867,8 +19932,8 @@ function requireInputmask() {
 }
 var inputmaskExports = requireInputmask();
 const Inputmask = /* @__PURE__ */ getDefaultExportFromCjs(inputmaskExports);
-const _hoisted_1$7 = ["type", "value"];
-const _sfc_main$b = /* @__PURE__ */ Object.assign({
+const _hoisted_1$6 = ["type", "value"];
+const _sfc_main$a = /* @__PURE__ */ Object.assign({
   name: "BaseInput"
 }, {
   __name: "base-input",
@@ -19911,11 +19976,11 @@ const _sfc_main$b = /* @__PURE__ */ Object.assign({
         onKeyup: onKeyUp,
         ref_key: "el",
         ref: el
-      }), null, 16, _hoisted_1$7);
+      }), null, 16, _hoisted_1$6);
     };
   }
 });
-const _hoisted_1$6 = ["for"];
+const _hoisted_1$5 = ["for"];
 const _hoisted_2$5 = {
   key: 0,
   class: "left-content"
@@ -19941,7 +20006,7 @@ const _hoisted_7$2 = {
   class: "icon"
 };
 const _hoisted_8$2 = ["textContent"];
-const _sfc_main$a = /* @__PURE__ */ Object.assign({
+const _sfc_main$9 = /* @__PURE__ */ Object.assign({
   name: "BaseField"
 }, {
   __name: "base-field",
@@ -20152,7 +20217,7 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
           renderSlot(_ctx.$slots, "label", {}, () => [
             createTextVNode(toDisplayString(props.label), 1)
           ])
-        ], 10, _hoisted_1$6)) : createCommentVNode("", true),
+        ], 10, _hoisted_1$5)) : createCommentVNode("", true),
         createElementVNode("div", {
           class: normalizeClass(["control", [props.controlClasses, { "has-icons-right": hasError.value }, { "is-expanded is-flex-grow-1 mr-3": props.secret }]])
         }, [
@@ -20160,7 +20225,7 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
             renderSlot(_ctx.$slots, "left")
           ])) : createCommentVNode("", true),
           renderSlot(_ctx.$slots, "control", {}, () => [
-            createVNode(_sfc_main$b, mergeProps({
+            createVNode(_sfc_main$a, mergeProps({
               id: field.value,
               name: field.value,
               type: props.type,
@@ -20217,68 +20282,6 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
           textContent: toDisplayString(props.error)
         }, null, 8, _hoisted_8$2)) : createCommentVNode("", true)
       ], 6);
-    };
-  }
-});
-const _hoisted_1$5 = ["id"];
-const _sfc_main$9 = /* @__PURE__ */ Object.assign({
-  name: "BaseCheckbox"
-}, {
-  __name: "base-checkbox",
-  props: {
-    modelValue: {
-      type: [Number, Boolean],
-      default: null
-    },
-    label: {
-      type: String,
-      default: ""
-    },
-    error: {
-      type: String,
-      default: ""
-    },
-    asRow: {
-      type: Boolean,
-      default: false
-    }
-  },
-  emits: ["update:modelValue"],
-  setup(__props, { emit: __emit }) {
-    const props = __props;
-    const emit = __emit;
-    const localModel = computed({
-      get() {
-        return props.modelValue;
-      },
-      set(value) {
-        emit("update:modelValue", value);
-      }
-    });
-    const labelId = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
-        label: __props.label,
-        error: __props.error,
-        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow }])
-      }, {
-        control: withCtx(() => [
-          createElementVNode("label", {
-            class: normalizeClass(["checkbox", { "mb-0": __props.asRow }])
-          }, [
-            withDirectives(createElementVNode("input", {
-              id: labelId.value,
-              "true-value": 1,
-              "false-value": 0,
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => localModel.value = $event),
-              type: "checkbox"
-            }, null, 8, _hoisted_1$5), [
-              [vModelCheckbox, localModel.value]
-            ])
-          ], 2)
-        ]),
-        _: 1
-      }, 8, ["label", "error", "class"]);
     };
   }
 });
@@ -21888,7 +21891,7 @@ const _sfc_main$8 = /* @__PURE__ */ Object.assign({
     const copyValue = () => {
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
+      return openBlock(), createBlock(_sfc_main$9, {
         label: __props.label,
         type: "color",
         modelValue: colorValue.value,
@@ -22127,7 +22130,7 @@ const _sfc_main$6 = /* @__PURE__ */ Object.assign({
       return classes;
     });
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
+      return openBlock(), createBlock(_sfc_main$9, {
         label: props.label,
         error: props.error,
         class: "field-browser-trigger",
@@ -25662,7 +25665,7 @@ const _sfc_main$5 = /* @__PURE__ */ Object.assign({
       }
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
+      return openBlock(), createBlock(_sfc_main$9, {
         label: props.label,
         error: props.error
       }, {
@@ -25784,7 +25787,7 @@ const _sfc_main$4 = /* @__PURE__ */ Object.assign({
       emit("update:modelValue", valueCopy);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
+      return openBlock(), createBlock(_sfc_main$9, {
         label: props.label,
         error: props.error,
         class: "base-segmented-bar",
@@ -25967,7 +25970,7 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
       emit("select", $event);
     }
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$a, {
+      return openBlock(), createBlock(_sfc_main$9, {
         label: props.label,
         error: props.error,
         field: field.value
@@ -26475,7 +26478,7 @@ const _sfc_main = {
             "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => onTimeFrameChanged($event, true))
           }, null, 8, ["label", "modelValue", "options", "track-by", "select-value", "select-label"]),
           showLastXFields.value ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-            createVNode(_sfc_main$a, {
+            createVNode(_sfc_main$9, {
               class: "last-x-value",
               type: "number",
               modelValue: lastXValue.value,
@@ -26545,12 +26548,12 @@ const _sfc_main = {
   }
 };
 export {
-  _sfc_main$9 as BaseCheckbox,
+  _sfc_main$b as BaseCheckbox,
   _sfc_main$8 as BaseColorPicker,
-  _sfc_main$a as BaseField,
+  _sfc_main$9 as BaseField,
   _sfc_main$7 as BaseFile,
   baseFormField as BaseFormField,
-  _sfc_main$b as BaseInput,
+  _sfc_main$a as BaseInput,
   _sfc_main$5 as BaseNemsisSelect,
   baseSegmented_bar as BaseSegmentedBar,
   BaseSelect,
