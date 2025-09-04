@@ -1,4 +1,4 @@
-import { ref, computed, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, unref, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, useAttrs, withDirectives, vModelCheckbox, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
+import { ref, reactive, mergeProps, toRaw, createApp, defineComponent, nextTick, computed, createVNode, onMounted, onUnmounted, Fragment, h, isVNode, cloneVNode, watchEffect, createBlock, openBlock, resolveDynamicComponent, unref, withCtx, createElementBlock, createCommentVNode, renderSlot, normalizeStyle, normalizeClass, createTextVNode, toDisplayString, createElementVNode, useAttrs, withDirectives, vModelCheckbox, watch, vModelText, withKeys, withModifiers, renderList, vShow, Transition, onBeforeMount } from "vue";
 const VARIANT_PRIMARY = "primary";
 const VARIANT_SECONDARY = "secondary";
 const VARIANT_TERTIARY = "tertiary";
@@ -245,20 +245,23 @@ function useScreenSize() {
   };
 }
 function useDarkMode() {
-  const darkModeEnabled = computed(() => {
+  const getIsPageDark = () => {
     const htmlElement = document.querySelector("html");
     return htmlElement.getAttribute("data-theme") === "dark";
-  });
+  };
+  const darkModeEnabled = ref(getIsPageDark());
   const darkModePreference = () => {
     return localStorage.getItem("darkMode") === "dark";
   };
   const darkModeStoredPreference = ref(darkModePreference());
   const toggleDarkMode = () => {
-    const darkMode = darkModePreference() ? "light" : "dark";
+    const isDark = darkModePreference();
+    const darkMode = isDark ? "light" : "dark";
     const htmlElement = document.querySelector("html");
     htmlElement.setAttribute("data-theme", darkMode);
     localStorage.setItem("darkMode", darkMode);
-    darkModeStoredPreference.value = darkModePreference();
+    darkModeStoredPreference.value = isDark;
+    darkModeEnabled.value = isDark;
   };
   return {
     darkModeEnabled,
