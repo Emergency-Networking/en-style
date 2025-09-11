@@ -13,10 +13,7 @@ export default function useTooltip() {
     let tooltipInstance;
     let originalParent = null;
     const setupTooltip = (targetElement, content, config, onShowCallback = null, onHideCallback = null, autoDestroy = false) => {
-        if (tooltipInstance) {
-            tooltipInstance.destroy();
-            tooltipInstance = null;
-        }
+        destroyTooltip();
         originalParent = content?.parentNode || content.$el?.parentNode;
         tooltipInstance = tippy(targetElement, {
             content,
@@ -45,19 +42,28 @@ export default function useTooltip() {
         });
         return tooltipInstance;
     };
+    const getTooltipInstance = () => {
+        if (!tooltipInstance) {
+            return null;
+        }
+        return tooltipInstance instanceof Array ? tooltipInstance[0] : tooltipInstance;
+    };
     const showTooltip = () => {
-        if (tooltipInstance) {
-            tooltipInstance.show();
+        const tt = getTooltipInstance();
+        if (tt) {
+            tt.show();
         }
     };
     const hideTooltip = () => {
-        if (tooltipInstance) {
-            tooltipInstance.hide();
+        const tt = getTooltipInstance();
+        if (tt) {
+            tt.hide();
         }
     };
     const destroyTooltip = () => {
-        if (tooltipInstance) {
-            tooltipInstance.destroy();
+        const tt = getTooltipInstance();
+        if (tt) {
+            tt.destroy();
             tooltipInstance = null;
         }
     };
