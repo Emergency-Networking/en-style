@@ -8,6 +8,8 @@
                 'content-right': props.contentRight,
                 'with-pre-icon': props.preIcon,
                 'with-post-icon': props.postIcon,
+                'as-row': props.asRow,
+                'as-row-reverse': props.asRowReverse,
             },
         ]"
         :style="{ '--pre-icon': preIconCode, '--post-icon': postIconCode }">
@@ -194,6 +196,14 @@ const props = defineProps({
     postIcon: {
         type: String,
     },
+    asRow: {
+        type: Boolean,
+        default: false,
+    },
+    asRowReverse: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 onMounted(() => {
@@ -369,6 +379,36 @@ const postIconCode = computed(() => {
         right: 1.12rem;
         transform: translate(-50%, -50%);
         color: #555;
+    }
+}
+
+.as-row,
+.as-row-reverse {
+    display: flex;
+    align-items: center;
+
+    .label,
+    .label:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+    .control {
+        flex: auto;
+    }
+}
+
+.as-row {
+    .label,
+    .label:not(:last-child) {
+        margin-right: 0.75rem;
+    }
+}
+
+.as-row-reverse {
+    flex-direction: row-reverse;
+    .label,
+    .label:not(:last-child) {
+        margin-left: 0.75rem;
     }
 }
 </style>
