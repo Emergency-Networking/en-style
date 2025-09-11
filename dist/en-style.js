@@ -7033,10 +7033,7 @@ function useTooltip() {
   let tooltipInstance;
   let originalParent = null;
   const setupTooltip = (targetElement, content, config, onShowCallback = null, onHideCallback = null, autoDestroy = false) => {
-    if (tooltipInstance) {
-      tooltipInstance.destroy();
-      tooltipInstance = null;
-    }
+    destroyTooltip();
     originalParent = content?.parentNode || content.$el?.parentNode;
     tooltipInstance = tippy(targetElement, {
       content,
@@ -7064,19 +7061,28 @@ function useTooltip() {
     });
     return tooltipInstance;
   };
+  const getTooltipInstance = () => {
+    if (!tooltipInstance) {
+      return null;
+    }
+    return tooltipInstance instanceof Array ? tooltipInstance[0] : tooltipInstance;
+  };
   const showTooltip = () => {
-    if (tooltipInstance) {
-      tooltipInstance.show();
+    const tt2 = getTooltipInstance();
+    if (tt2) {
+      tt2.show();
     }
   };
   const hideTooltip = () => {
-    if (tooltipInstance) {
-      tooltipInstance.hide();
+    const tt2 = getTooltipInstance();
+    if (tt2) {
+      tt2.hide();
     }
   };
   const destroyTooltip = () => {
-    if (tooltipInstance) {
-      tooltipInstance.destroy();
+    const tt2 = getTooltipInstance();
+    if (tt2) {
+      tt2.destroy();
       tooltipInstance = null;
     }
   };
