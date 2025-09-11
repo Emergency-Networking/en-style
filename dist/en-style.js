@@ -20059,6 +20059,14 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
     },
     postIcon: {
       type: String
+    },
+    asRow: {
+      type: Boolean,
+      default: false
+    },
+    asRowReverse: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ["update:modelValue", "keyup"],
@@ -20142,7 +20150,9 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
             "content-left": props.contentLeft,
             "content-right": props.contentRight,
             "with-pre-icon": props.preIcon,
-            "with-post-icon": props.postIcon
+            "with-post-icon": props.postIcon,
+            "as-row": props.asRow,
+            "as-row-reverse": props.asRowReverse
           }
         ]]),
         style: normalizeStyle({ "--pre-icon": preIconCode.value, "--post-icon": postIconCode.value })

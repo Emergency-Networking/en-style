@@ -64,7 +64,7 @@ const labelId = computed(() => (props.label && props.label !== '' ? camelCase(pr
         order: -1;
         margin: 0.15rem 0.5rem 0 0;
         .checkbox {
-            margin-top: 0.2rem;
+            margin-top: 0rem;
         }
     }
 
