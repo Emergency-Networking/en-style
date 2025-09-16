@@ -14,7 +14,7 @@ export default function useTooltip() {
     let originalParent = null;
     const setupTooltip = (targetElement, content, config, onShowCallback = null, onHideCallback = null, autoDestroy = false) => {
         destroyTooltip();
-        originalParent = content?.parentNode || content.$el?.parentNode;
+        originalParent = content?.parentNode || content?.$el?.parentNode;
         tooltipInstance = tippy(targetElement, {
             content,
             ...config,
