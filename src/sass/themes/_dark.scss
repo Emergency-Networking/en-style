@@ -259,6 +259,45 @@
 
     .tippy-box {
         box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.5);
+        background-color: var(--bulma-body-background-color);
+        border-color: $container-border-dark;
+
+        &[data-placement^='left'] {
+            > .tippy-arrow {
+                &:before {
+                    border-top: 1px solid $container-border-dark;
+                    border-right: 1px solid $container-border-dark;
+                }
+            }
+        }
+
+        &[data-placement^='right'] {
+            > .tippy-arrow {
+                &:before {
+                    border-left: 1px solid $container-border-dark;
+                    border-bottom: 1px solid $container-border-dark;
+                }
+            }
+        }
+
+        &[data-placement^='top'] {
+            > .tippy-arrow {
+                &:before {
+                    border-bottom: 1px solid $container-border-dark;
+                    border-right: 1px solid $container-border-dark;
+                }
+            }
+        }
+
+        &[data-placement^='bottom'] {
+            > .tippy-arrow {
+                &:before {
+                    border-top: 1px solid $container-border-dark;
+                    border-left: 1px solid $container-border-dark;
+                }
+            }
+        }
+
         &[data-theme='context-menu'] {
             .tippy-content {
                 > div {
@@ -284,15 +323,7 @@
                 }
             }
         }
-        background-color: var(--bulma-body-background-color);
-        border-color: $container-border-dark;
 
-        .tippy-arrow:before {
-            background-color: var(--bulma-body-background-color) !important;
-            border-top: 1px solid $container-border-dark !important;
-            border-right: 1px solid $container-border-dark !important;
-            border-left-color: var(--bulma-body-background-color) !important;
-        }
         .tippy-content {
             .button {
                 background-color: transparent !important;
