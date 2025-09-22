@@ -113,10 +113,14 @@ a {
         $color-invert: nth($pair, 2);
 
         &.is-#{$name} {
+            color: var(--bulma-body-color) !important;
             a:not(.button) {
                 color: $color-invert;
                 text-decoration: underline;
             }
+        }
+        &.is-warning {
+            color: black !important;
         }
     }
 }

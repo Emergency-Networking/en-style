@@ -100,4 +100,10 @@ const copyValue = () => {
         }
     }
 }
+[data-theme='dark'],
+.theme-dark {
+    .color-picker .control .button {
+        background-color: #333;
+    }
+}
 </style>
