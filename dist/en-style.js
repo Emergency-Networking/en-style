@@ -8182,7 +8182,8 @@ function useToastNotifications() {
       pauseOnHover: true,
       draggable: true,
       progress: void 0,
-      dangerouslyHTMLString: true
+      dangerouslyHTMLString: true,
+      transition: "slide"
     });
     installed = true;
   };
@@ -8199,7 +8200,10 @@ function useToastNotifications() {
       content += `<p>${message}</p>`;
     }
     content += "</div>";
+    const { darkModeEnabled } = useDarkMode();
+    const darkMode = darkModeEnabled.value;
     return l(content, {
+      theme: darkMode ? "dark" : "light",
       ...options,
       type: type2 || "default"
       // default, success, error, info, warning
