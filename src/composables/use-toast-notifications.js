@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import Vue3Toastify, { toast } from 'vue3-toastify';
+import useDarkMode from './use-dark-mode.js';
 
 let installed = false;
 
@@ -14,6 +15,7 @@ export default function useToastNotifications() {
             draggable: true,
             progress: undefined,
             dangerouslyHTMLString: true,
+            transition: 'slide',
         });
         installed = true;
     };
@@ -33,7 +35,11 @@ export default function useToastNotifications() {
         }
         content += '</div>';
 
+        const { darkModeEnabled } = useDarkMode();
+        const darkMode = darkModeEnabled.value;
+
         return toast(content, {
+            theme: darkMode ? 'dark' : 'light',
             ...options,
             type: type || 'default', // default, success, error, info, warning
         });
