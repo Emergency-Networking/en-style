@@ -1,75 +1,13 @@
 <template>
-    <div :class="['time-frame', { stacked: stacked, 'labels-inline': labelsInline, 'is-flex-wrap-wrap': wrap }]" :style="{ gap: wrap ? '1rem' : '' }">
-        <div
-            :class="['time-frame-selector', { 'mb-2': stacked, 'is-flex-wrap-wrap': wrap }]"
-            v-if="showTimeFrameSelector && timeFramesConfig"
-            :style="{ gap: wrap ? '1rem' : '' }">
-            <BaseSelect
-                class="time-frame-options"
-                :label="timeFramesLabel"
-                :modelValue="selectedTimeFrame"
-                :options="timeFramesConfig.options"
-                :track-by="timeFramesConfig.optionIdProperty ? timeFramesConfig.optionIdProperty : 'id'"
-                :select-value="timeFramesConfig.optionIdProperty ? timeFramesConfig.optionIdProperty : 'id'"
-                :select-label="timeFramesConfig.optionLabelProperty ? timeFramesConfig.optionLabelProperty : 'label'"
-                placeholder-text="Select a time frame"
-                @open="emit('timeframeOpen')"
-                @close="emit('timeframeClose')"
-                @update:modelValue="onTimeFrameChanged($event, true)">
-            </BaseSelect>
-            <template v-if="showLastXFields">
-                <BaseField class="last-x-value" type="number" v-model="lastXValue" @update:modelValue="onLastXChanged" :min="0"> </BaseField>
-                <BaseSelect
-                    v-model="lastXUnits"
-                    class="last-x-units"
-                    :key="lastXValue"
-                    :options="lastXUnitOptions"
-                    track-by="id"
-                    select-value="id"
-                    select-label="label"
-                    :searchable="false"
-                    @open="emit('timeframeOpen')"
-                    @close="emit('timeframeClose')"
-                    @update:modelValue="onLastXChanged">
-                </BaseSelect>
-            </template>
-        </div>
-        <div :class="['time-frame-pickers', { 'is-flex-wrap-wrap': wrap }]" v-show="selectedTimeFrame !== 'allTime'" :style="{ gap: wrap ? '1rem' : '' }">
-            <div class="field mb-0">
-                <label v-if="!hideLabels" class="label">{{ startDateLabel }}</label>
-                <div class="control">
-                    <input ref="startInput" class="input" type="text" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-calendar-alt"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="field mb-0" v-show="!hideEndTime">
-                <label v-if="!hideLabels" class="label">{{ endDateLabel }}</label>
-                <div class="control">
-                    <input ref="endInput" class="input" type="text" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-calendar-alt"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="buttons">
-            <button @click="setLastMonth" class="button is-link is-outlined is-small">Last Month</button>
-            <button @click="setCurrentMonth" class="button is-link is-outlined is-small">Current Month</button>
-            <button @click="setLastThreeMonths" class="button is-link is-outlined is-small">Last 3 Months</button>
-            <button @click="setYTD" class="button is-link is-outlined is-small">YTD</button>
-            <button @click="lastYear" class="button is-link is-outlined is-small">Last Year</button>
-        </div> -->
-    </div>
+    <div></div>
 </template>
 <script setup>
+/*
 import { ref, onMounted, computed, watch } from 'vue';
 import flatpickr from 'flatpickr';
 import useTimeFrames, { TIME_FRAME_OPTIONS, TIME_FRAMES } from '../../composables/use-time-frames.js';
 import BaseSelect from '../base/base-select.vue';
 import BaseField from '../base/base-field.vue';
-
 const props = defineProps({
     modelValue: {
         type: Object,
@@ -289,8 +227,10 @@ const lastXUnitOptions = computed(() => {
         { id: 'years', label: `Year${parseInt(lastXValue.value) === 1 ? '' : 's'}` },
     ];
 });
+*/
 </script>
 <style lang="scss">
+/*
 .time-frame {
     margin-bottom: 0.5rem;
     display: flex;
@@ -330,6 +270,7 @@ const lastXUnitOptions = computed(() => {
 .time-frame-selector {
     display: flex;
     align-items: flex-end;
+
     margin-right: 1rem;
     > * {
         margin-right: 0.5rem;
@@ -384,4 +325,5 @@ const lastXUnitOptions = computed(() => {
         }
     }
 }
+*/
 </style>

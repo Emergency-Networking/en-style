@@ -129,6 +129,7 @@
 
             &:hover:not(.mobile),
             &.highlighted {
+                border-color: $is-danger;
                 background-color: $is-danger;
                 color: white;
             }
@@ -139,6 +140,7 @@
 
             &:hover:not(.mobile),
             &.highlighted {
+                border-color: $is-cancel;
                 background-color: $is-cancel;
                 color: white;
             }
@@ -149,6 +151,7 @@
 
             &:hover:not(.mobile),
             &.highlighted {
+                border-color: $is-warning;
                 background-color: $is-warning;
                 color: #333;
             }
@@ -164,14 +167,17 @@
             }
 
             &.btn-danger {
+                border-color: var(--selection-color);
                 background-color: $is-danger;
                 color: white;
             }
             &.btn-cancel {
+                border-color: var(--selection-color);
                 background-color: $is-cancel;
                 color: white;
             }
             &.btn-warn {
+                border-color: var(--selection-color);
                 background-color: $is-warning;
                 color: white;
             }
