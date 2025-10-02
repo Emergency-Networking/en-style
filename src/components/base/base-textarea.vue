@@ -119,6 +119,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    fieldId: {
+        type: String,
+        default: null,
+    },
 });
 
 function onInput(event) {
@@ -129,7 +133,13 @@ function onKeyup(event) {
     emit('keyup', event);
 }
 
-const field = computed(() => (props.label && props.label !== '' ? camelCase(props.label) : null));
+const field = computed(() => {
+    if (props.fieldId) {
+        return camelCase(props.fieldId);
+    }
+    return props.label && props.label !== '' ? camelCase(props.label) : null;
+});
+
 const hasError = computed(() => props.error != '');
 </script>
 <style lang="scss">

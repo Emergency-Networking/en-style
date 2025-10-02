@@ -1,5 +1,5 @@
 <template>
-    <BaseField :label="props.label" :error="props.error" :field="field">
+    <BaseField :label="props.label" :error="props.error" :field-id="field">
         <template #control>
             <multiselect
                 :id="field"
@@ -50,8 +50,6 @@ defineOptions({
 });
 
 const emit = defineEmits(['update:modelValue', 'select', 'open', 'close']);
-
-const field = computed(() => camelCase(props.label));
 
 const props = defineProps({
     options: {
@@ -125,11 +123,22 @@ const props = defineProps({
     disabled: {
         type: Boolean,
     },
+    fieldId: {
+        type: String,
+        default: null,
+    },
 });
 
 if (props.multiple && !Array.isArray(props.modelValue)) {
     emit('update:modelValue', []);
 }
+
+const field = computed(() => {
+    if (props.fieldId) {
+        return 'listbox-' + camelCase(props.fieldId);
+    }
+    return 'listbox-' + (props.label && props.label !== '' ? camelCase(props.label) : null);
+});
 
 const groupSettings = computed(() => {
     if (props.group) {
