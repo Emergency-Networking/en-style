@@ -204,6 +204,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    fieldId: {
+        type: String,
+        default: null,
+    },
 });
 
 onMounted(() => {
@@ -264,7 +268,13 @@ function toggleSecret() {
     input.value.$el.type = secretVisible.value ? 'text' : 'password';
 }
 
-const field = computed(() => (props.label && props.label !== '' ? camelCase(props.label) : null));
+const field = computed(() => {
+    if (props.fieldId) {
+        return props.fieldId;
+    }
+    return props.label && props.label !== '' ? camelCase(props.label) : null;
+});
+
 const hasError = computed(() => props.error != '');
 const isText = computed(() => type === 'text');
 

@@ -9,7 +9,9 @@
         :type="formButtonType"
         :target="props.target"
         v-bind="$attrs">
-        <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
+        <slot name="icon">
+            <span v-if="props.icon" :class="faIcon" :style="iconRight ? { order: 1 } : null" />
+        </slot>
         <!-- It's encouraged to use the label prop instead of the slot whenever possible for auto-aria-label -->
         <slot>
             <template v-if="!hideLabel">{{ label }}</template>
@@ -56,6 +58,10 @@ const props = defineProps({
     iconRight: {
         type: Boolean,
         default: false,
+    },
+    iconClasses: {
+        type: String,
+        default: null,
     },
     sizeMedium: {
         type: Boolean,
@@ -205,7 +211,7 @@ const styleClass = computed(() => {
 
 const faIcon = computed(() => {
     if (props.icon) {
-        const classes = [props.sizeSmall ? 'is-size-7' : 'is-size-6'];
+        const classes = [props.sizeSmall ? 'is-size-7' : 'is-size-6', props.iconClasses ? props.iconClasses : ''];
         if (props.icon.startsWith('fa')) {
             classes.push(props.icon);
             if (props.icon.includes('fa-')) {
