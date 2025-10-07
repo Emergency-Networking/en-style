@@ -1,26 +1,19 @@
 <template>
-    <BaseField :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]"
-               :error="error"
-               :label="label">
+    <BaseField :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]" :error="error" :label="label">
         <template #control>
             <label :class="['checkbox', { 'mb-0 mr-1': asRow }]">
-                <input :id="labelId"
-                       v-model="localModel"
-                       :false-value="falseValue"
-                       :true-value="trueValue"
-                       :value="trueValue"
-                       type="checkbox"/>
+                <input :id="labelId" v-model="localModel" :false-value="falseValue" :true-value="trueValue" :value="trueValue" type="checkbox" />
             </label>
         </template>
         <template #help>
-            <slot name="help"/>
+            <slot name="help" />
         </template>
     </BaseField>
 </template>
 
 <script setup>
-import {camelCase} from 'lodash';
-import {computed} from 'vue';
+import { camelCase } from 'lodash';
+import { computed } from 'vue';
 import BaseField from './base-field.vue';
 
 defineOptions({
