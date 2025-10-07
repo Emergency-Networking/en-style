@@ -20290,7 +20290,7 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     },
     falseValue: {
       type: [String, Number],
-      default: 1
+      default: 0
     }
   },
   emits: ["update:modelValue"],
