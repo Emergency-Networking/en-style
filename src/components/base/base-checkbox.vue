@@ -1,16 +1,26 @@
 <template>
-    <BaseField :label="label" :error="error" :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]">
+    <BaseField :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]"
+               :error="error"
+               :label="label">
         <template #control>
-            <label :class="['checkbox', { 'mb-0': asRow }]">
-                <input :id="labelId" :true-value="1" :false-value="0" v-model="localModel" type="checkbox" />
+            <label :class="['checkbox', { 'mb-0 mr-1': asRow }]">
+                <input :id="labelId"
+                       v-model="localModel"
+                       :false-value="falseValue"
+                       :true-value="trueValue"
+                       :value="trueValue"
+                       type="checkbox"/>
             </label>
+        </template>
+        <template #help>
+            <slot name="help"/>
         </template>
     </BaseField>
 </template>
 
 <script setup>
-import { camelCase } from 'lodash';
-import { computed } from 'vue';
+import {camelCase} from 'lodash';
+import {computed} from 'vue';
 import BaseField from './base-field.vue';
 
 defineOptions({
@@ -37,6 +47,14 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    trueValue: {
+        type: [String, Number],
+        default: 1,
+    },
+    falseValue: {
+        type: [String, Number],
+        default: 1,
+    },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -56,13 +74,17 @@ const labelId = computed(() => (props.label && props.label !== '' ? camelCase(pr
         cursor: pointer !important;
     }
 }
+
 .check-row {
     .label {
         margin-bottom: 0 !important;
+        margin-right: 0.5rem !important;
     }
+
     .control {
         order: -1;
         margin: 0.15rem 0.5rem 0 0;
+
         .checkbox {
             margin-top: 0rem;
         }
