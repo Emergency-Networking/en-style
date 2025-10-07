@@ -216,7 +216,7 @@
                 overflow-y: auto;
                 display: flex !important;
                 flex-direction: column;
-                color: #000;
+                color: var(--bulma-body-color);
             }
         }
     }

@@ -19,6 +19,18 @@
     --bulma-danger-s: 95%;
     --bulma-danger-l: 62%;
 
+    .background-2 {
+        background-color: #252628;
+    }
+
+    .background-3 {
+        background-color: #313235;
+    }
+
+    .background-4 {
+        background-color: #494b50;
+    }
+
     .title {
         --bulma-title-color: #ddd;
     }
@@ -321,12 +333,6 @@
                         }
                     }
                 }
-            }
-        }
-
-        .tippy-content {
-            .button {
-                background-color: transparent !important;
             }
         }
     }

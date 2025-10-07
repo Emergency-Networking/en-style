@@ -20258,7 +20258,7 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const _hoisted_1$4 = ["id"];
+const _hoisted_1$4 = ["id", "false-value", "true-value", "value"];
 const _sfc_main$9 = /* @__PURE__ */ Object.assign({
   name: "BaseCheckbox"
 }, {
@@ -20283,6 +20283,14 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     asRowReverse: {
       type: Boolean,
       default: false
+    },
+    trueValue: {
+      type: [String, Number],
+      default: 1
+    },
+    falseValue: {
+      type: [String, Number],
+      default: 1
     }
   },
   emits: ["update:modelValue"],
@@ -20300,27 +20308,31 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     const labelId = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$a, {
-        label: __props.label,
+        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }]),
         error: __props.error,
-        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }])
+        label: __props.label
       }, {
         control: withCtx(() => [
           createElementVNode("label", {
-            class: normalizeClass(["checkbox", { "mb-0": __props.asRow }])
+            class: normalizeClass(["checkbox", { "mb-0 mr-1": __props.asRow }])
           }, [
             withDirectives(createElementVNode("input", {
               id: labelId.value,
-              "true-value": 1,
-              "false-value": 0,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => localModel.value = $event),
+              "false-value": __props.falseValue,
+              "true-value": __props.trueValue,
+              value: __props.trueValue,
               type: "checkbox"
             }, null, 8, _hoisted_1$4), [
               [vModelCheckbox, localModel.value]
             ])
           ], 2)
         ]),
-        _: 1
-      }, 8, ["label", "error", "class"]);
+        help: withCtx(() => [
+          renderSlot(_ctx.$slots, "help")
+        ]),
+        _: 3
+      }, 8, ["class", "error", "label"]);
     };
   }
 });
