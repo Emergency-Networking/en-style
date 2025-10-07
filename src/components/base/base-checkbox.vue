@@ -46,7 +46,7 @@ const props = defineProps({
     },
     falseValue: {
         type: [String, Number],
-        default: 1,
+        default: 0,
     },
 });
 
