@@ -1,5 +1,5 @@
 <template>
-    <BaseField :label="props.label" :error="props.error" :field-id="field">
+    <BaseField :label="props.label" :error="props.error" :field-id="field" :hide-label="hideLabel">
         <template #control>
             <multiselect
                 :id="field"
@@ -25,7 +25,8 @@
                 @close="emit('close')"
                 :close-on-select="!props.multiple"
                 :groupValues="groupSettings.values"
-                :groupLabel="groupSettings.label" />
+                :groupLabel="groupSettings.label"
+                :allow-empty="props.allowEmpty" />
         </template>
         <template #help>
             <slot name="help" />
@@ -121,6 +122,13 @@ const props = defineProps({
         default: 400,
     },
     disabled: {
+        type: Boolean,
+    },
+    allowEmpty: {
+        type: Boolean,
+        default: true,
+    },
+    hideLabel: {
         type: Boolean,
     },
     fieldId: {
