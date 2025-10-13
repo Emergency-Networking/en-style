@@ -25954,6 +25954,13 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
     disabled: {
       type: Boolean
     },
+    allowEmpty: {
+      type: Boolean,
+      default: true
+    },
+    hideLabel: {
+      type: Boolean
+    },
     fieldId: {
       type: String,
       default: null
@@ -26033,7 +26040,8 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
       return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error,
-        "field-id": field.value
+        "field-id": field.value,
+        "hide-label": __props.hideLabel
       }, {
         control: withCtx(() => [
           props.options || props.multiple && Array.isArray(props.modelValue) ? (openBlock(), createBlock(unref(script), {
@@ -26061,8 +26069,9 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
             onClose: _cache[2] || (_cache[2] = ($event) => emit("close")),
             "close-on-select": !props.multiple,
             groupValues: groupSettings.value.values,
-            groupLabel: groupSettings.value.label
-          }, null, 8, ["id", "class", "label", "track-by", "modelValue", "placeholder", "multiple", "options", "taggable", "tag-placeholder", "deselectLabel", "searchable", "max-height", "disabled", "close-on-select", "groupValues", "groupLabel"])) : createCommentVNode("", true)
+            groupLabel: groupSettings.value.label,
+            "allow-empty": props.allowEmpty
+          }, null, 8, ["id", "class", "label", "track-by", "modelValue", "placeholder", "multiple", "options", "taggable", "tag-placeholder", "deselectLabel", "searchable", "max-height", "disabled", "close-on-select", "groupValues", "groupLabel", "allow-empty"])) : createCommentVNode("", true)
         ]),
         help: withCtx(() => [
           renderSlot(_ctx.$slots, "help", {}, void 0, true)
@@ -26074,11 +26083,11 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
           renderSlot(_ctx.$slots, "option", {}, void 0, true)
         ]),
         _: 3
-      }, 8, ["label", "error", "field-id"]);
+      }, 8, ["label", "error", "field-id", "hide-label"]);
     };
   }
 });
-const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-897980bc"]]);
+const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-1064e770"]]);
 const _hoisted_1 = { class: "field" };
 const _hoisted_2 = ["for"];
 const _hoisted_3 = ["id", "name", "value", "autocomplete", "autofocus", "minLength", "maxlength", "readonly", "disabled", "placeholder", "rows", "cols"];
