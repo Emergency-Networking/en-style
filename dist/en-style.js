@@ -20258,7 +20258,7 @@ const _sfc_main$a = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const _hoisted_1$4 = ["id"];
+const _hoisted_1$4 = ["id", "false-value", "true-value", "value"];
 const _sfc_main$9 = /* @__PURE__ */ Object.assign({
   name: "BaseCheckbox"
 }, {
@@ -20283,6 +20283,14 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     asRowReverse: {
       type: Boolean,
       default: false
+    },
+    trueValue: {
+      type: [String, Number],
+      default: 1
+    },
+    falseValue: {
+      type: [String, Number],
+      default: 0
     }
   },
   emits: ["update:modelValue"],
@@ -20300,27 +20308,31 @@ const _sfc_main$9 = /* @__PURE__ */ Object.assign({
     const labelId = computed(() => props.label && props.label !== "" ? lodashExports.camelCase(props.label) : null);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$a, {
-        label: __props.label,
+        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }]),
         error: __props.error,
-        class: normalizeClass(["base-check", { "check-row is-flex": __props.asRow, "check-row is-flex row-reverse": __props.asRowReverse }])
+        label: __props.label
       }, {
         control: withCtx(() => [
           createElementVNode("label", {
-            class: normalizeClass(["checkbox", { "mb-0": __props.asRow }])
+            class: normalizeClass(["checkbox", { "mb-0 mr-1": __props.asRow }])
           }, [
             withDirectives(createElementVNode("input", {
               id: labelId.value,
-              "true-value": 1,
-              "false-value": 0,
               "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => localModel.value = $event),
+              "false-value": __props.falseValue,
+              "true-value": __props.trueValue,
+              value: __props.trueValue,
               type: "checkbox"
             }, null, 8, _hoisted_1$4), [
               [vModelCheckbox, localModel.value]
             ])
           ], 2)
         ]),
-        _: 1
-      }, 8, ["label", "error", "class"]);
+        help: withCtx(() => [
+          renderSlot(_ctx.$slots, "help")
+        ]),
+        _: 3
+      }, 8, ["class", "error", "label"]);
     };
   }
 });
@@ -25942,6 +25954,13 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
     disabled: {
       type: Boolean
     },
+    allowEmpty: {
+      type: Boolean,
+      default: true
+    },
+    hideLabel: {
+      type: Boolean
+    },
     fieldId: {
       type: String,
       default: null
@@ -26021,7 +26040,8 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
       return openBlock(), createBlock(_sfc_main$a, {
         label: props.label,
         error: props.error,
-        "field-id": field.value
+        "field-id": field.value,
+        "hide-label": __props.hideLabel
       }, {
         control: withCtx(() => [
           props.options || props.multiple && Array.isArray(props.modelValue) ? (openBlock(), createBlock(unref(script), {
@@ -26049,8 +26069,9 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
             onClose: _cache[2] || (_cache[2] = ($event) => emit("close")),
             "close-on-select": !props.multiple,
             groupValues: groupSettings.value.values,
-            groupLabel: groupSettings.value.label
-          }, null, 8, ["id", "class", "label", "track-by", "modelValue", "placeholder", "multiple", "options", "taggable", "tag-placeholder", "deselectLabel", "searchable", "max-height", "disabled", "close-on-select", "groupValues", "groupLabel"])) : createCommentVNode("", true)
+            groupLabel: groupSettings.value.label,
+            "allow-empty": props.allowEmpty
+          }, null, 8, ["id", "class", "label", "track-by", "modelValue", "placeholder", "multiple", "options", "taggable", "tag-placeholder", "deselectLabel", "searchable", "max-height", "disabled", "close-on-select", "groupValues", "groupLabel", "allow-empty"])) : createCommentVNode("", true)
         ]),
         help: withCtx(() => [
           renderSlot(_ctx.$slots, "help", {}, void 0, true)
@@ -26062,11 +26083,11 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
           renderSlot(_ctx.$slots, "option", {}, void 0, true)
         ]),
         _: 3
-      }, 8, ["label", "error", "field-id"]);
+      }, 8, ["label", "error", "field-id", "hide-label"]);
     };
   }
 });
-const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-897980bc"]]);
+const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-1064e770"]]);
 const _hoisted_1 = { class: "field" };
 const _hoisted_2 = ["for"];
 const _hoisted_3 = ["id", "name", "value", "autocomplete", "autofocus", "minLength", "maxlength", "readonly", "disabled", "placeholder", "rows", "cols"];
