@@ -25887,7 +25887,6 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
       type: Array
     },
     modelValue: {
-      type: [String, Number, Array],
       default: null
     },
     multiple: {
@@ -26087,7 +26086,7 @@ const _sfc_main$3 = /* @__PURE__ */ Object.assign({
     };
   }
 });
-const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-1064e770"]]);
+const baseSelect = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-e743c0ce"]]);
 const _hoisted_1 = { class: "field" };
 const _hoisted_2 = ["for"];
 const _hoisted_3 = ["id", "name", "value", "autocomplete", "autofocus", "minLength", "maxlength", "readonly", "disabled", "placeholder", "rows", "cols"];
