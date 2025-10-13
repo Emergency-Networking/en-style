@@ -57,7 +57,6 @@ const props = defineProps({
         type: Array,
     },
     modelValue: {
-        type: [String, Number, Array],
         default: null,
     },
     multiple: {
