@@ -1,7 +1,7 @@
 <template>
     <component
         :is="componentType"
-        :class="[styleClass, { mobile: mobile, highlighted: mobile && clicked }]"
+        :class="[styleClass, { mobile: mobile, highlighted: (mobile && clicked) || props.highlighted }]"
         :href="href"
         @click="onClicked"
         :as="props.as"
