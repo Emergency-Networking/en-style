@@ -8431,7 +8431,7 @@ const _sfc_main$d = {
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(resolveDynamicComponent(componentType.value), mergeProps({
-        class: [styleClass.value, { mobile: unref(mobile), highlighted: unref(mobile) && clicked.value }],
+        class: [styleClass.value, { mobile: unref(mobile), highlighted: unref(mobile) && clicked.value || props.highlighted }],
         href: __props.href,
         onClick: onClicked,
         as: props.as,
