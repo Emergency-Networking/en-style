@@ -169,7 +169,7 @@
         }
     }
 
-    .button:not(.selected) {
+    .button:not(.selected):not(.highlighted) {
         &.btn-secondary:not(:hover) {
             background-color: var(--bulma-body-background-color);
             border-color: $link-inverted;
