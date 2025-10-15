@@ -1,19 +1,28 @@
 <template>
-    <BaseField :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]" :error="error" :label="label">
+    <BaseField :class="['base-check', { 'check-row is-flex': asRow, 'check-row is-flex row-reverse': asRowReverse }]"
+               :disabled="disabled"
+               :error="error"
+               :label="label">
         <template #control>
             <label :class="['checkbox', { 'mb-0 mr-1': asRow }]">
-                <input :id="labelId" v-model="localModel" :false-value="falseValue" :true-value="trueValue" :value="trueValue" type="checkbox" />
+                <input :id="labelId"
+                       v-model="localModel"
+                       :disabled="disabled"
+                       :false-value="falseValue"
+                       :true-value="trueValue"
+                       :value="trueValue"
+                       type="checkbox"/>
             </label>
         </template>
         <template #help>
-            <slot name="help" />
+            <slot name="help"/>
         </template>
     </BaseField>
 </template>
 
 <script setup>
-import { camelCase } from 'lodash';
-import { computed } from 'vue';
+import {camelCase} from 'lodash';
+import {computed} from 'vue';
 import BaseField from './base-field.vue';
 
 defineOptions({
@@ -21,7 +30,7 @@ defineOptions({
 });
 const props = defineProps({
     modelValue: {
-        type: [Number, Boolean],
+        type: [Number, Boolean, Array],
         default: null,
     },
     label: {
@@ -47,6 +56,10 @@ const props = defineProps({
     falseValue: {
         type: [String, Number],
         default: 0,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
     },
 });
 
