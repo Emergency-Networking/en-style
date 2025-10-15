@@ -30,7 +30,7 @@ defineOptions({
 });
 const props = defineProps({
     modelValue: {
-        type: [Number, Boolean],
+        type: [Number, Boolean, Array],
         default: null,
     },
     label: {
